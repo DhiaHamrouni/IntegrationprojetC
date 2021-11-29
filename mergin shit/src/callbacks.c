@@ -83,29 +83,6 @@ on_button_ajouter_jesser_clicked       (GtkButton       *button,
 
 }
 
-
-void
-on_button_ajout_capteur_dhia_clicked   (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget *window_ajout_capteur_dhia;
-window_ajout_capteur_dhia=create_window_ajout_capteur_dhia();
-gtk_widget_show(window_ajout_capteur_dhia);
-}
-
-
-void
-on_button_supprimercapteur_dhia_clicked
-                                        (GtkWidget      *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget *window_supprission_capteur_dhia,*windowcapteur;
-gtk_widget_destroy(windowcapteur);
-window_supprission_capteur_dhia=create_window_supprission_capteur_dhia();
-gtk_widget_show(window_supprission_capteur_dhia);
-}
-
-
 void
 on_button_retourto_accueil_from_capteur_clicked
                                         (GtkWidget       *objet_graphique,
@@ -282,7 +259,7 @@ GtkWidget *windowaff0;
                 break;
 		}
 
-       	case 2:
+       	case 3:
              {	windowsup=create_supprimer_nouha();
 		gtk_widget_show(windowsup);
                 break;
@@ -372,5 +349,55 @@ on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 {y=6;}
+}
+
+
+void
+on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*window_ajout_capteur_dhia;
+gtk_widget_destroy(windowcapteur);
+window_ajout_capteur_dhia=create_window_ajout_capteur_dhia();
+gtk_widget_show(window_ajout_capteur_dhia);
+}
+
+
+void
+on_button_supprimercapteur_dhia_clicked
+                                        (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*window_supprission_capteur_dhia;
+gtk_widget_destroy(windowcapteur);
+window_supprission_capteur_dhia=create_window_supprission_capteur_dhia();
+gtk_widget_show(window_supprission_capteur_dhia);
+}
+
+
+void
+on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_cherchercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_affichiercapteur_dhia_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
 }
 

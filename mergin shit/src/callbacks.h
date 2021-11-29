@@ -38,10 +38,6 @@ on_button_ajouter_jesser_clicked       (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_button_ajout_capteur_dhia_clicked   (GtkButton       *button,
-                                        gpointer         user_data);
-
-void
 on_button_supprimercapteur_dhia_clicked
                                         (GtkWidget       *objet_graphique,
                                         gpointer         user_data);
@@ -119,4 +115,22 @@ on_radiobutton_affichier_toggled       (GtkToggleButton *togglebutton,
 
 void
 on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+
+void
+on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_cherchercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_affichiercapteur_dhia_clicked
+                                        (GtkButton       *button,
                                         gpointer         user_data);

@@ -4,10 +4,10 @@
 
 GtkWidget* create_accueil2 (void);
 GtkWidget* create_connexion (void);
-GtkWidget* create_capteur (void);
 GtkWidget* create_accueil0 (void);
 GtkWidget* create_window_ajout_capteur_dhia (void);
 GtkWidget* create_window_supprission_capteur_dhia (void);
 GtkWidget* create_ajout_nouha (void);
 GtkWidget* create_Bienvenue_nouha (void);
 GtkWidget* create_supprimer_nouha (void);
+GtkWidget* create_capteur (void);
