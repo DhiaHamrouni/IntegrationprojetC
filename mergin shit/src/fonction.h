@@ -24,6 +24,15 @@ int valmax;
 int valmin;
 int val;
 }capteur;
+typedef struct
+{
+    int  id;
+    char nom[20];
+    char marque[20];
+    char categorie[20];
+    date date_fab;
+    int  quantite;
+}produit;
 
 void ajout_capteur(capteur c);
 void affichage(capteur t);
@@ -34,3 +43,16 @@ void afficher_capteur (GtkWidget * liste);
 void vider (GtkWidget *liste);
 
 ///////////////////////////////////////end Dhia////////////////////////////////////
+
+
+/////////////////////////////////////////nouha/////////////////////////////////////
+
+
+
+void ajouter(produit p);
+void modifier(int id);
+int supprimer(int id);
+produit chercher(int id);
+void afficher_tous(produit p);
+void afficher_les_produits_en_rupture(produit p);
+

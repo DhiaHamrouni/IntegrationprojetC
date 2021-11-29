@@ -277,3 +277,46 @@ gtk_list_store_append(store,&iter);
 gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
 }
 //////////////////////////////////////////end Dhia.c//////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////nouha.c//////////////////////////////////////////////////////////////////////
+void ajouter(produit p)
+{
+
+     FILE *f;
+    f=fopen("produit.txt","a+");
+    if(f!=NULL)
+    {
+        fprintf(f,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.j1,p.date_fab.m1,p.date_fab.a1,p.quantite);
+        fclose(f);
+    }
+
+}
+
+int supprimer(int id)
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    int t=0;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.j1,&p.date_fab.m1,&p.date_fab.a1,&p.quantite)!=EOF)
+       {
+        if(p.id!=id)
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.j1,p.date_fab.m1,p.date_fab.a1,p.quantite);
+        }
+	if(p.id==id)
+	  {t=1;}
+
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+return (t);
+}

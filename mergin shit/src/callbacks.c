@@ -9,6 +9,7 @@
 #include "support.h"
 #include "fonction.h"
 int x;
+int y;
 void
 on_button_gestionfoyer_accueil_clicked (GtkButton       *button,
                                         gpointer         user_data)
@@ -18,10 +19,13 @@ on_button_gestionfoyer_accueil_clicked (GtkButton       *button,
 
 
 void
-on_button_gestionstock_acceuil_clicked (GtkButton       *button,
+on_button_gestionstock_acceuil_clicked (GtkButton       *objet_graphique,
                                         gpointer         user_data)
 {
-
+GtkWidget *windowaccueil2,*windowBienvenu;
+gtk_widget_destroy(windowaccueil2);
+windowBienvenu=create_Bienvenue_nouha();
+gtk_widget_show(windowBienvenu);
 }
 
 
@@ -212,5 +216,161 @@ gtk_label_set_text(GTK_LABEL(output),"capteur supprimer avec succe");
 else
 gtk_label_set_text(GTK_LABEL(output),"capteur n est pas supprimer ou reference n existe pas");
 
+}
+
+
+void
+on_button_annuler_nouha_clicked        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+windowb=create_Bienvenue_nouha();
+gtk_widget_show(windowb);
+}
+
+
+void
+on_button_valider_nouha_clicked        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+produit p;
+GtkWidget *window_Bienvenue_nouha, *id, *nom, *marque, *quantite, *j1, *m1, *a1, *categorie;
+
+j1=lookup_widget(objet_graphique,"journouha");
+p.date_fab.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
+m1=lookup_widget(objet_graphique,"moisnouha");
+p.date_fab.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
+a1=lookup_widget(objet_graphique,"anneenouha");
+p.date_fab.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
+
+categorie=lookup_widget(objet_graphique,"comboboxnouha");
+strcpy(p.categorie, gtk_combo_box_get_active_text(GTK_COMBO_BOX(categorie)));
+
+nom=lookup_widget(objet_graphique,"entry_n");
+marque= lookup_widget (objet_graphique, "entry_m");
+quantite= lookup_widget (objet_graphique, "entry_q");
+id= lookup_widget (objet_graphique, "entry_id1");
+strcpy(p.nom, gtk_entry_get_text(GTK_ENTRY(nom)));
+strcpy(p.marque, gtk_entry_get_text(GTK_ENTRY(marque)));
+p.id=atoi(gtk_entry_get_text(GTK_ENTRY(id)));
+p.quantite=atoi(gtk_entry_get_text(GTK_ENTRY(quantite)));
+
+ajouter(p);
+
+window_Bienvenue_nouha=create_Bienvenue_nouha();
+gtk_widget_show(window_Bienvenue_nouha);
+}
+
+
+void
+on_button_Bienvenue_stock_clicked      (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget  *windowaj;
+GtkWidget *windowmod;
+GtkWidget *windowsup;
+GtkWidget *windowrech;
+GtkWidget *windowaff;
+GtkWidget *windowaff0;
+
+ switch (y)
+        {
+        case 1:
+            {
+                windowaj=create_ajout_nouha();
+		gtk_widget_show(windowaj);
+                break;
+		}
+
+       	case 2:
+             {	windowsup=create_supprimer_nouha();
+		gtk_widget_show(windowsup);
+                break;
+             }
+        }
+}
+
+
+void
+on_button_retour_nouha_clicked         (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+windowb=create_Bienvenue_nouha();
+gtk_widget_show(windowb);
+}
+
+
+void
+on_button_supprimer_nouha_clicked      (GtkButton      *objet_graphique,
+                                        gpointer         user_data)
+{
+    produit p;
+    int id, t;
+    GtkWidget* input ;
+    GtkWidget* output ;
+    output = lookup_widget(objet_graphique, "yesorno") ;
+    input = lookup_widget(objet_graphique, "entrysuppnouha") ;
+    id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+    	t=supprimer(id);
+	if(t==1)
+	{gtk_label_set_text(GTK_LABEL(output),"le produit a été bien supprimer");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+
+}
+
+
+void
+on_radiobutton_ajout_toggled           (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=1;}
+}
+
+
+void
+on_radiobutton_modif_toggled           (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=2;}
+}
+
+
+void
+on_radiobutton_supp_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=3;}
+}
+
+
+void
+on_radiobutton_cherch_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=4;}
+}
+
+
+void
+on_radiobutton_affichier_toggled       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=5;}
+}
+
+
+void
+on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{y=6;}
 }
 

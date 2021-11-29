@@ -76,3 +76,47 @@ void
 on_button_confirmer_supprission_capteur_dhia_clicked
                                         (GtkWidget       *objet_graphique,
                                         gpointer         user_data);
+
+void
+on_button_annuler_nouha_clicked        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_valider_nouha_clicked        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_Bienvenue_stock_clicked      (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_retour_nouha_clicked         (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_supprimer_nouha_clicked      (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_ajout_toggled           (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_toggled           (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_supp_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_cherch_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_affichier_toggled       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
