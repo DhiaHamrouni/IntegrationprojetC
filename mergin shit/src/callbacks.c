@@ -10,7 +10,7 @@
 #include "fonction.h"
 int x;
 int y;
-int z;
+int o;
 int p;
 void
 on_button_incription0_clicked          (GtkButton       *button,
@@ -162,7 +162,7 @@ capteur t;
 j1=lookup_widget(objet_graphique,"spinbutton_j1_dhia");
 t.date.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
 
-m1=lookup_widget(objet_graphique,"spinbutton_m1_dhia");
+m1=lookup_widget(objet_graphique,"spinbutton2");
 t.date.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
 
 a1=lookup_widget(objet_graphique,"spinbutton_a1_dhia");
@@ -176,12 +176,7 @@ strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
 t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
-if (x==1)
-t.type=1;
-else if (x==2)
-t.type=2;
-else if (x==3)
-t.type=3;
+t.type=x;
 ajout_capteur(t);
 gtk_widget_destroy(window_ajout_capteur_dhia);
 windowcapteur=create_capteur();
@@ -415,7 +410,20 @@ on_button_affichiercapteur_dhia_clicked
                                         (GtkButton       *button,
                                         gpointer         user_data)
 {
+GtkWidget
+*windowcapteur,*windowaffichage_capteur_dhia;
+GtkWidget *treeview1;
+windowcapteur=lookup_widget(button,"windowcapteur");
 
+gtk_widget_destroy(windowcapteur);
+windowaffichage_capteur_dhia=lookup_widget(button,"windowaffichage_capteur_dhia");
+windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
+gtk_widget_show(windowaffichage_capteur_dhia);
+
+
+treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
+
+afficher_capteur(treeview1);
 }
 
 
@@ -423,6 +431,7 @@ void
 on_button_modifier1_noctis_clicked     (GtkWidget       *objet_graphique,
                                         gpointer         user_data)
 {
+int z;
 GtkWidget
 *ref,*output,*windowmodifier_capteur_noctis1,*windowmodifier_capteur_noctis2;
 output=lookup_widget(objet_graphique,"label64");
@@ -432,7 +441,7 @@ z=cherche_id(ref);
 if (z==1)
 {
 supprimer_capteur(ref);
-z=ref;
+o=ref;
 gtk_widget_destroy(windowmodifier_capteur_noctis1);
 windowmodifier_capteur_noctis2=create_modifier_capteur_noctis2();
 gtk_widget_show(windowmodifier_capteur_noctis2);
@@ -476,11 +485,18 @@ on_button2_clicked                     (GtkWidget       *objet_graphique,
                                         gpointer         user_data)
 {
 GtkWidget
- *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_modifier_capteur_noctis2;
-
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_modifier_capteur_noctis2,*ch;
 
 capteur t;
-
+ref=lookup_widget(objet_graphique,"entry5");
+t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+ch=lookup_widget(objet_graphique,"label65");
+while (t.ref!=o)
+{
+gtk_label_set_text(GTK_LABEL(ch),"pas la meme reference , verifier svp");
+ref=lookup_widget(objet_graphique,"entry5");
+t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+}
 j1=lookup_widget(objet_graphique,"spinbutton1");
 t.date.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
 
@@ -491,8 +507,6 @@ a1=lookup_widget(objet_graphique,"spinbutton4");
 t.date.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
 
 nomcapt=lookup_widget(objet_graphique,"entry2");
-ref=lookup_widget(objet_graphique,"label_refcapteurmodif_noctis");
-gtk_label_set_text(GTK_LABEL(ref),"z");
 marque=lookup_widget(objet_graphique,"entry3");
 garantie=lookup_widget(objet_graphique,"entry4");
 strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
@@ -512,4 +526,41 @@ gtk_widget_show(windowcapteur);
 
 
 
+
+
+void
+on_treeview1_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_actualiser_affichage_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowaffichage_capteur_dhia,*w1;
+GtkWidget *treeview1;
+w1=lookup_widget(button,"windowaffichage_capteur_dhia");
+windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
+gtk_widget_show(windowaffichage_capteur_dhia);
+gtk_widget_hide(w1);
+treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
+afficher_capteur(treeview1);
+}
+
+
+void
+on_retour_accueil_affichage_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowaffichage_capteur_dhia;
+gtk_widget_destroy(windowaffichage_capteur_dhia);
+windowcapteur=create_capteur();
+gtk_widget_show(windowcapteur);
+}
 

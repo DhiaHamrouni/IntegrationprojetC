@@ -1118,16 +1118,16 @@ create_capteur (void)
   GtkWidget *hbox18;
   GtkWidget *image26;
   GtkWidget *label47;
-  GtkWidget *button_affichiercapteur_dhia;
-  GtkWidget *alignment19;
-  GtkWidget *hbox19;
-  GtkWidget *image27;
-  GtkWidget *label48;
   GtkWidget *button_modifiercapteur_dhia;
   GtkWidget *alignment15;
   GtkWidget *hbox15;
   GtkWidget *image23;
   GtkWidget *label44;
+  GtkWidget *button_affichiercapteur_dhia;
+  GtkWidget *alignment19;
+  GtkWidget *hbox19;
+  GtkWidget *image27;
+  GtkWidget *label48;
 
   capteur = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (capteur), _("ACCUEIL"));
@@ -1260,27 +1260,6 @@ create_capteur (void)
   gtk_widget_show (label47);
   gtk_box_pack_start (GTK_BOX (hbox18), label47, FALSE, FALSE, 0);
 
-  button_affichiercapteur_dhia = gtk_button_new ();
-  gtk_widget_show (button_affichiercapteur_dhia);
-  gtk_fixed_put (GTK_FIXED (fixed11), button_affichiercapteur_dhia, 16, 392);
-  gtk_widget_set_size_request (button_affichiercapteur_dhia, 248, 72);
-
-  alignment19 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment19);
-  gtk_container_add (GTK_CONTAINER (button_affichiercapteur_dhia), alignment19);
-
-  hbox19 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox19);
-  gtk_container_add (GTK_CONTAINER (alignment19), hbox19);
-
-  image27 = gtk_image_new_from_stock ("gtk-open", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image27);
-  gtk_box_pack_start (GTK_BOX (hbox19), image27, FALSE, FALSE, 0);
-
-  label48 = gtk_label_new_with_mnemonic (_("AFFICHAGE"));
-  gtk_widget_show (label48);
-  gtk_box_pack_start (GTK_BOX (hbox19), label48, FALSE, FALSE, 0);
-
   button_modifiercapteur_dhia = gtk_button_new ();
   gtk_widget_show (button_modifiercapteur_dhia);
   gtk_fixed_put (GTK_FIXED (fixed11), button_modifiercapteur_dhia, 672, 264);
@@ -1302,6 +1281,27 @@ create_capteur (void)
   gtk_widget_show (label44);
   gtk_box_pack_start (GTK_BOX (hbox15), label44, FALSE, FALSE, 0);
 
+  button_affichiercapteur_dhia = gtk_button_new ();
+  gtk_widget_show (button_affichiercapteur_dhia);
+  gtk_fixed_put (GTK_FIXED (fixed11), button_affichiercapteur_dhia, 16, 392);
+  gtk_widget_set_size_request (button_affichiercapteur_dhia, 248, 72);
+
+  alignment19 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment19);
+  gtk_container_add (GTK_CONTAINER (button_affichiercapteur_dhia), alignment19);
+
+  hbox19 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox19);
+  gtk_container_add (GTK_CONTAINER (alignment19), hbox19);
+
+  image27 = gtk_image_new_from_stock ("gtk-open", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image27);
+  gtk_box_pack_start (GTK_BOX (hbox19), image27, FALSE, FALSE, 0);
+
+  label48 = gtk_label_new_with_mnemonic (_("AFFICHAGE"));
+  gtk_widget_show (label48);
+  gtk_box_pack_start (GTK_BOX (hbox19), label48, FALSE, FALSE, 0);
+
   g_signal_connect ((gpointer) button_ajout_capteur_dhia, "clicked",
                     G_CALLBACK (on_button_ajout_capteur_dhia_clicked),
                     NULL);
@@ -1314,11 +1314,11 @@ create_capteur (void)
   g_signal_connect ((gpointer) button_cherchercapteur_dhia, "clicked",
                     G_CALLBACK (on_button_cherchercapteur_dhia_clicked),
                     NULL);
-  g_signal_connect ((gpointer) button_affichiercapteur_dhia, "clicked",
-                    G_CALLBACK (on_button_affichiercapteur_dhia_clicked),
-                    NULL);
   g_signal_connect ((gpointer) button_modifiercapteur_dhia, "clicked",
                     G_CALLBACK (on_button_modifiercapteur_dhia_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button_affichiercapteur_dhia, "clicked",
+                    G_CALLBACK (on_button_affichiercapteur_dhia_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1352,16 +1352,16 @@ create_capteur (void)
   GLADE_HOOKUP_OBJECT (capteur, hbox18, "hbox18");
   GLADE_HOOKUP_OBJECT (capteur, image26, "image26");
   GLADE_HOOKUP_OBJECT (capteur, label47, "label47");
-  GLADE_HOOKUP_OBJECT (capteur, button_affichiercapteur_dhia, "button_affichiercapteur_dhia");
-  GLADE_HOOKUP_OBJECT (capteur, alignment19, "alignment19");
-  GLADE_HOOKUP_OBJECT (capteur, hbox19, "hbox19");
-  GLADE_HOOKUP_OBJECT (capteur, image27, "image27");
-  GLADE_HOOKUP_OBJECT (capteur, label48, "label48");
   GLADE_HOOKUP_OBJECT (capteur, button_modifiercapteur_dhia, "button_modifiercapteur_dhia");
   GLADE_HOOKUP_OBJECT (capteur, alignment15, "alignment15");
   GLADE_HOOKUP_OBJECT (capteur, hbox15, "hbox15");
   GLADE_HOOKUP_OBJECT (capteur, image23, "image23");
   GLADE_HOOKUP_OBJECT (capteur, label44, "label44");
+  GLADE_HOOKUP_OBJECT (capteur, button_affichiercapteur_dhia, "button_affichiercapteur_dhia");
+  GLADE_HOOKUP_OBJECT (capteur, alignment19, "alignment19");
+  GLADE_HOOKUP_OBJECT (capteur, hbox19, "hbox19");
+  GLADE_HOOKUP_OBJECT (capteur, image27, "image27");
+  GLADE_HOOKUP_OBJECT (capteur, label48, "label48");
 
   return capteur;
 }
@@ -1456,7 +1456,6 @@ create_modifier_capteur_noctis2 (void)
   GtkWidget *modifier_capteur_noctis2;
   GtkWidget *fixed13;
   GtkWidget *label55;
-  GtkWidget *label_refcapteurmodif_noctis;
   GtkWidget *label57;
   GtkWidget *entry2;
   GtkWidget *label59;
@@ -1481,6 +1480,8 @@ create_modifier_capteur_noctis2 (void)
   GtkWidget *hbox23;
   GtkWidget *image31;
   GtkWidget *label63;
+  GtkWidget *entry5;
+  GtkWidget *label65;
 
   modifier_capteur_noctis2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (modifier_capteur_noctis2), _("MODIFIER LE CAPTEUR"));
@@ -1493,11 +1494,6 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_show (label55);
   gtk_fixed_put (GTK_FIXED (fixed13), label55, 232, 120);
   gtk_widget_set_size_request (label55, 88, 16);
-
-  label_refcapteurmodif_noctis = gtk_label_new ("");
-  gtk_widget_show (label_refcapteurmodif_noctis);
-  gtk_fixed_put (GTK_FIXED (fixed13), label_refcapteurmodif_noctis, 408, 112);
-  gtk_widget_set_size_request (label_refcapteurmodif_noctis, 312, 32);
 
   label57 = gtk_label_new (_("NOM DU CAPTEUR"));
   gtk_widget_show (label57);
@@ -1607,6 +1603,17 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_show (label63);
   gtk_box_pack_start (GTK_BOX (hbox23), label63, FALSE, FALSE, 0);
 
+  entry5 = gtk_entry_new ();
+  gtk_widget_show (entry5);
+  gtk_fixed_put (GTK_FIXED (fixed13), entry5, 432, 112);
+  gtk_widget_set_size_request (entry5, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry5), 8226);
+
+  label65 = gtk_label_new ("");
+  gtk_widget_show (label65);
+  gtk_fixed_put (GTK_FIXED (fixed13), label65, 632, 112);
+  gtk_widget_set_size_request (label65, 208, 32);
+
   g_signal_connect ((gpointer) radiobutton_modifinfra, "toggled",
                     G_CALLBACK (on_radiobutton_modifinfra_toggled),
                     NULL);
@@ -1624,7 +1631,6 @@ create_modifier_capteur_noctis2 (void)
   GLADE_HOOKUP_OBJECT_NO_REF (modifier_capteur_noctis2, modifier_capteur_noctis2, "modifier_capteur_noctis2");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, fixed13, "fixed13");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label55, "label55");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label_refcapteurmodif_noctis, "label_refcapteurmodif_noctis");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label57, "label57");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry2, "entry2");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label59, "label59");
@@ -1645,7 +1651,115 @@ create_modifier_capteur_noctis2 (void)
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, hbox23, "hbox23");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image31, "image31");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label63, "label63");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry5, "entry5");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label65, "label65");
 
   return modifier_capteur_noctis2;
+}
+
+GtkWidget*
+create_affichage_capteur_dhia (void)
+{
+  GtkWidget *affichage_capteur_dhia;
+  GtkWidget *fixed14;
+  GtkWidget *treeview1;
+  GtkWidget *label66;
+  GtkWidget *button_actualiser_affichage;
+  GtkWidget *alignment24;
+  GtkWidget *hbox24;
+  GtkWidget *image32;
+  GtkWidget *label67;
+  GtkWidget *retour_accueil_affichage;
+  GtkWidget *alignment25;
+  GtkWidget *hbox25;
+  GtkWidget *image33;
+  GtkWidget *label68;
+
+  affichage_capteur_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (affichage_capteur_dhia), _("affichage"));
+
+  fixed14 = gtk_fixed_new ();
+  gtk_widget_show (fixed14);
+  gtk_container_add (GTK_CONTAINER (affichage_capteur_dhia), fixed14);
+
+  treeview1 = gtk_tree_view_new ();
+  gtk_widget_show (treeview1);
+  gtk_fixed_put (GTK_FIXED (fixed14), treeview1, 504, 168);
+  gtk_widget_set_size_request (treeview1, 712, 440);
+
+  label66 = gtk_label_new (_("LISTE DE CAPTEURS"));
+  gtk_widget_show (label66);
+  gtk_fixed_put (GTK_FIXED (fixed14), label66, 760, 88);
+  gtk_widget_set_size_request (label66, 248, 48);
+
+  button_actualiser_affichage = gtk_button_new ();
+  gtk_widget_show (button_actualiser_affichage);
+  gtk_fixed_put (GTK_FIXED (fixed14), button_actualiser_affichage, 1256, 720);
+  gtk_widget_set_size_request (button_actualiser_affichage, 192, 72);
+
+  alignment24 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment24);
+  gtk_container_add (GTK_CONTAINER (button_actualiser_affichage), alignment24);
+
+  hbox24 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox24);
+  gtk_container_add (GTK_CONTAINER (alignment24), hbox24);
+
+  image32 = gtk_image_new_from_stock ("gtk-refresh", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image32);
+  gtk_box_pack_start (GTK_BOX (hbox24), image32, FALSE, FALSE, 0);
+
+  label67 = gtk_label_new_with_mnemonic (_("ACTUALISER"));
+  gtk_widget_show (label67);
+  gtk_box_pack_start (GTK_BOX (hbox24), label67, FALSE, FALSE, 0);
+
+  retour_accueil_affichage = gtk_button_new ();
+  gtk_widget_show (retour_accueil_affichage);
+  gtk_fixed_put (GTK_FIXED (fixed14), retour_accueil_affichage, 280, 720);
+  gtk_widget_set_size_request (retour_accueil_affichage, 200, 72);
+
+  alignment25 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment25);
+  gtk_container_add (GTK_CONTAINER (retour_accueil_affichage), alignment25);
+
+  hbox25 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox25);
+  gtk_container_add (GTK_CONTAINER (alignment25), hbox25);
+
+  image33 = gtk_image_new_from_stock ("gtk-go-back", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image33);
+  gtk_box_pack_start (GTK_BOX (hbox25), image33, FALSE, FALSE, 0);
+
+  label68 = gtk_label_new_with_mnemonic (_("RETOUR A L'ACCUEIL"));
+  gtk_widget_show (label68);
+  gtk_box_pack_start (GTK_BOX (hbox25), label68, FALSE, FALSE, 0);
+
+  g_signal_connect ((gpointer) treeview1, "row_activated",
+                    G_CALLBACK (on_treeview1_row_activated),
+                    NULL);
+  g_signal_connect ((gpointer) button_actualiser_affichage, "clicked",
+                    G_CALLBACK (on_button_actualiser_affichage_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) retour_accueil_affichage, "clicked",
+                    G_CALLBACK (on_retour_accueil_affichage_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (affichage_capteur_dhia, affichage_capteur_dhia, "affichage_capteur_dhia");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, fixed14, "fixed14");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, label66, "label66");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, button_actualiser_affichage, "button_actualiser_affichage");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, alignment24, "alignment24");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, hbox24, "hbox24");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image32, "image32");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, label67, "label67");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, retour_accueil_affichage, "retour_accueil_affichage");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, alignment25, "alignment25");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, hbox25, "hbox25");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image33, "image33");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, label68, "label68");
+
+  return affichage_capteur_dhia;
 }
 

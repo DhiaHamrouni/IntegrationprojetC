@@ -162,3 +162,17 @@ on_button_authentification0_clicked    (GtkButton       *button,
 void
 on_button_incription0_clicked          (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_treeview1_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+void
+on_button_actualiser_affichage_clicked (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_accueil_affichage_clicked    (GtkButton       *button,
+                                        gpointer         user_data);
