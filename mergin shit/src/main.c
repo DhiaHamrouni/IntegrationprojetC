@@ -31,13 +31,16 @@ main (int argc, char *argv[])
   gtk_set_locale ();
   gtk_init (&argc, &argv);
 
-  add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
+  add_pixmap_directory (/*PACKAGE_DATA_DIR "/" PACKAGE*/"../pixmaps");
+
 
   /*
    * The following code was added by Glade to create one of each component
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
+  accueil0 = create_accueil0 ();
+  gtk_widget_show (accueil0);
   accueil2 = create_accueil2 ();
   gtk_widget_show (accueil2);
   gtk_main ();

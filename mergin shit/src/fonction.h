@@ -20,9 +20,6 @@ char marque[50];
 date date;
 int type;
 int gar;
-int valmax;
-int valmin;
-int val;
 }capteur;
 typedef struct
 {

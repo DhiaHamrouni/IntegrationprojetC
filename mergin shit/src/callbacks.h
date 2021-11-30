@@ -134,3 +134,31 @@ void
 on_button_affichiercapteur_dhia_clicked
                                         (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_button_modifier1_noctis_clicked     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modifinfra_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_fumee_toggled     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_temp_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_button2_clicked                     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_authentification0_clicked    (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_incription0_clicked          (GtkButton       *button,
+                                        gpointer         user_data);

@@ -19,8 +19,6 @@ EMOIS,
 EANNEE,
 ETYPE,
 EGARANTIE,
-EVALEUR_MAX,
-EVALEUR_MIN,
 COLUMNS
 };
 
@@ -32,7 +30,7 @@ int cherche_id(int num)
     F=fopen("capteur.txt","r");
     do
     {
-        fscanf(F,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar,&c.valmax,&c.valmin);
+        fscanf(F,"%s %d %s %d %d %d %d %d \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar);
         //fflush(stdin);
         if(c.ref==num)
         {
@@ -51,7 +49,7 @@ FILE *f;
 f=fopen("capteur.txt","a+");
 		if(f!=NULL)
 		{
-			fprintf(f,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar,c.valmax,c.valmin);
+			fprintf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
 			fclose(f);
 		}
 }	
@@ -67,11 +65,11 @@ int x=0;
     g=fopen("ancien_capteur","w+");
  if(f!=NULL)
     {
-	while(fscanf(f,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar,&c.valmax,&c.valmin)!=EOF)
+	while(fscanf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar)!=EOF)
 	{ 
  	 if(c.ref!=num)
 {
-	  fprintf(g,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar,c.valmax,c.valmin);
+	  fprintf(g,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
 	  x=1;
 }
 else 
@@ -93,7 +91,7 @@ FILE *f;
 FILE *g;
 f=fopen("capteur.txt","r");
 g=fopen("capteur_modifie.txt","a+");
-while(fscanf(f,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar,&c.valmax,&c.valmin)!=EOF)
+while(fscanf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar)!=EOF)
             {
            
              if(c1.ref==ref)
@@ -116,14 +114,10 @@ while(fscanf(f,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,&c.ref,c.marque,&c.d
 		scanf("%d",&c.type);
 		printf("annee du garantie");
 		scanf("%d",&c.gar);
-		printf("donner la valeur max:");
-		scanf("%d",&c.valmax);
-		printf("donner la valeur min:");
-		scanf("%d",&c.valmin);
 		
-                fprintf(f,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar,c.valmax,c.valmin);
+                fprintf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
              }  else{
-fprintf(g,"%s %d %s %d %d %d %d %d %d %d \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar,c.valmax,c.valmin);
+fprintf(g,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
 }  
 }
          fclose(f);
@@ -146,8 +140,6 @@ void afficher_capteur(GtkWidget *liste)
 	date date;
 	int type;
 	int gar;
-	int valmax;
-	int valmin;
 	char ch[20];
 	store=NULL;
 	FILE *f;
@@ -178,14 +170,8 @@ void afficher_capteur(GtkWidget *liste)
 	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
 	renderer=gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes(" gar",renderer, "text",EGARANTIE,NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
-	renderer=gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(" valmax",renderer, "text",EVALEUR_MAX,NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
-	renderer=gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(" valmin",renderer, "text",EVALEUR_MIN,NULL);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);	
-	store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT);
+	store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT);
 	f=fopen("capteur.txt","a+");
 	if (f==NULL)
 	{
@@ -193,7 +179,7 @@ void afficher_capteur(GtkWidget *liste)
 	}
 	else
 	{ f=fopen("capteur.txt","a+");
-		while (fscanf(f,"%s %d %s %d %d %d %d %d %d %d \n",nomcapt,&ref,marque,&date.j1,&date.m1,&date.a1,&type,&gar,&valmax,&valmin)!=EOF)
+		while (fscanf(f,"%s %d %s %d %d %d %d %d  \n",nomcapt,&ref,marque,&date.j1,&date.m1,&date.a1,&type,&gar)!=EOF)
 			{
 				if (type==1)
 					strcpy(ch,"de temperature");
@@ -202,7 +188,7 @@ void afficher_capteur(GtkWidget *liste)
 				else if (type==3)
 					strcpy(ch,"de mouvement");
 			gtk_list_store_append(store,&iter);
-			gtk_list_store_set(store,&iter,ENOM_CAPTEUR,nomcapt,EREFERENCE,ref,EMARQUE,marque,EJOUR,date.j1,EMOIS,date.m1,EANNEE,date.a1,ETYPE,ch,EGARANTIE,gar,EVALEUR_MAX,valmax,EVALEUR_MIN,valmin,-1);
+			gtk_list_store_set(store,&iter,ENOM_CAPTEUR,nomcapt,EREFERENCE,ref,EMARQUE,marque,EJOUR,date.j1,EMOIS,date.m1,EANNEE,date.a1,ETYPE,ch,EGARANTIE,gar,-1);
 			}
 			fclose(f);
 	gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL (store));
@@ -224,8 +210,6 @@ GtkCellRenderer *renderer;
 	date date;
 	int type;
 	int gar;
-	int valmax;
-	int valmin;
 	char ch[20];
 	store=NULL;
 	FILE *f;
@@ -258,12 +242,7 @@ renderer=gtk_cell_renderer_text_new();
 	renderer=gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes(" gar",renderer, "text",EGARANTIE,NULL);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
-	renderer=gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(" valmax",renderer, "text",EVALEUR_MAX,NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
-	renderer=gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(" valmin",renderer, "text",EVALEUR_MIN,NULL);
-	store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT);	
+	store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT);	
 }
 if (type==1)
 strcpy(ch,"de temperature");
@@ -272,7 +251,7 @@ strcpy(ch,"de fummee");
 else if (type==3)
 strcpy(ch,"de mouvement");
 
-store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT);
+store =gtk_list_store_new(COLUMNS, G_TYPE_STRING,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING,G_TYPE_INT);
 gtk_list_store_append(store,&iter);
 gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
 }

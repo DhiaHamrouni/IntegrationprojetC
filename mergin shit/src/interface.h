@@ -11,3 +11,5 @@ GtkWidget* create_ajout_nouha (void);
 GtkWidget* create_Bienvenue_nouha (void);
 GtkWidget* create_supprimer_nouha (void);
 GtkWidget* create_capteur (void);
+GtkWidget* create_modifier_capteur_noctis1 (void);
+GtkWidget* create_modifier_capteur_noctis2 (void);

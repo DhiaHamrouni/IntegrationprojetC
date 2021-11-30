@@ -10,6 +10,31 @@
 #include "fonction.h"
 int x;
 int y;
+int z;
+int p;
+void
+on_button_incription0_clicked          (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+void
+on_button_authentification0_clicked    (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowaccuei0,*windowconnexion;
+gtk_widget_destroy(windowaccuei0);
+windowconnexion=create_connexion();
+gtk_widget_show(windowconnexion);
+}
+void
+on_button_connexion_alterne_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
 void
 on_button_gestionfoyer_accueil_clicked (GtkButton       *button,
                                         gpointer         user_data)
@@ -97,14 +122,6 @@ gtk_widget_show(windowaccueil2);
 
 
 void
-on_button_connexion_alterne_clicked    (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
 on_radiobutton_temp_dhia_toggled       (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
@@ -137,7 +154,7 @@ on_button_ajoutcapt_interface_dhia_clicked
                                         gpointer         user_data)
 {
 GtkWidget
- *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*valmax,*valmin,*windowcapteur,*window_ajout_capteur_dhia;
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_ajout_capteur_dhia;
 
 
 capteur t;
@@ -155,14 +172,10 @@ nomcapt=lookup_widget(objet_graphique,"entry_nomcapt_dhia");
 ref=lookup_widget(objet_graphique,"entry_refcapt_dhia");
 marque=lookup_widget(objet_graphique,"entry_marquecapt_dhia");
 garantie=lookup_widget(objet_graphique,"entry_gar_dhia");
-valmax=lookup_widget(objet_graphique,"entry_valmax_dhia");
-valmin=lookup_widget(objet_graphique,"entry_valmin_dhia");
 strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
 t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
-t.valmax=atoi(gtk_entry_get_text(GTK_ENTRY(valmax)));
-t.valmin=atoi(gtk_entry_get_text(GTK_ENTRY(valmin)));
 if (x==1)
 t.type=1;
 else if (x==2)
@@ -381,7 +394,11 @@ void
 on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
                                         gpointer         user_data)
 {
-
+GtkWidget
+*windowcapteur,*windowmodifier_capteur_noctis1;
+gtk_widget_destroy(windowcapteur);
+windowmodifier_capteur_noctis1=create_modifier_capteur_noctis1();
+gtk_widget_show(windowmodifier_capteur_noctis1);
 }
 
 
@@ -400,4 +417,99 @@ on_button_affichiercapteur_dhia_clicked
 {
 
 }
+
+
+void
+on_button_modifier1_noctis_clicked     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+*ref,*output,*windowmodifier_capteur_noctis1,*windowmodifier_capteur_noctis2;
+output=lookup_widget(objet_graphique,"label64");
+ref=lookup_widget(objet_graphique,"entry_noctis_modifie");
+ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+z=cherche_id(ref);
+if (z==1)
+{
+supprimer_capteur(ref);
+z=ref;
+gtk_widget_destroy(windowmodifier_capteur_noctis1);
+windowmodifier_capteur_noctis2=create_modifier_capteur_noctis2();
+gtk_widget_show(windowmodifier_capteur_noctis2);
+}
+else if (z==-1)
+{
+gtk_label_set_text(GTK_LABEL(output),"capteur n existe pas");
+}
+}
+
+
+void
+on_radiobutton_modifinfra_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+p=3;
+}
+
+
+void
+on_radiobutton_modif_fumee_toggled     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+p=2;
+}
+
+
+void
+on_radiobutton_modif_temp_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+p=1;
+}
+
+
+void
+on_button2_clicked                     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_modifier_capteur_noctis2;
+
+
+capteur t;
+
+j1=lookup_widget(objet_graphique,"spinbutton1");
+t.date.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
+
+m1=lookup_widget(objet_graphique,"spinbutton3");
+t.date.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
+
+a1=lookup_widget(objet_graphique,"spinbutton4");
+t.date.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
+
+nomcapt=lookup_widget(objet_graphique,"entry2");
+ref=lookup_widget(objet_graphique,"label_refcapteurmodif_noctis");
+gtk_label_set_text(GTK_LABEL(ref),"z");
+marque=lookup_widget(objet_graphique,"entry3");
+garantie=lookup_widget(objet_graphique,"entry4");
+strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
+strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
+t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
+if (p==1)
+t.type=1;
+else if (p==2)
+t.type=2;
+else if (p==3)
+t.type=3;
+ajout_capteur(t);
+gtk_widget_destroy(window_modifier_capteur_noctis2);
+windowcapteur=create_capteur();
+gtk_widget_show(windowcapteur);
+}
+
+
+
 
