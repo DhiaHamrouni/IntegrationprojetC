@@ -34,10 +34,11 @@ typedef struct
 void ajout_capteur(capteur c);
 void affichage(capteur t);
 int supprimer_capteur(int ref);
-void modifier_capteur(int ref,capteur t,capteur c);
+void modifier_capteur(int ref,capteur t);
 int cherche_id(int num);
 void afficher_capteur (GtkWidget * liste);
 void vider (GtkWidget *liste);
+capteur trouvage (int ref);
 
 ///////////////////////////////////////end Dhia////////////////////////////////////
 

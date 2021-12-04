@@ -1367,90 +1367,6 @@ create_capteur (void)
 }
 
 GtkWidget*
-create_modifier_capteur_noctis1 (void)
-{
-  GtkWidget *modifier_capteur_noctis1;
-  GtkWidget *fixed12;
-  GtkWidget *entry_noctis_modifie;
-  GtkWidget *label51;
-  GtkWidget *label_sheesh;
-  GtkWidget *label64;
-  GtkWidget *button_modifier1_noctis;
-  GtkWidget *alignment22;
-  GtkWidget *hbox22;
-  GtkWidget *image30;
-  GtkWidget *label52;
-
-  modifier_capteur_noctis1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (modifier_capteur_noctis1), _("MODIFIER UN CAPTEUR"));
-
-  fixed12 = gtk_fixed_new ();
-  gtk_widget_show (fixed12);
-  gtk_container_add (GTK_CONTAINER (modifier_capteur_noctis1), fixed12);
-
-  entry_noctis_modifie = gtk_entry_new ();
-  gtk_widget_show (entry_noctis_modifie);
-  gtk_fixed_put (GTK_FIXED (fixed12), entry_noctis_modifie, 272, 144);
-  gtk_widget_set_size_request (entry_noctis_modifie, 264, 40);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry_noctis_modifie), 8226);
-
-  label51 = gtk_label_new (_("Entrer la reference du capteur \n           \303\240 modifier"));
-  gtk_widget_show (label51);
-  gtk_fixed_put (GTK_FIXED (fixed12), label51, 16, 136);
-  gtk_widget_set_size_request (label51, 224, 56);
-
-  label_sheesh = gtk_label_new (_("MENU MODIFIER"));
-  gtk_widget_show (label_sheesh);
-  gtk_fixed_put (GTK_FIXED (fixed12), label_sheesh, 152, 32);
-  gtk_widget_set_size_request (label_sheesh, 296, 48);
-
-  label64 = gtk_label_new ("");
-  gtk_widget_show (label64);
-  gtk_fixed_put (GTK_FIXED (fixed12), label64, 0, 216);
-  gtk_widget_set_size_request (label64, 600, 64);
-
-  button_modifier1_noctis = gtk_button_new ();
-  gtk_widget_show (button_modifier1_noctis);
-  gtk_fixed_put (GTK_FIXED (fixed12), button_modifier1_noctis, 208, 288);
-  gtk_widget_set_size_request (button_modifier1_noctis, 248, 72);
-
-  alignment22 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment22);
-  gtk_container_add (GTK_CONTAINER (button_modifier1_noctis), alignment22);
-
-  hbox22 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox22);
-  gtk_container_add (GTK_CONTAINER (alignment22), hbox22);
-
-  image30 = gtk_image_new_from_stock ("gtk-redo", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image30);
-  gtk_box_pack_start (GTK_BOX (hbox22), image30, FALSE, FALSE, 0);
-
-  label52 = gtk_label_new_with_mnemonic (_("modifier"));
-  gtk_widget_show (label52);
-  gtk_box_pack_start (GTK_BOX (hbox22), label52, FALSE, FALSE, 0);
-
-  g_signal_connect ((gpointer) button_modifier1_noctis, "clicked",
-                    G_CALLBACK (on_button_modifier1_noctis_clicked),
-                    NULL);
-
-  /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (modifier_capteur_noctis1, modifier_capteur_noctis1, "modifier_capteur_noctis1");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, fixed12, "fixed12");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, entry_noctis_modifie, "entry_noctis_modifie");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, label51, "label51");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, label_sheesh, "label_sheesh");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, label64, "label64");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, button_modifier1_noctis, "button_modifier1_noctis");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, alignment22, "alignment22");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, hbox22, "hbox22");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, image30, "image30");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis1, label52, "label52");
-
-  return modifier_capteur_noctis1;
-}
-
-GtkWidget*
 create_modifier_capteur_noctis2 (void)
 {
   GtkWidget *modifier_capteur_noctis2;
@@ -1467,20 +1383,18 @@ create_modifier_capteur_noctis2 (void)
   GtkWidget *spinbutton4;
   GtkWidget *label60;
   GtkWidget *entry3;
-  GtkWidget *label61;
   GtkWidget *label62;
   GtkWidget *entry4;
-  GtkWidget *radiobutton_modifinfra;
-  GSList *radiobutton_modifinfra_group = NULL;
-  GtkWidget *radiobutton_modif_fumee;
-  GtkWidget *radiobutton_modif_temp;
   GtkWidget *label54;
+  GtkWidget *entry5;
+  GtkWidget *button_verifmodif_noctis;
   GtkWidget *button2;
   GtkWidget *alignment23;
   GtkWidget *hbox23;
   GtkWidget *image31;
   GtkWidget *label63;
-  GtkWidget *entry5;
+  GtkWidget *label61;
+  GtkWidget *entry6;
   GtkWidget *label65;
 
   modifier_capteur_noctis2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -1540,11 +1454,6 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_set_size_request (entry3, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry3), 8226);
 
-  label61 = gtk_label_new (_("TYPE DE CAPTEUR"));
-  gtk_widget_show (label61);
-  gtk_fixed_put (GTK_FIXED (fixed13), label61, 224, 304);
-  gtk_widget_set_size_request (label61, 144, 25);
-
   label62 = gtk_label_new (_("GARANTIE"));
   gtk_widget_show (label62);
   gtk_fixed_put (GTK_FIXED (fixed13), label62, 200, 368);
@@ -1556,31 +1465,21 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_set_size_request (entry4, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry4), 8226);
 
-  radiobutton_modifinfra = gtk_radio_button_new_with_mnemonic (NULL, _("INFRAROUGE\n(DE MOUVEMENT)"));
-  gtk_widget_show (radiobutton_modifinfra);
-  gtk_fixed_put (GTK_FIXED (fixed13), radiobutton_modifinfra, 688, 288);
-  gtk_widget_set_size_request (radiobutton_modifinfra, 152, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_modifinfra), radiobutton_modifinfra_group);
-  radiobutton_modifinfra_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_modifinfra));
-
-  radiobutton_modif_fumee = gtk_radio_button_new_with_mnemonic (NULL, _("DE FUM\303\211E"));
-  gtk_widget_show (radiobutton_modif_fumee);
-  gtk_fixed_put (GTK_FIXED (fixed13), radiobutton_modif_fumee, 568, 304);
-  gtk_widget_set_size_request (radiobutton_modif_fumee, 116, 24);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_modif_fumee), radiobutton_modifinfra_group);
-  radiobutton_modifinfra_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_modif_fumee));
-
-  radiobutton_modif_temp = gtk_radio_button_new_with_mnemonic (NULL, _("DE \nTEMPERATURE"));
-  gtk_widget_show (radiobutton_modif_temp);
-  gtk_fixed_put (GTK_FIXED (fixed13), radiobutton_modif_temp, 416, 296);
-  gtk_widget_set_size_request (radiobutton_modif_temp, 128, 48);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_modif_temp), radiobutton_modifinfra_group);
-  radiobutton_modifinfra_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_modif_temp));
-
   label54 = gtk_label_new (_("MODIFIER UN CAPTEUR"));
   gtk_widget_show (label54);
   gtk_fixed_put (GTK_FIXED (fixed13), label54, 352, 16);
   gtk_widget_set_size_request (label54, 416, 104);
+
+  entry5 = gtk_entry_new ();
+  gtk_widget_show (entry5);
+  gtk_fixed_put (GTK_FIXED (fixed13), entry5, 432, 112);
+  gtk_widget_set_size_request (entry5, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry5), 8226);
+
+  button_verifmodif_noctis = gtk_button_new_with_mnemonic (_("VERIFIER"));
+  gtk_widget_show (button_verifmodif_noctis);
+  gtk_fixed_put (GTK_FIXED (fixed13), button_verifmodif_noctis, 672, 104);
+  gtk_widget_set_size_request (button_verifmodif_noctis, 136, 48);
 
   button2 = gtk_button_new ();
   gtk_widget_show (button2);
@@ -1603,25 +1502,24 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_show (label63);
   gtk_box_pack_start (GTK_BOX (hbox23), label63, FALSE, FALSE, 0);
 
-  entry5 = gtk_entry_new ();
-  gtk_widget_show (entry5);
-  gtk_fixed_put (GTK_FIXED (fixed13), entry5, 432, 112);
-  gtk_widget_set_size_request (entry5, 160, 27);
-  gtk_entry_set_invisible_char (GTK_ENTRY (entry5), 8226);
+  label61 = gtk_label_new (_("TYPE DE CAPTEUR"));
+  gtk_widget_show (label61);
+  gtk_fixed_put (GTK_FIXED (fixed13), label61, 224, 304);
+  gtk_widget_set_size_request (label61, 144, 25);
+
+  entry6 = gtk_entry_new ();
+  gtk_widget_show (entry6);
+  gtk_fixed_put (GTK_FIXED (fixed13), entry6, 440, 304);
+  gtk_widget_set_size_request (entry6, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry6), 8226);
 
   label65 = gtk_label_new ("");
   gtk_widget_show (label65);
-  gtk_fixed_put (GTK_FIXED (fixed13), label65, 632, 112);
-  gtk_widget_set_size_request (label65, 208, 32);
+  gtk_fixed_put (GTK_FIXED (fixed13), label65, 824, 104);
+  gtk_widget_set_size_request (label65, 360, 216);
 
-  g_signal_connect ((gpointer) radiobutton_modifinfra, "toggled",
-                    G_CALLBACK (on_radiobutton_modifinfra_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) radiobutton_modif_fumee, "toggled",
-                    G_CALLBACK (on_radiobutton_modif_fumee_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) radiobutton_modif_temp, "toggled",
-                    G_CALLBACK (on_radiobutton_modif_temp_toggled),
+  g_signal_connect ((gpointer) button_verifmodif_noctis, "clicked",
+                    G_CALLBACK (on_button_verifmodif_noctis_clicked),
                     NULL);
   g_signal_connect ((gpointer) button2, "clicked",
                     G_CALLBACK (on_button2_clicked),
@@ -1639,19 +1537,18 @@ create_modifier_capteur_noctis2 (void)
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, spinbutton4, "spinbutton4");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label60, "label60");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry3, "entry3");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label61, "label61");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label62, "label62");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry4, "entry4");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, radiobutton_modifinfra, "radiobutton_modifinfra");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, radiobutton_modif_fumee, "radiobutton_modif_fumee");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, radiobutton_modif_temp, "radiobutton_modif_temp");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label54, "label54");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry5, "entry5");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, button_verifmodif_noctis, "button_verifmodif_noctis");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, button2, "button2");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, alignment23, "alignment23");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, hbox23, "hbox23");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image31, "image31");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label63, "label63");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry5, "entry5");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label61, "label61");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, entry6, "entry6");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label65, "label65");
 
   return modifier_capteur_noctis2;

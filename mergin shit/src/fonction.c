@@ -22,6 +22,27 @@ EGARANTIE,
 COLUMNS
 };
 
+
+///////////////////////::trouvage::///////////////////////////////////////////////
+
+capteur trouvage(int ref)
+{
+capteur c1;
+capteur c2;
+    FILE *F;
+    F = fopen("capteur.txt","r");
+    if(F != NULL){
+    	while(fscanf(F,"%s %d %s %d %d %d %d %d \n",c1.nomcapt,&c1.ref,c1.marque,&c1.date.j1,&c1.date.m1,&c1.date.a1,&c1.type,&c1.gar) != EOF){
+        	if(c1.ref==ref)
+		{
+       		     c2=c1;
+        	}
+    	}
+}
+
+    fclose(F);
+  return (c2);  
+}
 //////////////////////////////chercher/////////////////////////////////////////
 int cherche_id(int num)
 {
@@ -84,48 +105,10 @@ return x;
 }
 
 ///////////////////////// modifier///////////////////////////////////////////////
-void modifier_capteur (int ref,capteur c,capteur c1)
+void modifier_capteur (int ref,capteur c)
 {  
-char rep='n';  
-FILE *f;
-FILE *g;
-f=fopen("capteur.txt","r");
-g=fopen("capteur_modifie.txt","a+");
-while(fscanf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,&c.ref,c.marque,&c.date.j1,&c.date.m1,&c.date.a1,&c.type,&c.gar)!=EOF)
-            {
-           
-             if(c1.ref==ref)
-              {
-               
-    		c1.ref=ref;
-    		printf("le jour d'ajout:  ");
-    		scanf("%d",&c.date.j1);
-    		printf("le mois d'ajout: ");
-    		scanf("%d",&c.date.m1);
-    		printf("l'annee d'ajout: ");
-    		scanf("%d",&c.date.a1);
-    		printf("le nom du capteur: ");
-                fflush (stdin);
-    		scanf("%s",c.nomcapt);
-    		printf("la marque du capteur");
-                 fflush (stdin);
-    		scanf("%s",c.marque);
-		printf("donner le type de capteur:");
-		scanf("%d",&c.type);
-		printf("annee du garantie");
-		scanf("%d",&c.gar);
-		
-                fprintf(f,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
-             }  else{
-fprintf(g,"%s %d %s %d %d %d %d %d  \n",c.nomcapt,c.ref,c.marque,c.date.j1,c.date.m1,c.date.a1,c.type,c.gar);
-}  
-}
-         fclose(f);
-         fclose(g);
-         remove("capteur.txt");
-         rename("capteur_modifie.txt","capteur.txt");
-         printf("\n  modification reussit");
-
+supprimer_capteur(ref);
+ajout_capteur(c);
 }
 ////////////////////////affichage/////////////////////////////////////////////
 void afficher_capteur(GtkWidget *liste)

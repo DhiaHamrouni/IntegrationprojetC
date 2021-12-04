@@ -176,3 +176,7 @@ on_button_actualiser_affichage_clicked (GtkButton       *button,
 void
 on_retour_accueil_affichage_clicked    (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_button_verifmodif_noctis_clicked    (GtkButton       *button,
+                                        gpointer         user_data);

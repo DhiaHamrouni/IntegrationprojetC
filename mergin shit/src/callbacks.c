@@ -12,6 +12,8 @@ int x;
 int y;
 int o;
 int p;
+
+//////////////////////////tron commun////////////////////////////////
 void
 on_button_incription0_clicked          (GtkButton       *button,
                                         gpointer         user_data)
@@ -119,7 +121,195 @@ gtk_widget_destroy(windowcapteur);
 windowaccueil2=create_accueil2();
 gtk_widget_show(windowaccueil2);
 }
+///////////////////////////////////////////:nocta:////////////////////////////////////////
+void
+on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*window_ajout_capteur_dhia;
+gtk_widget_destroy(windowcapteur);
+window_ajout_capteur_dhia=create_window_ajout_capteur_dhia();
+gtk_widget_show(window_ajout_capteur_dhia);
+}
 
+
+void
+on_button_supprimercapteur_dhia_clicked
+                                        (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*window_supprission_capteur_dhia;
+gtk_widget_destroy(windowcapteur);
+window_supprission_capteur_dhia=create_window_supprission_capteur_dhia();
+gtk_widget_show(window_supprission_capteur_dhia);
+}
+
+
+void
+on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowmodifier_capteur_noctis2;
+gtk_widget_destroy(windowcapteur);
+windowmodifier_capteur_noctis2=create_modifier_capteur_noctis2();
+gtk_widget_show(windowmodifier_capteur_noctis2);
+}
+
+
+void
+on_button_cherchercapteur_dhia_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_affichiercapteur_dhia_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowaffichage_capteur_dhia;
+GtkWidget *treeview1;
+windowcapteur=lookup_widget(button,"windowcapteur");
+
+gtk_widget_destroy(windowcapteur);
+windowaffichage_capteur_dhia=lookup_widget(button,"windowaffichage_capteur_dhia");
+windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
+gtk_widget_show(windowaffichage_capteur_dhia);
+
+
+treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
+
+afficher_capteur(treeview1);
+}
+
+
+
+void
+on_treeview1_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_actualiser_affichage_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowaffichage_capteur_dhia,*w1;
+GtkWidget *treeview1;
+w1=lookup_widget(button,"windowaffichage_capteur_dhia");
+windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
+gtk_widget_show(windowaffichage_capteur_dhia);
+gtk_widget_hide(w1);
+treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
+afficher_capteur(treeview1);
+}
+
+
+void
+on_retour_accueil_affichage_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowaffichage_capteur_dhia;
+gtk_widget_destroy(windowaffichage_capteur_dhia);
+windowcapteur=create_capteur();
+gtk_widget_show(windowcapteur);
+}
+
+
+void
+on_button_verifmodif_noctis_clicked    (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*ch;
+
+capteur t;
+int i,z;
+char t1[50],t2[30],t3[50];
+ref=lookup_widget(objet_graphique,"entry5");
+nomcapt=lookup_widget(objet_graphique,"entry2");
+marque=lookup_widget(objet_graphique,"entry3");
+garantie=lookup_widget(objet_graphique,"entry4");
+type=lookup_widget(objet_graphique,"entry6");
+j1=lookup_widget(objet_graphique,"spinbutton1");
+m1=lookup_widget(objet_graphique,"spinbutton3");
+a1=lookup_widget(objet_graphique,"spinbutton4");
+ch=lookup_widget(objet_graphique,"label65");
+z=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+i=cherche_id(z);
+if (i==1)
+{
+   	t=trouvage(x);
+	gtk_label_set_text(GTK_LABEL(ch),"capteur trouver");
+	sprintf(t1,"%d",t.ref);
+	gtk_entry_set_text(GTK_ENTRY(ref),t1);
+	gtk_entry_set_text(GTK_ENTRY(nomcapt),t.nomcapt);
+	gtk_entry_set_text(GTK_ENTRY(marque),t.marque);
+	sprintf(t2,"%d",t.gar);
+	gtk_entry_set_text(GTK_ENTRY(garantie),t2);
+	sprintf(t3,"%d",x);
+	gtk_entry_set_text(GTK_ENTRY(type),t3);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(j1),t.date.j1);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(m1),t.date.m1);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(a1),t.date.a1);
+	
+
+	}
+else {
+gtk_label_set_text(GTK_LABEL(ch),"non trouve");}
+
+}
+
+void
+on_button2_clicked                     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*ch;
+
+capteur t;
+int i,x;
+char t1[50],t2[30],t3[50];
+ref=lookup_widget(objet_graphique,"entry5");
+nomcapt=lookup_widget(objet_graphique,"entry2");
+marque=lookup_widget(objet_graphique,"entry3");
+garantie=lookup_widget(objet_graphique,"entry4");
+type=lookup_widget(objet_graphique,"entry6");
+j1=lookup_widget(objet_graphique,"spinbutton1");
+m1=lookup_widget(objet_graphique,"spinbutton3");
+a1=lookup_widget(objet_graphique,"spinbutton4");
+ch=lookup_widget(objet_graphique,"label65");
+t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
+strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
+t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
+t.type=atoi(gtk_entry_get_text(GTK_ENTRY(type)));
+if ((t.type!=1) && (t.type!=2) && (t.type!=3))
+{
+gtk_label_set_text(GTK_LABEL(ch),"veuiller saisir un de ces inputs 1, 2 ou 3 \n qui reference respectivement 'de temperature' \n 'de fumer' \n 'infrarouge'");
+type=lookup_widget(objet_graphique,"entry6");
+t.type=atoi(gtk_entry_get_text(GTK_ENTRY(type)));
+}
+else
+{
+
+t.date.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
+t.date.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
+t.date.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
+modifier_capteur(t.ref,t);
+gtk_label_set_text(GTK_LABEL(ch),"success");}
+}
 
 void
 on_radiobutton_temp_dhia_toggled       (GtkToggleButton *togglebutton,
@@ -203,7 +393,7 @@ gtk_label_set_text(GTK_LABEL(output),"capteur n est pas supprimer ou reference n
 
 }
 
-
+/////////////////////////////////////:nocta://////////////////////////////////////////////
 void
 on_button_annuler_nouha_clicked        (GtkButton       *button,
                                         gpointer         user_data)
@@ -360,207 +550,4 @@ if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 }
 
 
-void
-on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*window_ajout_capteur_dhia;
-gtk_widget_destroy(windowcapteur);
-window_ajout_capteur_dhia=create_window_ajout_capteur_dhia();
-gtk_widget_show(window_ajout_capteur_dhia);
-}
-
-
-void
-on_button_supprimercapteur_dhia_clicked
-                                        (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*window_supprission_capteur_dhia;
-gtk_widget_destroy(windowcapteur);
-window_supprission_capteur_dhia=create_window_supprission_capteur_dhia();
-gtk_widget_show(window_supprission_capteur_dhia);
-}
-
-
-void
-on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*windowmodifier_capteur_noctis1;
-gtk_widget_destroy(windowcapteur);
-windowmodifier_capteur_noctis1=create_modifier_capteur_noctis1();
-gtk_widget_show(windowmodifier_capteur_noctis1);
-}
-
-
-void
-on_button_cherchercapteur_dhia_clicked (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_button_affichiercapteur_dhia_clicked
-                                        (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*windowaffichage_capteur_dhia;
-GtkWidget *treeview1;
-windowcapteur=lookup_widget(button,"windowcapteur");
-
-gtk_widget_destroy(windowcapteur);
-windowaffichage_capteur_dhia=lookup_widget(button,"windowaffichage_capteur_dhia");
-windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
-gtk_widget_show(windowaffichage_capteur_dhia);
-
-
-treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
-
-afficher_capteur(treeview1);
-}
-
-
-void
-on_button_modifier1_noctis_clicked     (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-int z;
-GtkWidget
-*ref,*output,*windowmodifier_capteur_noctis1,*windowmodifier_capteur_noctis2;
-output=lookup_widget(objet_graphique,"label64");
-ref=lookup_widget(objet_graphique,"entry_noctis_modifie");
-ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
-z=cherche_id(ref);
-if (z==1)
-{
-supprimer_capteur(ref);
-o=ref;
-gtk_widget_destroy(windowmodifier_capteur_noctis1);
-windowmodifier_capteur_noctis2=create_modifier_capteur_noctis2();
-gtk_widget_show(windowmodifier_capteur_noctis2);
-}
-else if (z==-1)
-{
-gtk_label_set_text(GTK_LABEL(output),"capteur n existe pas");
-}
-}
-
-
-void
-on_radiobutton_modifinfra_toggled      (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-p=3;
-}
-
-
-void
-on_radiobutton_modif_fumee_toggled     (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-p=2;
-}
-
-
-void
-on_radiobutton_modif_temp_toggled      (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-p=1;
-}
-
-
-void
-on_button2_clicked                     (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget
- *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_modifier_capteur_noctis2,*ch;
-
-capteur t;
-ref=lookup_widget(objet_graphique,"entry5");
-t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
-ch=lookup_widget(objet_graphique,"label65");
-while (t.ref!=o)
-{
-gtk_label_set_text(GTK_LABEL(ch),"pas la meme reference , verifier svp");
-ref=lookup_widget(objet_graphique,"entry5");
-t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
-}
-j1=lookup_widget(objet_graphique,"spinbutton1");
-t.date.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
-
-m1=lookup_widget(objet_graphique,"spinbutton3");
-t.date.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
-
-a1=lookup_widget(objet_graphique,"spinbutton4");
-t.date.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
-
-nomcapt=lookup_widget(objet_graphique,"entry2");
-marque=lookup_widget(objet_graphique,"entry3");
-garantie=lookup_widget(objet_graphique,"entry4");
-strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
-strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
-t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
-if (p==1)
-t.type=1;
-else if (p==2)
-t.type=2;
-else if (p==3)
-t.type=3;
-ajout_capteur(t);
-gtk_widget_destroy(window_modifier_capteur_noctis2);
-windowcapteur=create_capteur();
-gtk_widget_show(windowcapteur);
-}
-
-
-
-
-
-void
-on_treeview1_row_activated             (GtkTreeView     *treeview,
-                                        GtkTreePath     *path,
-                                        GtkTreeViewColumn *column,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_button_actualiser_affichage_clicked (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget *windowaffichage_capteur_dhia,*w1;
-GtkWidget *treeview1;
-w1=lookup_widget(button,"windowaffichage_capteur_dhia");
-windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
-gtk_widget_show(windowaffichage_capteur_dhia);
-gtk_widget_hide(w1);
-treeview1=lookup_widget(windowaffichage_capteur_dhia,"treeview1");
-afficher_capteur(treeview1);
-}
-
-
-void
-on_retour_accueil_affichage_clicked    (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*windowaffichage_capteur_dhia;
-gtk_widget_destroy(windowaffichage_capteur_dhia);
-windowcapteur=create_capteur();
-gtk_widget_show(windowcapteur);
-}
 
