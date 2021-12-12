@@ -39,12 +39,12 @@ on_button_ajouter_jesser_clicked       (GtkButton       *button,
 
 void
 on_button_supprimercapteur_dhia_clicked
-                                        (GtkWidget       *objet_graphique,
+                                        (GtkButton      *button,
                                         gpointer         user_data);
 
 void
 on_button_retourto_accueil_from_capteur_clicked
-                                        (GtkWidget       *objet_graphique,
+                                        (GtkButton       *button,
                                         gpointer         user_data);
 
 void
@@ -118,7 +118,7 @@ on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 void
-on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
+on_button_ajout_capteur_dhia_clicked   (GtkButton       *button,
                                         gpointer         user_data);
 
 
@@ -179,4 +179,48 @@ on_retour_accueil_affichage_clicked    (GtkButton       *button,
 
 void
 on_button_verifmodif_noctis_clicked    (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_ajout_capt_clicked           (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_acc_modif_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_connexion_alterne_enter      (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_connexion_alterne_clicked    (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_treeview3_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+void
+on_tache2_dhia_clicked                 (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_treeview4_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+void
+on_confirm_alarme_clicked              (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_chercher_dhia_clicked               (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_search_dhia_clicked                 (GtkButton       *button,
                                         gpointer         user_data);

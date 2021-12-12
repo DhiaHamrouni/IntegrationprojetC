@@ -22,7 +22,26 @@ EGARANTIE,
 COLUMNS
 };
 
-
+///////////////////////connexion//////////////////////////////////////////////////
+int verif_dhia (char log[] , char pw[])
+{
+int trouve=-1;
+FILE *f=NULL;
+char ch1[30];
+char ch2[30];
+f=fopen("admins.txt","r");
+if(f!=NULL)
+{
+while (fscanf(f,"%s %s ",ch1,ch2)!=EOF)
+{
+if ((strcmp(ch1,log)==0) && (strcmp(ch2,pw)==0))
+trouve=1;
+}
+fclose(f);
+}
+return trouve;
+}
+///////////////////////end_connexion//////////////////////////////////////////////
 ///////////////////////::trouvage::///////////////////////////////////////////////
 
 capteur trouvage(int ref)

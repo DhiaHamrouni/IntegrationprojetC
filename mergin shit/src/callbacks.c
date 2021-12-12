@@ -14,18 +14,16 @@ int o;
 int p;
 
 //////////////////////////tron commun////////////////////////////////
-void
-on_button_incription0_clicked          (GtkButton       *button,
-                                        gpointer         user_data)
-{
 
-}
+
 void
-on_button_authentification0_clicked    (GtkButton       *objet_graphique,
+on_button_retourto_accueil_from_capteur_clicked
+                                        (GtkButton       *button,
                                         gpointer         user_data)
 {
-GtkWidget *windowaccuei0,*windowconnexion;
-gtk_widget_destroy(windowaccuei0);
+GtkWidget
+*windowcapteur,*windowconnexion;
+gtk_widget_destroy(windowcapteur);
 windowconnexion=create_connexion();
 gtk_widget_show(windowconnexion);
 }
@@ -33,116 +31,121 @@ void
 on_button_connexion_alterne_clicked    (GtkButton       *button,
                                         gpointer         user_data)
 {
-
-}
-
-
-void
-on_button_gestionfoyer_accueil_clicked (GtkButton       *button,
-                                        gpointer         user_data)
+GtkWidget *login, *password , *windowcapteur,*w;
+GtkWidget *output;
+GtkWidget *treeview3;
+char log[30];
+char pw[20];
+int trouve;
+login=lookup_widget(button,"entry1_login_connexion");
+password=lookup_widget(button,"entry_password_connexion");
+strcpy(log,gtk_entry_get_text(GTK_ENTRY(login)));
+strcpy(pw,gtk_entry_get_text(GTK_ENTRY(password)));
+trouve=verif_dhia(log,pw);
+if(trouve==1)
 {
-
-}
-
-
-void
-on_button_gestionstock_acceuil_clicked (GtkButton       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget *windowaccueil2,*windowBienvenu;
-gtk_widget_destroy(windowaccueil2);
-windowBienvenu=create_Bienvenue_nouha();
-gtk_widget_show(windowBienvenu);
-}
-
-
-void
-on_button_nutritionniste_accueil_clicked
-                                        (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_button_gestioncapteur_accueil_clicked
-                                        (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget *windowaccueil2,*windowcapteur;
-gtk_widget_destroy(windowaccueil2);
+w=lookup_widget(button,"connexion");
+gtk_widget_destroy(w);
 windowcapteur=create_capteur();
 gtk_widget_show(windowcapteur);
+treeview3=lookup_widget(windowcapteur,"treeview3");
+afficher_capteur(treeview3);
 }
-
-
-void
-on_button_inscription_accueil_clicked  (GtkButton       *button,
-                                        gpointer         user_data)
+else
 {
-
+output=lookup_widget(button,"label72");
+gtk_label_set_text(GTK_LABEL(output),"Incorrect Values");
 }
-
-
-void
-on_button_retour_to_accueil_de_connexion_clicked
-                                        (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_button_authentification_jesser_clicked
-                                        (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_button_ajouter_jesser_clicked       (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
-}
-
-void
-on_button_retourto_accueil_from_capteur_clicked
-                                        (GtkWidget       *objet_graphique,
-                                        gpointer         user_data)
-{
-GtkWidget
-*windowcapteur,*windowaccueil2;
-gtk_widget_destroy(windowcapteur);
-windowaccueil2=create_accueil2();
-gtk_widget_show(windowaccueil2);
 }
 ///////////////////////////////////////////:nocta:////////////////////////////////////////
 void
-on_button_ajout_capteur_dhia_clicked   (GtkWidget       *objet_graphique,
+on_search_dhia_clicked                 (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+{
+GtkWidget
+*ref,*output;
+capteur t;
+int x;
+ref=lookup_widget(objet_graphique,"entry_cherchdhia");
+output=lookup_widget(objet_graphique,"label81");
+t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
+x=cherche_id(t.ref);
+if (x==1)
+{
+gtk_label_set_text(GTK_LABEL(output),"capteur existe !");
+}
+else
+{
+gtk_label_set_text(GTK_LABEL(output),"capteur non existant");
+}
+}
+}
+
+void
+on_tache2_dhia_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*windowcapteur,*window_ajout_capteur_dhia;
+*windowcapteur,*windowtype_alarme;
 gtk_widget_destroy(windowcapteur);
-window_ajout_capteur_dhia=create_window_ajout_capteur_dhia();
+windowtype_alarme=create_type_alarme();
+gtk_widget_show(windowtype_alarme);
+}
+
+
+void
+on_treeview3_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+
+}
+
+
+
+
+void
+on_treeview4_row_activated             (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_confirm_alarme_clicked              (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+void
+on_button_ajout_capteur_dhia_clicked   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*w,*window_ajout_capteur_dhia;
+w=lookup_widget(button,"capteur");
+gtk_widget_destroy(w);
+window_ajout_capteur_dhia=create_ajout_capteur_dhia();
 gtk_widget_show(window_ajout_capteur_dhia);
 }
 
 
 void
 on_button_supprimercapteur_dhia_clicked
-                                        (GtkWidget       *objet_graphique,
+                                        (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*windowcapteur,*window_supprission_capteur_dhia;
-gtk_widget_destroy(windowcapteur);
-window_supprission_capteur_dhia=create_window_supprission_capteur_dhia();
+*w,*window_supprission_capteur_dhia;
+w=lookup_widget(button,"capteur");
+gtk_widget_destroy(w);
+window_supprission_capteur_dhia=create_supprission_capteur_dhia();
 gtk_widget_show(window_supprission_capteur_dhia);
 }
 
@@ -152,8 +155,9 @@ on_button_modifiercapteur_dhia_clicked (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*windowcapteur,*windowmodifier_capteur_noctis2;
-gtk_widget_destroy(windowcapteur);
+*w,*windowmodifier_capteur_noctis2;
+w=lookup_widget(button,"capteur");
+gtk_widget_destroy(w);
 windowmodifier_capteur_noctis2=create_modifier_capteur_noctis2();
 gtk_widget_show(windowmodifier_capteur_noctis2);
 }
@@ -163,7 +167,13 @@ void
 on_button_cherchercapteur_dhia_clicked (GtkButton       *button,
                                         gpointer         user_data)
 {
-
+GtkWidget
+*w,*windowchercher_dhia;
+w=lookup_widget(button,"capteur");
+gtk_widget_destroy(w);
+windowchercher_dhia=lookup_widget(button,"chercher_dhia");
+windowchercher_dhia=create_chercher_dhia();
+gtk_widget_show(windowchercher_dhia);
 }
 
 
@@ -176,7 +186,6 @@ GtkWidget
 *windowcapteur,*windowaffichage_capteur_dhia;
 GtkWidget *treeview1;
 windowcapteur=lookup_widget(button,"windowcapteur");
-
 gtk_widget_destroy(windowcapteur);
 windowaffichage_capteur_dhia=lookup_widget(button,"windowaffichage_capteur_dhia");
 windowaffichage_capteur_dhia=create_affichage_capteur_dhia();
@@ -344,9 +353,9 @@ on_button_ajoutcapt_interface_dhia_clicked
                                         gpointer         user_data)
 {
 GtkWidget
- *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*windowcapteur,*window_ajout_capteur_dhia;
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*output,*windowcapteur,*window_ajout_capteur_dhia;
 
-
+int y;
 capteur t;
 
 j1=lookup_widget(objet_graphique,"spinbutton_j1_dhia");
@@ -366,11 +375,22 @@ strcpy(t.nomcapt,gtk_entry_get_text(GTK_ENTRY(nomcapt)));
 t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
+output=lookup_widget(objet_graphique,"result_ajout");
 t.type=x;
+y=cherche_id(t.ref);
+if (y==1)
+{
+gtk_label_set_text(GTK_LABEL(output),"capteur existe deja,essayez une autre reference");
+}
+else
+{
 ajout_capteur(t);
+gtk_label_set_text(GTK_LABEL(output),"capteur ajouter avec succes");
 gtk_widget_destroy(window_ajout_capteur_dhia);
 windowcapteur=create_capteur();
 gtk_widget_show(windowcapteur);
+}
+
 }
 
 
@@ -386,12 +406,35 @@ output=lookup_widget(objet_graphique,"label_output_message_supprission");
 ref=lookup_widget(objet_graphique,"entry_ref_capteur_supprission");
 ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 x=supprimer_capteur (ref);
-if (x==0)
+if (x==1)
 gtk_label_set_text(GTK_LABEL(output),"capteur supprimer avec succe");
 else
 gtk_label_set_text(GTK_LABEL(output),"capteur n est pas supprimer ou reference n existe pas");
 
 }
+void
+on_retour_ajout_capt_clicked           (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowajout_capteur_dhia;
+gtk_widget_destroy(windowajout_capteur_dhia);
+windowcapteur=create_capteur();
+gtk_widget_show(windowcapteur);
+}
+
+
+void
+on_retour_acc_modif_clicked            (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*windowcapteur,*windowmodifier_capteur_noctis2;
+gtk_widget_destroy(windowmodifier_capteur_noctis2);
+windowcapteur=create_capteur();
+gtk_widget_show(windowcapteur);
+}
+
 
 /////////////////////////////////////:nocta://////////////////////////////////////////////
 void
@@ -548,6 +591,16 @@ on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 {y=6;}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

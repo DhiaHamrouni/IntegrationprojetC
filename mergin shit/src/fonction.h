@@ -39,6 +39,7 @@ int cherche_id(int num);
 void afficher_capteur (GtkWidget * liste);
 void vider (GtkWidget *liste);
 capteur trouvage (int ref);
+int verif_dhia (char log[] , char pw[]);
 
 ///////////////////////////////////////end Dhia////////////////////////////////////
 
