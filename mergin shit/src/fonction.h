@@ -55,3 +55,28 @@ produit chercher(int id);
 void afficher_tous(produit p);
 void afficher_les_produits_en_rupture(produit p);
 
+/////////////////jesser///////////////
+
+typedef struct Utilisateur
+{
+char cin[30];
+char nom[20];
+char prenom[20];
+char fonction[50];
+char niveau[20];
+char daten[50]
+ }utilisateur;
+
+void ajouter_utilisateur(utilisateur u);
+void afficher_utilisateur(GtkWidget *liste);
+void supprimer_utilisateur(utilisateur u);
+void modifier_utilisateur(utilisateur u,char cin[]);
+
+int verif(char cin[],char mot[]);
+void supprimer1(char cin[]);
+int recherche(char cin[]);
+int nombre_etudiant(char niv[]);
+utilisateur chercher_utilisateur(char cin[]);
+
+//////////////end jesser//////////
+

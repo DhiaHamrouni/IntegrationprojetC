@@ -399,3 +399,271 @@ int supprimer(int id)
     }
 return (t);
 }
+
+///////////jesser///////////////:
+
+
+enum
+{
+	CIN,
+	NOM,
+	PRENOM,
+	FONCTION,
+	NIVEAU,
+	DATE,
+	COLUMNSS
+};
+
+int verif(char cin[],char mot[])
+{
+int trouve=-1;
+FILE *f=NULL;
+char ch1[20];
+char ch2[20];
+f=fopen("authen.txt","r");
+if(f!=NULL);
+{
+while(fscanf(f,"%s %s ",ch1,ch2)!=EOF)
+{
+if((strcmp(ch1,cin)==0) &&(strcmp(ch2,mot)==0))
+trouve=1;
+}
+fclose(f);
+}
+return trouve ;
+
+}
+
+void ajouter_utilisateur(utilisateur u)
+{
+FILE *f;
+f=fopen("utilisateur.txt","a+");
+if (f!=NULL)
+{
+fprintf(f,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+fclose(f);
+}
+}
+
+void modifier_utilisateur(utilisateur u,char cin[])
+{
+
+    FILE*F,*Fich;
+             F=fopen("utilisateur.txt","r");
+            Fich=fopen("temputil.txt","a");
+            do
+            {
+                fscanf(F,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+            if(strcmp(cin,u.cin)==0)
+            {
+    
+            fprintf(Fich,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+}
+
+
+            }while(!feof(F));
+            fclose(F);
+            fclose(Fich);
+            remove("utilisateur.txt");
+            rename("temputil.txt","utilisateur.txt");
+          
+    }
+
+
+void afficher_utilisateur(GtkWidget *liste)
+{
+
+char cin[30];
+char nom[20];
+char prenom[20];
+char fonction[50];
+char niveau[20];
+char date[50];
+
+
+	GtkCellRenderer *renderer;
+       GtkTreeViewColumn *column;
+       GtkTreeIter iter;	
+       GtkListStore *store;
+store=NULL;
+
+FILE *f;
+store=gtk_tree_view_get_model(liste);
+
+if (store==NULL)
+{
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" cin", renderer, "text",CIN, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" nom", renderer, "text",NOM, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" prenom", renderer, "text",PRENOM, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" fonction", renderer, "text",FONCTION, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" niveau", renderer, "text",NIVEAU, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+renderer = gtk_cell_renderer_text_new ();
+column = gtk_tree_view_column_new_with_attributes(" date_de_naissance", renderer, "text",DATE, NULL);
+gtk_tree_view_append_column (GTK_TREE_VIEW (liste), column);
+
+
+}
+store=gtk_list_store_new (COLUMNSS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
+
+f=fopen("utilisateur.txt","r");
+if(f==NULL)
+{
+	return;
+}
+else
+{
+f=fopen("utilisateur.txt","a+");
+while(fscanf(f,"%s %s %s %s %s %s \n",cin,nom,prenom,fonction,niveau,date)!=EOF)
+{
+gtk_list_store_append (store, &iter);
+gtk_list_store_set (store, &iter, CIN, cin, NOM, nom, PRENOM, prenom, FONCTION, fonction, NIVEAU, niveau, DATE, date, -1);
+}
+fclose(f);
+gtk_tree_view_set_model (GTK_TREE_VIEW (liste), GTK_TREE_MODEL (store));
+g_object_unref (store);
+}
+}
+
+void supprimer_utilisateur(utilisateur u)
+{
+char cin[30];
+char nom[20];
+char prenom[20];
+char fonction[50];
+char niveau[20];
+char date[50];
+FILE *f,*g;
+f=fopen("utilisateur.txt","r");
+g=fopen("dump","w");
+if(f==NULL || g==NULL)
+{
+	return;
+}
+else
+{
+	while(fscanf(f,"%s %s %s %s %s %s \n",cin,nom,prenom,fonction,niveau,date)!=EOF)
+	{
+		if( strcmp(u.cin,cin)!=0 || strcmp(u.nom,nom)!=0 || strcmp(u.prenom,prenom)!=0 || strcmp(u.fonction,fonction)!=0 ||
+           strcmp(u.niveau,niveau)!=0 || strcmp(u.daten,date) )
+			{
+			fprintf(g,"%s %s %s %s %s %s \n",cin,nom,prenom,fonction,niveau,date);
+			}			
+	}
+	fclose(f);
+	fclose(g);
+remove("utilisateur.txt");
+rename("dump.txt", "utilisateur.txt");
+}
+}
+	
+
+
+
+
+void supprimer1(char cin[])
+{
+    	    	
+                
+            FILE*Fich,*F;
+		utilisateur u;
+            F=fopen("utilisateur.txt","r");
+            Fich=fopen("temputil.txt","a");
+            do
+            {
+                fscanf(F,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+                if(strcmp(cin,u.cin)!=0)
+                {
+                    fprintf(Fich,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+                }
+            }while(!feof(F));
+            fclose(Fich);
+            fclose(F);
+            remove("utilisateur.txt");
+            rename("temputil.txt","utilisateur.txt");
+          
+
+        }
+
+
+int recherche(char cin[])
+{
+int x=0;
+utilisateur u;
+FILE* F;
+F=fopen("utilisateur.txt","r");
+ do
+            {
+                fscanf(F,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten);
+
+	if(strcmp(u.cin,cin)==0)
+	{
+		x=1;
+		}
+
+
+            }while(!feof(F));
+
+fclose(F);
+return x;
+}
+
+int nombre_etudiant(char niv[])
+{
+utilisateur u;
+int nbr=0;
+
+ FILE *f;
+    f = fopen("utilisateur.txt","r");
+ if(f != NULL){
+    	while(fscanf(f,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten)!= EOF){
+if (strcmp(niv,u.niveau)==0)
+    nbr++;
+}}
+
+return nbr;
+fclose(f);
+}
+
+utilisateur chercher_utilisateur(char cin[])
+{
+utilisateur u;
+FILE *f;
+f=fopen("utilisateur.txt","r");
+if (f!=NULL )
+{
+while(fscanf(f,"%s %s %s %s %s %s \n",u.cin,u.nom,u.prenom,u.fonction,u.niveau,u.daten)!= EOF){
+if(strcmp(cin,u.cin)==0)
+{
+return u;
+}
+}
+}
+fclose(f);
+}
+
+//////////end jesser///////////
+
+
+
+
+
+
+
+
+
+

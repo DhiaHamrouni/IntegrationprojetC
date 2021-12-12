@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/noctis/Desktop/IntegrationprojetC/mergin shit'
+ac_pwd='/home/jesser/Bureau/IntegrationprojetC/mergin shit'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -686,12 +686,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} '/home/noctis/Desktop/IntegrationprojetC/mergin shit/install-sh'"
-S["MAKEINFO"]="${SHELL} \"/home/noctis/Desktop/IntegrationprojetC/mergin shit/missing\" makeinfo"
-S["AUTOHEADER"]="${SHELL} \"/home/noctis/Desktop/IntegrationprojetC/mergin shit/missing\" autoheader"
-S["AUTOMAKE"]="${SHELL} \"/home/noctis/Desktop/IntegrationprojetC/mergin shit/missing\" automake-1.15"
-S["AUTOCONF"]="${SHELL} \"/home/noctis/Desktop/IntegrationprojetC/mergin shit/missing\" autoconf"
-S["ACLOCAL"]="${SHELL} \"/home/noctis/Desktop/IntegrationprojetC/mergin shit/missing\" aclocal-1.15"
+S["install_sh"]="${SHELL} '/home/jesser/Bureau/IntegrationprojetC/mergin shit/install-sh'"
+S["MAKEINFO"]="${SHELL} \"/home/jesser/Bureau/IntegrationprojetC/mergin shit/missing\" makeinfo"
+S["AUTOHEADER"]="${SHELL} \"/home/jesser/Bureau/IntegrationprojetC/mergin shit/missing\" autoheader"
+S["AUTOMAKE"]="${SHELL} \"/home/jesser/Bureau/IntegrationprojetC/mergin shit/missing\" automake-1.15"
+S["AUTOCONF"]="${SHELL} \"/home/jesser/Bureau/IntegrationprojetC/mergin shit/missing\" autoconf"
+S["ACLOCAL"]="${SHELL} \"/home/jesser/Bureau/IntegrationprojetC/mergin shit/missing\" aclocal-1.15"
 S["VERSION"]="0.1"
 S["PACKAGE"]="mergin-shit"
 S["CYGPATH_W"]="echo"
