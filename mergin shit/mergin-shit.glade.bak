@@ -38,7 +38,7 @@
 	  <property name="activates_default">False</property>
 	</widget>
 	<packing>
-	  <property name="x">752</property>
+	  <property name="x">392</property>
 	  <property name="y">280</property>
 	</packing>
       </child>
@@ -58,34 +58,8 @@
 	  <property name="activates_default">False</property>
 	</widget>
 	<packing>
-	  <property name="x">752</property>
+	  <property name="x">384</property>
 	  <property name="y">352</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label_outputdeconnexion">
-	  <property name="width_request">552</property>
-	  <property name="height_request">72</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes"></property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">208</property>
-	  <property name="y">400</property>
 	</packing>
       </child>
 
@@ -110,8 +84,8 @@
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">536</property>
-	  <property name="y">280</property>
+	  <property name="x">224</property>
+	  <property name="y">272</property>
 	</packing>
       </child>
 
@@ -136,42 +110,8 @@
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">560</property>
+	  <property name="x">224</property>
 	  <property name="y">352</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image48">
-	  <property name="width_request">1336</property>
-	  <property name="height_request">64</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">664</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image34">
-	  <property name="width_request">1336</property>
-	  <property name="height_request">120</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn1.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">0</property>
 	</packing>
       </child>
 
@@ -250,8 +190,68 @@
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">624</property>
-	  <property name="y">440</property>
+	  <property name="x">328</property>
+	  <property name="y">408</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_outputdeconnexion">
+	  <property name="width_request">552</property>
+	  <property name="height_request">72</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes"></property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">216</property>
+	  <property name="y">520</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image69">
+	  <property name="width_request">1000</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">bn2.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">704</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image68">
+	  <property name="width_request">1000</property>
+	  <property name="height_request">72</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">authentification.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">0</property>
 	</packing>
       </child>
 
@@ -276,8 +276,8 @@
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">560</property>
-	  <property name="y">560</property>
+	  <property name="x">256</property>
+	  <property name="y">544</property>
 	</packing>
       </child>
     </widget>
@@ -706,32 +706,6 @@ TEMPERATURE</property>
       </child>
 
       <child>
-	<widget class="GtkLabel" id="result_ajout">
-	  <property name="width_request">648</property>
-	  <property name="height_request">64</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes"></property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">552</property>
-	  <property name="y">488</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="button_ajoutcapt_interface_dhia">
 	  <property name="width_request">312</property>
 	  <property name="height_request">64</property>
@@ -812,6 +786,32 @@ TEMPERATURE</property>
       </child>
 
       <child>
+	<widget class="GtkLabel" id="result_ajout">
+	  <property name="width_request">648</property>
+	  <property name="height_request">64</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes"></property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">552</property>
+	  <property name="y">488</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkButton" id="retour_ajout_capt">
 	  <property name="width_request">232</property>
 	  <property name="height_request">45</property>
@@ -886,34 +886,17 @@ TEMPERATURE</property>
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">128</property>
+	  <property name="x">192</property>
 	  <property name="y">592</property>
 	</packing>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image45">
+	<widget class="GtkImage" id="image89">
 	  <property name="width_request">1352</property>
-	  <property name="height_request">56</property>
+	  <property name="height_request">72</property>
 	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">680</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image63">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">128</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">ajout_capteur.png</property>
+	  <property name="pixbuf">2.png</property>
 	  <property name="xalign">0.5</property>
 	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
@@ -922,6 +905,23 @@ TEMPERATURE</property>
 	<packing>
 	  <property name="x">0</property>
 	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image90">
+	  <property name="width_request">1352</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">672</property>
 	</packing>
       </child>
     </widget>
@@ -963,8 +963,42 @@ TEMPERATURE</property>
 	  <property name="activates_default">False</property>
 	</widget>
 	<packing>
-	  <property name="x">680</property>
-	  <property name="y">368</property>
+	  <property name="x">536</property>
+	  <property name="y">344</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image91">
+	  <property name="width_request">1000</property>
+	  <property name="height_request">72</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">5.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image92">
+	  <property name="width_request">1000</property>
+	  <property name="height_request">32</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">664</property>
 	</packing>
       </child>
 
@@ -989,8 +1023,8 @@ TEMPERATURE</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">496</property>
-	  <property name="y">184</property>
+	  <property name="x">376</property>
+	  <property name="y">168</property>
 	</packing>
       </child>
 
@@ -1015,8 +1049,8 @@ TEMPERATURE</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">456</property>
-	  <property name="y">344</property>
+	  <property name="x">280</property>
+	  <property name="y">328</property>
 	</packing>
       </child>
 
@@ -1033,8 +1067,8 @@ TEMPERATURE</property>
 	  <signal name="clicked" handler="on_button_confirmer_supprission_capteur_dhia_clicked" last_modification_time="Sat, 27 Nov 2021 22:14:39 GMT"/>
 	</widget>
 	<packing>
-	  <property name="x">552</property>
-	  <property name="y">432</property>
+	  <property name="x">384</property>
+	  <property name="y">400</property>
 	</packing>
       </child>
 
@@ -1059,42 +1093,8 @@ TEMPERATURE</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">376</property>
-	  <property name="y">568</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image47">
-	  <property name="width_request">1344</property>
-	  <property name="height_request">64</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">768</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image64">
-	  <property name="width_request">1344</property>
-	  <property name="height_request">136</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">supprimer_capteur.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">0</property>
+	  <property name="x">232</property>
+	  <property name="y">536</property>
 	</packing>
       </child>
     </widget>
@@ -2716,86 +2716,6 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkButton" id="tache2_dhia">
-	  <property name="width_request">184</property>
-	  <property name="height_request">64</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_tache2_dhia_clicked" last_modification_time="Sun, 12 Dec 2021 00:55:40 GMT"/>
-
-	  <child>
-	    <widget class="GtkAlignment" id="alignment28">
-	      <property name="visible">True</property>
-	      <property name="xalign">0.5</property>
-	      <property name="yalign">0.5</property>
-	      <property name="xscale">0</property>
-	      <property name="yscale">0</property>
-	      <property name="top_padding">0</property>
-	      <property name="bottom_padding">0</property>
-	      <property name="left_padding">0</property>
-	      <property name="right_padding">0</property>
-
-	      <child>
-		<widget class="GtkHBox" id="hbox28">
-		  <property name="visible">True</property>
-		  <property name="homogeneous">False</property>
-		  <property name="spacing">2</property>
-
-		  <child>
-		    <widget class="GtkImage" id="image50">
-		      <property name="visible">True</property>
-		      <property name="stock">gtk-sort-ascending</property>
-		      <property name="icon_size">4</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="padding">0</property>
-		      <property name="expand">False</property>
-		      <property name="fill">False</property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkLabel" id="label73">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Lister Les Alarmes</property>
-		      <property name="use_underline">True</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		      <property name="width_chars">-1</property>
-		      <property name="single_line_mode">False</property>
-		      <property name="angle">0</property>
-		    </widget>
-		    <packing>
-		      <property name="padding">0</property>
-		      <property name="expand">False</property>
-		      <property name="fill">False</property>
-		    </packing>
-		  </child>
-		</widget>
-	      </child>
-	    </widget>
-	  </child>
-	</widget>
-	<packing>
-	  <property name="x">1008</property>
-	  <property name="y">576</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="button_cherchercapteur_dhia">
 	  <property name="width_request">200</property>
 	  <property name="height_request">56</property>
@@ -2876,28 +2796,91 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image46">
-	  <property name="width_request">1344</property>
-	  <property name="height_request">56</property>
+	<widget class="GtkButton" id="tache2_dhia">
+	  <property name="width_request">184</property>
+	  <property name="height_request">64</property>
 	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
+	  <property name="can_focus">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_tache2_dhia_clicked" last_modification_time="Sun, 12 Dec 2021 00:55:40 GMT"/>
+
+	  <child>
+	    <widget class="GtkAlignment" id="alignment28">
+	      <property name="visible">True</property>
+	      <property name="xalign">0.5</property>
+	      <property name="yalign">0.5</property>
+	      <property name="xscale">0</property>
+	      <property name="yscale">0</property>
+	      <property name="top_padding">0</property>
+	      <property name="bottom_padding">0</property>
+	      <property name="left_padding">0</property>
+	      <property name="right_padding">0</property>
+
+	      <child>
+		<widget class="GtkHBox" id="hbox28">
+		  <property name="visible">True</property>
+		  <property name="homogeneous">False</property>
+		  <property name="spacing">2</property>
+
+		  <child>
+		    <widget class="GtkImage" id="image50">
+		      <property name="visible">True</property>
+		      <property name="stock">gtk-sort-ascending</property>
+		      <property name="icon_size">4</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="padding">0</property>
+		      <property name="expand">False</property>
+		      <property name="fill">False</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="label73">
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">Lister Les Alarmes</property>
+		      <property name="use_underline">True</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="padding">0</property>
+		      <property name="expand">False</property>
+		      <property name="fill">False</property>
+		    </packing>
+		  </child>
+		</widget>
+	      </child>
+	    </widget>
+	  </child>
 	</widget>
 	<packing>
-	  <property name="x">0</property>
-	  <property name="y">808</property>
+	  <property name="x">1008</property>
+	  <property name="y">576</property>
 	</packing>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image62">
+	<widget class="GtkImage" id="image87">
 	  <property name="width_request">1352</property>
-	  <property name="height_request">136</property>
+	  <property name="height_request">72</property>
 	  <property name="visible">True</property>
-	  <property name="pixbuf">accueil_dhia.png</property>
+	  <property name="pixbuf">1.png</property>
 	  <property name="xalign">0.5</property>
 	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
@@ -2906,6 +2889,23 @@ en rupture de stock</property>
 	<packing>
 	  <property name="x">0</property>
 	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image88">
+	  <property name="width_request">1352</property>
+	  <property name="height_request">32</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">824</property>
 	</packing>
       </child>
     </widget>
@@ -3373,6 +3373,58 @@ en rupture de stock</property>
       </child>
 
       <child>
+	<widget class="GtkButton" id="retour_acc_modif">
+	  <property name="width_request">328</property>
+	  <property name="height_request">61</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">nvm take me back</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_retour_acc_modif_clicked" last_modification_time="Fri, 10 Dec 2021 12:34:44 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">752</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image93">
+	  <property name="width_request">992</property>
+	  <property name="height_request">69</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">4.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">224</property>
+	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image94">
+	  <property name="width_request">1000</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">224</property>
+	  <property name="y">824</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkLabel" id="label65">
 	  <property name="width_request">240</property>
 	  <property name="height_request">112</property>
@@ -3395,58 +3447,6 @@ en rupture de stock</property>
 	<packing>
 	  <property name="x">1088</property>
 	  <property name="y">320</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image41">
-	  <property name="width_request">1336</property>
-	  <property name="height_request">56</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">816</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="retour_acc_modif">
-	  <property name="width_request">328</property>
-	  <property name="height_request">61</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">nvm take me back</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_retour_acc_modif_clicked" last_modification_time="Fri, 10 Dec 2021 12:34:44 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">752</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image65">
-	  <property name="width_request">1336</property>
-	  <property name="height_request">120</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">modification_dhia.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">0</property>
 	</packing>
       </child>
     </widget>
@@ -3491,23 +3491,6 @@ en rupture de stock</property>
 	<packing>
 	  <property name="x">336</property>
 	  <property name="y">200</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image43">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">56</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">736</property>
 	</packing>
       </child>
 
@@ -3698,11 +3681,11 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image66">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">136</property>
+	<widget class="GtkImage" id="image95">
+	  <property name="width_request">1344</property>
+	  <property name="height_request">72</property>
 	  <property name="visible">True</property>
-	  <property name="pixbuf">affichage_capteur.png</property>
+	  <property name="pixbuf">3.png</property>
 	  <property name="xalign">0.5</property>
 	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
@@ -3711,6 +3694,23 @@ en rupture de stock</property>
 	<packing>
 	  <property name="x">0</property>
 	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image96">
+	  <property name="width_request">1344</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">744</property>
 	</packing>
       </child>
     </widget>
@@ -3759,19 +3759,28 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image52">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">56</property>
+	<widget class="GtkLabel" id="label74">
+	  <property name="width_request">400</property>
+	  <property name="height_request">72</property>
 	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
+	  <property name="label" translatable="yes">Liste Les alarmes</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
 	  <property name="xalign">0.5</property>
 	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
 	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">0</property>
-	  <property name="y">832</property>
+	  <property name="x">464</property>
+	  <property name="y">152</property>
 	</packing>
       </child>
 
@@ -3783,6 +3792,7 @@ en rupture de stock</property>
 	  <property name="can_focus">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_refresh_alarmes_clicked" last_modification_time="Sun, 12 Dec 2021 13:49:08 GMT"/>
 
 	  <child>
 	    <widget class="GtkAlignment" id="alignment29">
@@ -3862,6 +3872,7 @@ en rupture de stock</property>
 	  <property name="can_focus">True</property>
 	  <property name="relief">GTK_RELIEF_NORMAL</property>
 	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_retour_alarmes_clicked" last_modification_time="Sun, 12 Dec 2021 13:49:15 GMT"/>
 
 	  <child>
 	    <widget class="GtkAlignment" id="alignment30">
@@ -3934,37 +3945,11 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkLabel" id="label74">
-	  <property name="width_request">400</property>
+	<widget class="GtkImage" id="image97">
+	  <property name="width_request">1352</property>
 	  <property name="height_request">72</property>
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Liste Les alarmes</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">464</property>
-	  <property name="y">152</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image55">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">128</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">alarmes_dhia.png</property>
+	  <property name="pixbuf">6.png</property>
 	  <property name="xalign">0.5</property>
 	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
@@ -3973,6 +3958,23 @@ en rupture de stock</property>
 	<packing>
 	  <property name="x">0</property>
 	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image98">
+	  <property name="width_request">1352</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">832</property>
 	</packing>
       </child>
     </widget>
@@ -4012,6 +4014,7 @@ en rupture de stock</property>
 	  <property name="active">False</property>
 	  <property name="inconsistent">False</property>
 	  <property name="draw_indicator">True</property>
+	  <signal name="toggled" handler="on_fumer_toggled" last_modification_time="Sun, 12 Dec 2021 12:56:33 GMT"/>
 	</widget>
 	<packing>
 	  <property name="x">656</property>
@@ -4032,6 +4035,7 @@ en rupture de stock</property>
 	  <property name="active">False</property>
 	  <property name="inconsistent">False</property>
 	  <property name="draw_indicator">True</property>
+	  <signal name="toggled" handler="on_mouvement_toggled" last_modification_time="Sun, 12 Dec 2021 12:56:38 GMT"/>
 	</widget>
 	<packing>
 	  <property name="x">656</property>
@@ -4040,29 +4044,69 @@ en rupture de stock</property>
       </child>
 
       <child>
-	<widget class="GtkCheckButton" id="tout">
-	  <property name="width_request">144</property>
-	  <property name="height_request">24</property>
+	<widget class="GtkImage" id="image99">
+	  <property name="width_request">1336</property>
+	  <property name="height_request">29</property>
 	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Tous les alarmes</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <property name="active">False</property>
-	  <property name="inconsistent">False</property>
-	  <property name="draw_indicator">True</property>
+	  <property name="pixbuf">8.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
 	</widget>
 	<packing>
-	  <property name="x">656</property>
-	  <property name="y">432</property>
+	  <property name="x">0</property>
+	  <property name="y">640</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label82">
+	  <property name="width_request">352</property>
+	  <property name="height_request">112</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes"></property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">984</property>
+	  <property name="y">360</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image100">
+	  <property name="width_request">1336</property>
+	  <property name="height_request">72</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">6.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">0</property>
 	</packing>
       </child>
 
       <child>
 	<widget class="GtkLabel" id="label77">
-	  <property name="width_request">280</property>
-	  <property name="height_request">64</property>
+	  <property name="width_request">304</property>
+	  <property name="height_request">80</property>
 	  <property name="visible">True</property>
 	  <property name="label" translatable="yes">Choisissez le type d alarme que vous
 voulez chercher:</property>
@@ -4081,25 +4125,8 @@ voulez chercher:</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">544</property>
-	  <property name="y">256</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image58">
-	  <property name="width_request">1344</property>
-	  <property name="height_request">56</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">696</property>
+	  <property name="x">560</property>
+	  <property name="y">224</property>
 	</packing>
       </child>
 
@@ -4178,25 +4205,8 @@ voulez chercher:</property>
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">568</property>
-	  <property name="y">544</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image56">
-	  <property name="width_request">1344</property>
-	  <property name="height_request">120</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">alarmes_dhia.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">0</property>
+	  <property name="x">576</property>
+	  <property name="y">480</property>
 	</packing>
       </child>
     </widget>
@@ -4270,23 +4280,6 @@ voulez chercher:</property>
       </child>
 
       <child>
-	<widget class="GtkImage" id="image61">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">53</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">bn2.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">728</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkLabel" id="label80">
 	  <property name="width_request">216</property>
 	  <property name="height_request">48</property>
@@ -4313,6 +4306,58 @@ voulez chercher:</property>
       </child>
 
       <child>
+	<widget class="GtkButton" id="search_dhia">
+	  <property name="width_request">232</property>
+	  <property name="height_request">112</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">CHERCHER</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="clicked" handler="on_search_dhia_clicked" last_modification_time="Sun, 12 Dec 2021 12:40:29 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">624</property>
+	  <property name="y">464</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image86">
+	  <property name="width_request">1328</property>
+	  <property name="height_request">72</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">265130155_987828421816104_6034459996600428157_n.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">24</property>
+	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image85">
+	  <property name="width_request">1352</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">bn2.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">688</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkLabel" id="label81">
 	  <property name="width_request">480</property>
 	  <property name="height_request">56</property>
@@ -4333,43 +4378,8 @@ voulez chercher:</property>
 	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">520</property>
-	  <property name="y">632</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image67">
-	  <property name="width_request">1352</property>
-	  <property name="height_request">128</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">chercher_capteur.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">0</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="search_dhia">
-	  <property name="width_request">232</property>
-	  <property name="height_request">112</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">CHERCHER</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_search_dhia_clicked" last_modification_time="Sun, 12 Dec 2021 12:40:29 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">624</property>
-	  <property name="y">464</property>
+	  <property name="x">496</property>
+	  <property name="y">616</property>
 	</packing>
       </child>
     </widget>

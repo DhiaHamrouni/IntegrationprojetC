@@ -8,11 +8,11 @@
 #include "interface.h"
 #include "support.h"
 #include "fonction.h"
-int x;
-int y;
-int o;
-int p;
-
+int x_dhia;
+int y_nouha;
+int o_dhia;
+int p_dhia;
+int choix[]={0,0,0};
 //////////////////////////tron commun////////////////////////////////
 
 
@@ -59,9 +59,49 @@ gtk_label_set_text(GTK_LABEL(output),"Incorrect Values");
 }
 ///////////////////////////////////////////:nocta:////////////////////////////////////////
 void
-on_search_dhia_clicked                 (GtkButton       *objet_graphique,
+on_refresh_alarmes_clicked             (GtkButton       *button,
                                         gpointer         user_data)
 {
+
+}
+
+
+void
+on_retour_alarmes_clicked              (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+void
+on_fumer_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{choix[0]=1 ;}
+}
+
+
+void
+on_mouvement_toggled                   (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{choix[1]=1 ;}
+}
+
+
+void
+on_tout_toggled                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{choix[2]=1 ;}
+}
+
+void
+on_search_dhia_clicked                 (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+
 {
 GtkWidget
 *ref,*output;
@@ -80,15 +120,16 @@ else
 gtk_label_set_text(GTK_LABEL(output),"capteur non existant");
 }
 }
-}
+
 
 void
 on_tache2_dhia_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*windowcapteur,*windowtype_alarme;
-gtk_widget_destroy(windowcapteur);
+*w,*windowtype_alarme;
+w=lookup_widget(button,"capteur");
+gtk_widget_destroy(w);
 windowtype_alarme=create_type_alarme();
 gtk_widget_show(windowtype_alarme);
 }
@@ -117,11 +158,49 @@ on_treeview4_row_activated             (GtkTreeView     *treeview,
 
 
 void
-on_confirm_alarme_clicked              (GtkButton       *button,
+on_confirm_alarme_clicked              (GtkButton       *objet_graphique,
                                         gpointer         user_data)
 {
-
+GtkWidget
+*output,*w,*windowAlarmes_dhia,*treeview4;
+int s=0;
+output=lookup_widget(objet_graphique,"label82");
+for (int i=0;i<3;i++)
+{
+if (choix[i]==1)
+s+=1;
 }
+if (s==1)
+{
+w=lookup_widget(objet_graphique,"capteur");
+gtk_widget_destroy(w);
+windowAlarmes_dhia=create_Alarmes_dhia();
+gtk_widget_show(windowAlarmes_dhia);
+if (choix[2]==1)
+{
+treeview4=lookup_widget(windowAlarmes_dhia,"treeview4");
+afficher_capteur(treeview4);
+}
+else if(choix[0]==1)
+{
+treeview4=lookup_widget(windowAlarmes_dhia,"treeview4");
+afficher_capteur_fume(treeview4);
+}
+else if(choix[1]==1)
+{
+treeview4=lookup_widget(windowAlarmes_dhia,"treeview4");
+afficher_capteur_infra(treeview4);
+}
+}
+else
+{
+gtk_label_set_text(GTK_LABEL(output),"choisissez un seul type de capteur \n s'il vous plait! \n hint: décocher tous les cases puis cocher une case \n et ressayer");
+choix[0]=0;
+choix[1]=0;
+choix[2]=0;
+}
+}
+
 
 void
 on_button_ajout_capteur_dhia_clicked   (GtkButton       *button,
@@ -259,7 +338,7 @@ z=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 i=cherche_id(z);
 if (i==1)
 {
-   	t=trouvage(x);
+   	t=trouvage(x_dhia);
 	gtk_label_set_text(GTK_LABEL(ch),"capteur trouver");
 	sprintf(t1,"%d",t.ref);
 	gtk_entry_set_text(GTK_ENTRY(ref),t1);
@@ -267,7 +346,7 @@ if (i==1)
 	gtk_entry_set_text(GTK_ENTRY(marque),t.marque);
 	sprintf(t2,"%d",t.gar);
 	gtk_entry_set_text(GTK_ENTRY(garantie),t2);
-	sprintf(t3,"%d",x);
+	sprintf(t3,"%d",x_dhia);
 	gtk_entry_set_text(GTK_ENTRY(type),t3);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(j1),t.date.j1);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(m1),t.date.m1);
@@ -325,7 +404,7 @@ on_radiobutton_temp_dhia_toggled       (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-x=1;
+x_dhia=1;
 }
 
 
@@ -334,7 +413,7 @@ on_radiobutton_fum__e_dhia_toggled     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-x=2;
+x_dhia=2;
 }
 
 
@@ -343,7 +422,7 @@ on_radiobutton_infrarouge_dhia_toggled (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-x=3;
+x_dhia=3;
 }
 
 
@@ -353,7 +432,7 @@ on_button_ajoutcapt_interface_dhia_clicked
                                         gpointer         user_data)
 {
 GtkWidget
- *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*output,*windowcapteur,*window_ajout_capteur_dhia;
+ *nomcapt,*ref,*marque,*j1,*m1,*a1,*type,*garantie,*output,*windowcapteur,*window_ajout_capteur_dhia,*treeview3;
 
 int y;
 capteur t;
@@ -376,7 +455,7 @@ t.ref=atoi(gtk_entry_get_text(GTK_ENTRY(ref)));
 strcpy(t.marque,gtk_entry_get_text(GTK_ENTRY(marque)));
 t.gar=atoi(gtk_entry_get_text(GTK_ENTRY(garantie)));
 output=lookup_widget(objet_graphique,"result_ajout");
-t.type=x;
+t.type=x_dhia;
 y=cherche_id(t.ref);
 if (y==1)
 {
@@ -389,6 +468,8 @@ gtk_label_set_text(GTK_LABEL(output),"capteur ajouter avec succes");
 gtk_widget_destroy(window_ajout_capteur_dhia);
 windowcapteur=create_capteur();
 gtk_widget_show(windowcapteur);
+treeview3=lookup_widget(windowcapteur,"treeview3");
+afficher_capteur(treeview3);
 }
 
 }
@@ -491,7 +572,7 @@ GtkWidget *windowrech;
 GtkWidget *windowaff;
 GtkWidget *windowaff0;
 
- switch (y)
+ switch (y_nouha)
         {
         case 1:
             {
@@ -544,7 +625,7 @@ on_radiobutton_ajout_toggled           (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=1;}
+{y_nouha=1;}
 }
 
 
@@ -553,7 +634,7 @@ on_radiobutton_modif_toggled           (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=2;}
+{y_nouha=2;}
 }
 
 
@@ -562,7 +643,7 @@ on_radiobutton_supp_toggled            (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=3;}
+{y_nouha=3;}
 }
 
 
@@ -571,7 +652,7 @@ on_radiobutton_cherch_toggled          (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=4;}
+{y_nouha=4;}
 }
 
 
@@ -580,7 +661,7 @@ on_radiobutton_affichier_toggled       (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=5;}
+{y_nouha=5;}
 }
 
 
@@ -589,18 +670,6 @@ on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y=6;}
+{y_nouha=6;}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -33,16 +33,16 @@ create_connexion (void)
   GtkWidget *fixed2;
   GtkWidget *entry1_login_connexion;
   GtkWidget *entry_password_connexion;
-  GtkWidget *label_outputdeconnexion;
   GtkWidget *labellogin_connexion;
   GtkWidget *label_password_connexion;
-  GtkWidget *image48;
-  GtkWidget *image34;
   GtkWidget *button_connexion_alterne;
   GtkWidget *alignment7;
   GtkWidget *hbox7;
   GtkWidget *image7;
   GtkWidget *label12;
+  GtkWidget *label_outputdeconnexion;
+  GtkWidget *image69;
+  GtkWidget *image68;
   GtkWidget *label72;
 
   connexion = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -54,45 +54,30 @@ create_connexion (void)
 
   entry1_login_connexion = gtk_entry_new ();
   gtk_widget_show (entry1_login_connexion);
-  gtk_fixed_put (GTK_FIXED (fixed2), entry1_login_connexion, 752, 280);
+  gtk_fixed_put (GTK_FIXED (fixed2), entry1_login_connexion, 392, 280);
   gtk_widget_set_size_request (entry1_login_connexion, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry1_login_connexion), 8226);
 
   entry_password_connexion = gtk_entry_new ();
   gtk_widget_show (entry_password_connexion);
-  gtk_fixed_put (GTK_FIXED (fixed2), entry_password_connexion, 752, 352);
+  gtk_fixed_put (GTK_FIXED (fixed2), entry_password_connexion, 384, 352);
   gtk_widget_set_size_request (entry_password_connexion, 160, 27);
   gtk_entry_set_visibility (GTK_ENTRY (entry_password_connexion), FALSE);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry_password_connexion), 8226);
 
-  label_outputdeconnexion = gtk_label_new ("");
-  gtk_widget_show (label_outputdeconnexion);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_outputdeconnexion, 208, 400);
-  gtk_widget_set_size_request (label_outputdeconnexion, 552, 72);
-
   labellogin_connexion = gtk_label_new (_("login"));
   gtk_widget_show (labellogin_connexion);
-  gtk_fixed_put (GTK_FIXED (fixed2), labellogin_connexion, 536, 280);
+  gtk_fixed_put (GTK_FIXED (fixed2), labellogin_connexion, 224, 272);
   gtk_widget_set_size_request (labellogin_connexion, 136, 32);
 
   label_password_connexion = gtk_label_new (_("Password"));
   gtk_widget_show (label_password_connexion);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_password_connexion, 560, 352);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_password_connexion, 224, 352);
   gtk_widget_set_size_request (label_password_connexion, 128, 40);
-
-  image48 = create_pixmap (connexion, "bn2.png");
-  gtk_widget_show (image48);
-  gtk_fixed_put (GTK_FIXED (fixed2), image48, 0, 664);
-  gtk_widget_set_size_request (image48, 1336, 64);
-
-  image34 = create_pixmap (connexion, "bn1.png");
-  gtk_widget_show (image34);
-  gtk_fixed_put (GTK_FIXED (fixed2), image34, 0, 0);
-  gtk_widget_set_size_request (image34, 1336, 120);
 
   button_connexion_alterne = gtk_button_new ();
   gtk_widget_show (button_connexion_alterne);
-  gtk_fixed_put (GTK_FIXED (fixed2), button_connexion_alterne, 624, 440);
+  gtk_fixed_put (GTK_FIXED (fixed2), button_connexion_alterne, 328, 408);
   gtk_widget_set_size_request (button_connexion_alterne, 280, 72);
 
   alignment7 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -111,9 +96,24 @@ create_connexion (void)
   gtk_widget_show (label12);
   gtk_box_pack_start (GTK_BOX (hbox7), label12, FALSE, FALSE, 0);
 
+  label_outputdeconnexion = gtk_label_new ("");
+  gtk_widget_show (label_outputdeconnexion);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_outputdeconnexion, 216, 520);
+  gtk_widget_set_size_request (label_outputdeconnexion, 552, 72);
+
+  image69 = create_pixmap (connexion, "bn2.png");
+  gtk_widget_show (image69);
+  gtk_fixed_put (GTK_FIXED (fixed2), image69, 0, 704);
+  gtk_widget_set_size_request (image69, 1000, 29);
+
+  image68 = create_pixmap (connexion, "authentification.png");
+  gtk_widget_show (image68);
+  gtk_fixed_put (GTK_FIXED (fixed2), image68, 0, 0);
+  gtk_widget_set_size_request (image68, 1000, 72);
+
   label72 = gtk_label_new ("");
   gtk_widget_show (label72);
-  gtk_fixed_put (GTK_FIXED (fixed2), label72, 560, 560);
+  gtk_fixed_put (GTK_FIXED (fixed2), label72, 256, 544);
   gtk_widget_set_size_request (label72, 432, 48);
 
   g_signal_connect ((gpointer) button_connexion_alterne, "clicked",
@@ -125,16 +125,16 @@ create_connexion (void)
   GLADE_HOOKUP_OBJECT (connexion, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (connexion, entry1_login_connexion, "entry1_login_connexion");
   GLADE_HOOKUP_OBJECT (connexion, entry_password_connexion, "entry_password_connexion");
-  GLADE_HOOKUP_OBJECT (connexion, label_outputdeconnexion, "label_outputdeconnexion");
   GLADE_HOOKUP_OBJECT (connexion, labellogin_connexion, "labellogin_connexion");
   GLADE_HOOKUP_OBJECT (connexion, label_password_connexion, "label_password_connexion");
-  GLADE_HOOKUP_OBJECT (connexion, image48, "image48");
-  GLADE_HOOKUP_OBJECT (connexion, image34, "image34");
   GLADE_HOOKUP_OBJECT (connexion, button_connexion_alterne, "button_connexion_alterne");
   GLADE_HOOKUP_OBJECT (connexion, alignment7, "alignment7");
   GLADE_HOOKUP_OBJECT (connexion, hbox7, "hbox7");
   GLADE_HOOKUP_OBJECT (connexion, image7, "image7");
   GLADE_HOOKUP_OBJECT (connexion, label12, "label12");
+  GLADE_HOOKUP_OBJECT (connexion, label_outputdeconnexion, "label_outputdeconnexion");
+  GLADE_HOOKUP_OBJECT (connexion, image69, "image69");
+  GLADE_HOOKUP_OBJECT (connexion, image68, "image68");
   GLADE_HOOKUP_OBJECT (connexion, label72, "label72");
 
   return connexion;
@@ -167,19 +167,19 @@ create_ajout_capteur_dhia (void)
   GtkWidget *radiobutton_temp_dhia;
   GtkWidget *label19;
   GtkWidget *label20;
-  GtkWidget *result_ajout;
   GtkWidget *button_ajoutcapt_interface_dhia;
   GtkWidget *alignment26;
   GtkWidget *hbox26;
   GtkWidget *image37;
   GtkWidget *label70;
+  GtkWidget *result_ajout;
   GtkWidget *retour_ajout_capt;
   GtkWidget *alignment27;
   GtkWidget *hbox27;
   GtkWidget *image38;
   GtkWidget *label71;
-  GtkWidget *image45;
-  GtkWidget *image63;
+  GtkWidget *image89;
+  GtkWidget *image90;
 
   ajout_capteur_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (ajout_capteur_dhia), _("Ajout d'un capteur"));
@@ -291,11 +291,6 @@ create_ajout_capteur_dhia (void)
   gtk_fixed_put (GTK_FIXED (fixed5), label20, 544, 448);
   gtk_widget_set_size_request (label20, 144, 32);
 
-  result_ajout = gtk_label_new ("");
-  gtk_widget_show (result_ajout);
-  gtk_fixed_put (GTK_FIXED (fixed5), result_ajout, 552, 488);
-  gtk_widget_set_size_request (result_ajout, 648, 64);
-
   button_ajoutcapt_interface_dhia = gtk_button_new ();
   gtk_widget_show (button_ajoutcapt_interface_dhia);
   gtk_fixed_put (GTK_FIXED (fixed5), button_ajoutcapt_interface_dhia, 960, 584);
@@ -317,9 +312,14 @@ create_ajout_capteur_dhia (void)
   gtk_widget_show (label70);
   gtk_box_pack_start (GTK_BOX (hbox26), label70, FALSE, FALSE, 0);
 
+  result_ajout = gtk_label_new ("");
+  gtk_widget_show (result_ajout);
+  gtk_fixed_put (GTK_FIXED (fixed5), result_ajout, 552, 488);
+  gtk_widget_set_size_request (result_ajout, 648, 64);
+
   retour_ajout_capt = gtk_button_new ();
   gtk_widget_show (retour_ajout_capt);
-  gtk_fixed_put (GTK_FIXED (fixed5), retour_ajout_capt, 128, 592);
+  gtk_fixed_put (GTK_FIXED (fixed5), retour_ajout_capt, 192, 592);
   gtk_widget_set_size_request (retour_ajout_capt, 232, 45);
 
   alignment27 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -338,15 +338,15 @@ create_ajout_capteur_dhia (void)
   gtk_widget_show (label71);
   gtk_box_pack_start (GTK_BOX (hbox27), label71, FALSE, FALSE, 0);
 
-  image45 = create_pixmap (ajout_capteur_dhia, "bn2.png");
-  gtk_widget_show (image45);
-  gtk_fixed_put (GTK_FIXED (fixed5), image45, 0, 680);
-  gtk_widget_set_size_request (image45, 1352, 56);
+  image89 = create_pixmap (ajout_capteur_dhia, "2.png");
+  gtk_widget_show (image89);
+  gtk_fixed_put (GTK_FIXED (fixed5), image89, 0, 0);
+  gtk_widget_set_size_request (image89, 1352, 72);
 
-  image63 = create_pixmap (ajout_capteur_dhia, "ajout_capteur.png");
-  gtk_widget_show (image63);
-  gtk_fixed_put (GTK_FIXED (fixed5), image63, 0, 0);
-  gtk_widget_set_size_request (image63, 1352, 128);
+  image90 = create_pixmap (ajout_capteur_dhia, "8.png");
+  gtk_widget_show (image90);
+  gtk_fixed_put (GTK_FIXED (fixed5), image90, 0, 672);
+  gtk_widget_set_size_request (image90, 1352, 29);
 
   g_signal_connect ((gpointer) radiobutton_infrarouge_dhia, "toggled",
                     G_CALLBACK (on_radiobutton_infrarouge_dhia_toggled),
@@ -385,19 +385,19 @@ create_ajout_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, radiobutton_temp_dhia, "radiobutton_temp_dhia");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label19, "label19");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label20, "label20");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, result_ajout, "result_ajout");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, button_ajoutcapt_interface_dhia, "button_ajoutcapt_interface_dhia");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, alignment26, "alignment26");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, hbox26, "hbox26");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image37, "image37");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label70, "label70");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, result_ajout, "result_ajout");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, retour_ajout_capt, "retour_ajout_capt");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, alignment27, "alignment27");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, hbox27, "hbox27");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image38, "image38");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label71, "label71");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image45, "image45");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image63, "image63");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image89, "image89");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image90, "image90");
 
   return ajout_capteur_dhia;
 }
@@ -408,12 +408,12 @@ create_supprission_capteur_dhia (void)
   GtkWidget *supprission_capteur_dhia;
   GtkWidget *fixed7;
   GtkWidget *entry_ref_capteur_supprission;
+  GtkWidget *image91;
+  GtkWidget *image92;
   GtkWidget *label25;
   GtkWidget *label26;
   GtkWidget *button_confirmer_supprission_capteur_dhia;
   GtkWidget *label_output_message_supprission;
-  GtkWidget *image47;
-  GtkWidget *image64;
 
   supprission_capteur_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (supprission_capteur_dhia), _("supprission d'un capteur"));
@@ -424,39 +424,39 @@ create_supprission_capteur_dhia (void)
 
   entry_ref_capteur_supprission = gtk_entry_new ();
   gtk_widget_show (entry_ref_capteur_supprission);
-  gtk_fixed_put (GTK_FIXED (fixed7), entry_ref_capteur_supprission, 680, 368);
+  gtk_fixed_put (GTK_FIXED (fixed7), entry_ref_capteur_supprission, 536, 344);
   gtk_widget_set_size_request (entry_ref_capteur_supprission, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry_ref_capteur_supprission), 8226);
 
+  image91 = create_pixmap (supprission_capteur_dhia, "5.png");
+  gtk_widget_show (image91);
+  gtk_fixed_put (GTK_FIXED (fixed7), image91, 0, 0);
+  gtk_widget_set_size_request (image91, 1000, 72);
+
+  image92 = create_pixmap (supprission_capteur_dhia, "8.png");
+  gtk_widget_show (image92);
+  gtk_fixed_put (GTK_FIXED (fixed7), image92, 0, 664);
+  gtk_widget_set_size_request (image92, 1000, 32);
+
   label25 = gtk_label_new (_("SUPPRESSION D'UN CAPTEUR"));
   gtk_widget_show (label25);
-  gtk_fixed_put (GTK_FIXED (fixed7), label25, 496, 184);
+  gtk_fixed_put (GTK_FIXED (fixed7), label25, 376, 168);
   gtk_widget_set_size_request (label25, 360, 96);
 
   label26 = gtk_label_new (_("REF\303\211RENCE"));
   gtk_widget_show (label26);
-  gtk_fixed_put (GTK_FIXED (fixed7), label26, 456, 344);
+  gtk_fixed_put (GTK_FIXED (fixed7), label26, 280, 328);
   gtk_widget_set_size_request (label26, 176, 64);
 
   button_confirmer_supprission_capteur_dhia = gtk_button_new_with_mnemonic (_("CONFIRMER"));
   gtk_widget_show (button_confirmer_supprission_capteur_dhia);
-  gtk_fixed_put (GTK_FIXED (fixed7), button_confirmer_supprission_capteur_dhia, 552, 432);
+  gtk_fixed_put (GTK_FIXED (fixed7), button_confirmer_supprission_capteur_dhia, 384, 400);
   gtk_widget_set_size_request (button_confirmer_supprission_capteur_dhia, 280, 88);
 
   label_output_message_supprission = gtk_label_new ("");
   gtk_widget_show (label_output_message_supprission);
-  gtk_fixed_put (GTK_FIXED (fixed7), label_output_message_supprission, 376, 568);
+  gtk_fixed_put (GTK_FIXED (fixed7), label_output_message_supprission, 232, 536);
   gtk_widget_set_size_request (label_output_message_supprission, 592, 64);
-
-  image47 = create_pixmap (supprission_capteur_dhia, "bn2.png");
-  gtk_widget_show (image47);
-  gtk_fixed_put (GTK_FIXED (fixed7), image47, 0, 768);
-  gtk_widget_set_size_request (image47, 1344, 64);
-
-  image64 = create_pixmap (supprission_capteur_dhia, "supprimer_capteur.png");
-  gtk_widget_show (image64);
-  gtk_fixed_put (GTK_FIXED (fixed7), image64, 0, 0);
-  gtk_widget_set_size_request (image64, 1344, 136);
 
   g_signal_connect ((gpointer) button_confirmer_supprission_capteur_dhia, "clicked",
                     G_CALLBACK (on_button_confirmer_supprission_capteur_dhia_clicked),
@@ -466,12 +466,12 @@ create_supprission_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT_NO_REF (supprission_capteur_dhia, supprission_capteur_dhia, "supprission_capteur_dhia");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, entry_ref_capteur_supprission, "entry_ref_capteur_supprission");
+  GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, image91, "image91");
+  GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, image92, "image92");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, label25, "label25");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, label26, "label26");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, button_confirmer_supprission_capteur_dhia, "button_confirmer_supprission_capteur_dhia");
   GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, label_output_message_supprission, "label_output_message_supprission");
-  GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, image47, "image47");
-  GLADE_HOOKUP_OBJECT (supprission_capteur_dhia, image64, "image64");
 
   return supprission_capteur_dhia;
 }
@@ -1003,18 +1003,18 @@ create_capteur (void)
   GtkWidget *hbox21;
   GtkWidget *image29;
   GtkWidget *label50;
-  GtkWidget *tache2_dhia;
-  GtkWidget *alignment28;
-  GtkWidget *hbox28;
-  GtkWidget *image50;
-  GtkWidget *label73;
   GtkWidget *button_cherchercapteur_dhia;
   GtkWidget *alignment18;
   GtkWidget *hbox18;
   GtkWidget *image26;
   GtkWidget *label47;
-  GtkWidget *image46;
-  GtkWidget *image62;
+  GtkWidget *tache2_dhia;
+  GtkWidget *alignment28;
+  GtkWidget *hbox28;
+  GtkWidget *image50;
+  GtkWidget *label73;
+  GtkWidget *image87;
+  GtkWidget *image88;
 
   capteur = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (capteur), _("ACCUEIL"));
@@ -1138,27 +1138,6 @@ create_capteur (void)
   gtk_widget_show (label50);
   gtk_box_pack_start (GTK_BOX (hbox21), label50, FALSE, FALSE, 0);
 
-  tache2_dhia = gtk_button_new ();
-  gtk_widget_show (tache2_dhia);
-  gtk_fixed_put (GTK_FIXED (fixed11), tache2_dhia, 1008, 576);
-  gtk_widget_set_size_request (tache2_dhia, 184, 64);
-
-  alignment28 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment28);
-  gtk_container_add (GTK_CONTAINER (tache2_dhia), alignment28);
-
-  hbox28 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox28);
-  gtk_container_add (GTK_CONTAINER (alignment28), hbox28);
-
-  image50 = gtk_image_new_from_stock ("gtk-sort-ascending", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image50);
-  gtk_box_pack_start (GTK_BOX (hbox28), image50, FALSE, FALSE, 0);
-
-  label73 = gtk_label_new_with_mnemonic (_("Lister Les Alarmes"));
-  gtk_widget_show (label73);
-  gtk_box_pack_start (GTK_BOX (hbox28), label73, FALSE, FALSE, 0);
-
   button_cherchercapteur_dhia = gtk_button_new ();
   gtk_widget_show (button_cherchercapteur_dhia);
   gtk_fixed_put (GTK_FIXED (fixed11), button_cherchercapteur_dhia, 992, 296);
@@ -1180,15 +1159,36 @@ create_capteur (void)
   gtk_widget_show (label47);
   gtk_box_pack_start (GTK_BOX (hbox18), label47, FALSE, FALSE, 0);
 
-  image46 = create_pixmap (capteur, "bn2.png");
-  gtk_widget_show (image46);
-  gtk_fixed_put (GTK_FIXED (fixed11), image46, 0, 808);
-  gtk_widget_set_size_request (image46, 1344, 56);
+  tache2_dhia = gtk_button_new ();
+  gtk_widget_show (tache2_dhia);
+  gtk_fixed_put (GTK_FIXED (fixed11), tache2_dhia, 1008, 576);
+  gtk_widget_set_size_request (tache2_dhia, 184, 64);
 
-  image62 = create_pixmap (capteur, "accueil_dhia.png");
-  gtk_widget_show (image62);
-  gtk_fixed_put (GTK_FIXED (fixed11), image62, 0, 0);
-  gtk_widget_set_size_request (image62, 1352, 136);
+  alignment28 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment28);
+  gtk_container_add (GTK_CONTAINER (tache2_dhia), alignment28);
+
+  hbox28 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox28);
+  gtk_container_add (GTK_CONTAINER (alignment28), hbox28);
+
+  image50 = gtk_image_new_from_stock ("gtk-sort-ascending", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image50);
+  gtk_box_pack_start (GTK_BOX (hbox28), image50, FALSE, FALSE, 0);
+
+  label73 = gtk_label_new_with_mnemonic (_("Lister Les Alarmes"));
+  gtk_widget_show (label73);
+  gtk_box_pack_start (GTK_BOX (hbox28), label73, FALSE, FALSE, 0);
+
+  image87 = create_pixmap (capteur, "1.png");
+  gtk_widget_show (image87);
+  gtk_fixed_put (GTK_FIXED (fixed11), image87, 0, 0);
+  gtk_widget_set_size_request (image87, 1352, 72);
+
+  image88 = create_pixmap (capteur, "8.png");
+  gtk_widget_show (image88);
+  gtk_fixed_put (GTK_FIXED (fixed11), image88, 0, 824);
+  gtk_widget_set_size_request (image88, 1352, 32);
 
   g_signal_connect ((gpointer) treeview3, "row_activated",
                     G_CALLBACK (on_treeview3_row_activated),
@@ -1208,11 +1208,11 @@ create_capteur (void)
   g_signal_connect ((gpointer) button_retourto_accueil_from_capteur, "clicked",
                     G_CALLBACK (on_button_retourto_accueil_from_capteur_clicked),
                     NULL);
-  g_signal_connect ((gpointer) tache2_dhia, "clicked",
-                    G_CALLBACK (on_tache2_dhia_clicked),
-                    NULL);
   g_signal_connect ((gpointer) button_cherchercapteur_dhia, "clicked",
                     G_CALLBACK (on_button_cherchercapteur_dhia_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) tache2_dhia, "clicked",
+                    G_CALLBACK (on_tache2_dhia_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1245,18 +1245,18 @@ create_capteur (void)
   GLADE_HOOKUP_OBJECT (capteur, hbox21, "hbox21");
   GLADE_HOOKUP_OBJECT (capteur, image29, "image29");
   GLADE_HOOKUP_OBJECT (capteur, label50, "label50");
-  GLADE_HOOKUP_OBJECT (capteur, tache2_dhia, "tache2_dhia");
-  GLADE_HOOKUP_OBJECT (capteur, alignment28, "alignment28");
-  GLADE_HOOKUP_OBJECT (capteur, hbox28, "hbox28");
-  GLADE_HOOKUP_OBJECT (capteur, image50, "image50");
-  GLADE_HOOKUP_OBJECT (capteur, label73, "label73");
   GLADE_HOOKUP_OBJECT (capteur, button_cherchercapteur_dhia, "button_cherchercapteur_dhia");
   GLADE_HOOKUP_OBJECT (capteur, alignment18, "alignment18");
   GLADE_HOOKUP_OBJECT (capteur, hbox18, "hbox18");
   GLADE_HOOKUP_OBJECT (capteur, image26, "image26");
   GLADE_HOOKUP_OBJECT (capteur, label47, "label47");
-  GLADE_HOOKUP_OBJECT (capteur, image46, "image46");
-  GLADE_HOOKUP_OBJECT (capteur, image62, "image62");
+  GLADE_HOOKUP_OBJECT (capteur, tache2_dhia, "tache2_dhia");
+  GLADE_HOOKUP_OBJECT (capteur, alignment28, "alignment28");
+  GLADE_HOOKUP_OBJECT (capteur, hbox28, "hbox28");
+  GLADE_HOOKUP_OBJECT (capteur, image50, "image50");
+  GLADE_HOOKUP_OBJECT (capteur, label73, "label73");
+  GLADE_HOOKUP_OBJECT (capteur, image87, "image87");
+  GLADE_HOOKUP_OBJECT (capteur, image88, "image88");
 
   return capteur;
 }
@@ -1290,10 +1290,10 @@ create_modifier_capteur_noctis2 (void)
   GtkWidget *hbox23;
   GtkWidget *image31;
   GtkWidget *label63;
-  GtkWidget *label65;
-  GtkWidget *image41;
   GtkWidget *retour_acc_modif;
-  GtkWidget *image65;
+  GtkWidget *image93;
+  GtkWidget *image94;
+  GtkWidget *label65;
 
   modifier_capteur_noctis2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (modifier_capteur_noctis2), _("MODIFIER LE CAPTEUR"));
@@ -1411,25 +1411,25 @@ create_modifier_capteur_noctis2 (void)
   gtk_widget_show (label63);
   gtk_box_pack_start (GTK_BOX (hbox23), label63, FALSE, FALSE, 0);
 
-  label65 = gtk_label_new ("");
-  gtk_widget_show (label65);
-  gtk_fixed_put (GTK_FIXED (fixed13), label65, 1088, 320);
-  gtk_widget_set_size_request (label65, 240, 112);
-
-  image41 = create_pixmap (modifier_capteur_noctis2, "bn2.png");
-  gtk_widget_show (image41);
-  gtk_fixed_put (GTK_FIXED (fixed13), image41, 0, 816);
-  gtk_widget_set_size_request (image41, 1336, 56);
-
   retour_acc_modif = gtk_button_new_with_mnemonic (_("nvm take me back"));
   gtk_widget_show (retour_acc_modif);
   gtk_fixed_put (GTK_FIXED (fixed13), retour_acc_modif, 0, 752);
   gtk_widget_set_size_request (retour_acc_modif, 328, 61);
 
-  image65 = create_pixmap (modifier_capteur_noctis2, "modification_dhia.png");
-  gtk_widget_show (image65);
-  gtk_fixed_put (GTK_FIXED (fixed13), image65, 0, 0);
-  gtk_widget_set_size_request (image65, 1336, 120);
+  image93 = create_pixmap (modifier_capteur_noctis2, "4.png");
+  gtk_widget_show (image93);
+  gtk_fixed_put (GTK_FIXED (fixed13), image93, 224, 0);
+  gtk_widget_set_size_request (image93, 992, 69);
+
+  image94 = create_pixmap (modifier_capteur_noctis2, "8.png");
+  gtk_widget_show (image94);
+  gtk_fixed_put (GTK_FIXED (fixed13), image94, 224, 824);
+  gtk_widget_set_size_request (image94, 1000, 29);
+
+  label65 = gtk_label_new ("");
+  gtk_widget_show (label65);
+  gtk_fixed_put (GTK_FIXED (fixed13), label65, 1088, 320);
+  gtk_widget_set_size_request (label65, 240, 112);
 
   g_signal_connect ((gpointer) button_verifmodif_noctis, "clicked",
                     G_CALLBACK (on_button_verifmodif_noctis_clicked),
@@ -1465,10 +1465,10 @@ create_modifier_capteur_noctis2 (void)
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, hbox23, "hbox23");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image31, "image31");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label63, "label63");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label65, "label65");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image41, "image41");
   GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, retour_acc_modif, "retour_acc_modif");
-  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image65, "image65");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image93, "image93");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, image94, "image94");
+  GLADE_HOOKUP_OBJECT (modifier_capteur_noctis2, label65, "label65");
 
   return modifier_capteur_noctis2;
 }
@@ -1479,7 +1479,6 @@ create_affichage_capteur_dhia (void)
   GtkWidget *affichage_capteur_dhia;
   GtkWidget *fixed14;
   GtkWidget *treeview1;
-  GtkWidget *image43;
   GtkWidget *retour_accueil_affichage;
   GtkWidget *alignment25;
   GtkWidget *hbox25;
@@ -1491,7 +1490,8 @@ create_affichage_capteur_dhia (void)
   GtkWidget *image32;
   GtkWidget *label67;
   GtkWidget *label66;
-  GtkWidget *image66;
+  GtkWidget *image95;
+  GtkWidget *image96;
 
   affichage_capteur_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (affichage_capteur_dhia), _("affichage"));
@@ -1504,11 +1504,6 @@ create_affichage_capteur_dhia (void)
   gtk_widget_show (treeview1);
   gtk_fixed_put (GTK_FIXED (fixed14), treeview1, 336, 200);
   gtk_widget_set_size_request (treeview1, 712, 440);
-
-  image43 = create_pixmap (affichage_capteur_dhia, "bn2.png");
-  gtk_widget_show (image43);
-  gtk_fixed_put (GTK_FIXED (fixed14), image43, 0, 736);
-  gtk_widget_set_size_request (image43, 1352, 56);
 
   retour_accueil_affichage = gtk_button_new ();
   gtk_widget_show (retour_accueil_affichage);
@@ -1557,10 +1552,15 @@ create_affichage_capteur_dhia (void)
   gtk_fixed_put (GTK_FIXED (fixed14), label66, 568, 144);
   gtk_widget_set_size_request (label66, 248, 48);
 
-  image66 = create_pixmap (affichage_capteur_dhia, "affichage_capteur.png");
-  gtk_widget_show (image66);
-  gtk_fixed_put (GTK_FIXED (fixed14), image66, 0, 0);
-  gtk_widget_set_size_request (image66, 1352, 136);
+  image95 = create_pixmap (affichage_capteur_dhia, "3.png");
+  gtk_widget_show (image95);
+  gtk_fixed_put (GTK_FIXED (fixed14), image95, 0, 0);
+  gtk_widget_set_size_request (image95, 1344, 72);
+
+  image96 = create_pixmap (affichage_capteur_dhia, "8.png");
+  gtk_widget_show (image96);
+  gtk_fixed_put (GTK_FIXED (fixed14), image96, 0, 744);
+  gtk_widget_set_size_request (image96, 1344, 29);
 
   g_signal_connect ((gpointer) treeview1, "row_activated",
                     G_CALLBACK (on_treeview1_row_activated),
@@ -1576,7 +1576,6 @@ create_affichage_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT_NO_REF (affichage_capteur_dhia, affichage_capteur_dhia, "affichage_capteur_dhia");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, fixed14, "fixed14");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image43, "image43");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, retour_accueil_affichage, "retour_accueil_affichage");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, alignment25, "alignment25");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, hbox25, "hbox25");
@@ -1588,7 +1587,8 @@ create_affichage_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image32, "image32");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, label67, "label67");
   GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, label66, "label66");
-  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image66, "image66");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image95, "image95");
+  GLADE_HOOKUP_OBJECT (affichage_capteur_dhia, image96, "image96");
 
   return affichage_capteur_dhia;
 }
@@ -1599,7 +1599,7 @@ create_Alarmes_dhia (void)
   GtkWidget *Alarmes_dhia;
   GtkWidget *fixed15;
   GtkWidget *treeview4;
-  GtkWidget *image52;
+  GtkWidget *label74;
   GtkWidget *refresh_alarmes;
   GtkWidget *alignment29;
   GtkWidget *hbox29;
@@ -1610,8 +1610,8 @@ create_Alarmes_dhia (void)
   GtkWidget *hbox30;
   GtkWidget *image54;
   GtkWidget *label76;
-  GtkWidget *label74;
-  GtkWidget *image55;
+  GtkWidget *image97;
+  GtkWidget *image98;
 
   Alarmes_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (Alarmes_dhia), _("LISTE DES ALARMES"));
@@ -1625,10 +1625,10 @@ create_Alarmes_dhia (void)
   gtk_fixed_put (GTK_FIXED (fixed15), treeview4, 256, 248);
   gtk_widget_set_size_request (treeview4, 744, 424);
 
-  image52 = create_pixmap (Alarmes_dhia, "bn2.png");
-  gtk_widget_show (image52);
-  gtk_fixed_put (GTK_FIXED (fixed15), image52, 0, 832);
-  gtk_widget_set_size_request (image52, 1352, 56);
+  label74 = gtk_label_new (_("Liste Les alarmes"));
+  gtk_widget_show (label74);
+  gtk_fixed_put (GTK_FIXED (fixed15), label74, 464, 152);
+  gtk_widget_set_size_request (label74, 400, 72);
 
   refresh_alarmes = gtk_button_new ();
   gtk_widget_show (refresh_alarmes);
@@ -1672,25 +1672,31 @@ create_Alarmes_dhia (void)
   gtk_widget_show (label76);
   gtk_box_pack_start (GTK_BOX (hbox30), label76, FALSE, FALSE, 0);
 
-  label74 = gtk_label_new (_("Liste Les alarmes"));
-  gtk_widget_show (label74);
-  gtk_fixed_put (GTK_FIXED (fixed15), label74, 464, 152);
-  gtk_widget_set_size_request (label74, 400, 72);
+  image97 = create_pixmap (Alarmes_dhia, "6.png");
+  gtk_widget_show (image97);
+  gtk_fixed_put (GTK_FIXED (fixed15), image97, 0, 0);
+  gtk_widget_set_size_request (image97, 1352, 72);
 
-  image55 = create_pixmap (Alarmes_dhia, "alarmes_dhia.png");
-  gtk_widget_show (image55);
-  gtk_fixed_put (GTK_FIXED (fixed15), image55, 0, 0);
-  gtk_widget_set_size_request (image55, 1352, 128);
+  image98 = create_pixmap (Alarmes_dhia, "8.png");
+  gtk_widget_show (image98);
+  gtk_fixed_put (GTK_FIXED (fixed15), image98, 0, 832);
+  gtk_widget_set_size_request (image98, 1352, 29);
 
   g_signal_connect ((gpointer) treeview4, "row_activated",
                     G_CALLBACK (on_treeview4_row_activated),
+                    NULL);
+  g_signal_connect ((gpointer) refresh_alarmes, "clicked",
+                    G_CALLBACK (on_refresh_alarmes_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) retour_alarmes, "clicked",
+                    G_CALLBACK (on_retour_alarmes_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Alarmes_dhia, Alarmes_dhia, "Alarmes_dhia");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, fixed15, "fixed15");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, treeview4, "treeview4");
-  GLADE_HOOKUP_OBJECT (Alarmes_dhia, image52, "image52");
+  GLADE_HOOKUP_OBJECT (Alarmes_dhia, label74, "label74");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, refresh_alarmes, "refresh_alarmes");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, alignment29, "alignment29");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, hbox29, "hbox29");
@@ -1701,8 +1707,8 @@ create_Alarmes_dhia (void)
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, hbox30, "hbox30");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, image54, "image54");
   GLADE_HOOKUP_OBJECT (Alarmes_dhia, label76, "label76");
-  GLADE_HOOKUP_OBJECT (Alarmes_dhia, label74, "label74");
-  GLADE_HOOKUP_OBJECT (Alarmes_dhia, image55, "image55");
+  GLADE_HOOKUP_OBJECT (Alarmes_dhia, image97, "image97");
+  GLADE_HOOKUP_OBJECT (Alarmes_dhia, image98, "image98");
 
   return Alarmes_dhia;
 }
@@ -1714,15 +1720,15 @@ create_type_alarme (void)
   GtkWidget *fixed16;
   GtkWidget *fumer;
   GtkWidget *mouvement;
-  GtkWidget *tout;
+  GtkWidget *image99;
+  GtkWidget *label82;
+  GtkWidget *image100;
   GtkWidget *label77;
-  GtkWidget *image58;
   GtkWidget *confirm_alarme;
   GtkWidget *alignment31;
   GtkWidget *hbox31;
   GtkWidget *image57;
   GtkWidget *label78;
-  GtkWidget *image56;
 
   type_alarme = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (type_alarme), _("Choisissez le type"));
@@ -1741,24 +1747,29 @@ create_type_alarme (void)
   gtk_fixed_put (GTK_FIXED (fixed16), mouvement, 656, 400);
   gtk_widget_set_size_request (mouvement, 152, 24);
 
-  tout = gtk_check_button_new_with_mnemonic (_("Tous les alarmes"));
-  gtk_widget_show (tout);
-  gtk_fixed_put (GTK_FIXED (fixed16), tout, 656, 432);
-  gtk_widget_set_size_request (tout, 144, 24);
+  image99 = create_pixmap (type_alarme, "8.png");
+  gtk_widget_show (image99);
+  gtk_fixed_put (GTK_FIXED (fixed16), image99, 0, 640);
+  gtk_widget_set_size_request (image99, 1336, 29);
+
+  label82 = gtk_label_new ("");
+  gtk_widget_show (label82);
+  gtk_fixed_put (GTK_FIXED (fixed16), label82, 984, 360);
+  gtk_widget_set_size_request (label82, 352, 112);
+
+  image100 = create_pixmap (type_alarme, "6.png");
+  gtk_widget_show (image100);
+  gtk_fixed_put (GTK_FIXED (fixed16), image100, 0, 0);
+  gtk_widget_set_size_request (image100, 1336, 72);
 
   label77 = gtk_label_new (_("Choisissez le type d alarme que vous\nvoulez chercher:"));
   gtk_widget_show (label77);
-  gtk_fixed_put (GTK_FIXED (fixed16), label77, 544, 256);
-  gtk_widget_set_size_request (label77, 280, 64);
-
-  image58 = create_pixmap (type_alarme, "bn2.png");
-  gtk_widget_show (image58);
-  gtk_fixed_put (GTK_FIXED (fixed16), image58, 0, 696);
-  gtk_widget_set_size_request (image58, 1344, 56);
+  gtk_fixed_put (GTK_FIXED (fixed16), label77, 560, 224);
+  gtk_widget_set_size_request (label77, 304, 80);
 
   confirm_alarme = gtk_button_new ();
   gtk_widget_show (confirm_alarme);
-  gtk_fixed_put (GTK_FIXED (fixed16), confirm_alarme, 568, 544);
+  gtk_fixed_put (GTK_FIXED (fixed16), confirm_alarme, 576, 480);
   gtk_widget_set_size_request (confirm_alarme, 248, 72);
 
   alignment31 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -1777,11 +1788,12 @@ create_type_alarme (void)
   gtk_widget_show (label78);
   gtk_box_pack_start (GTK_BOX (hbox31), label78, FALSE, FALSE, 0);
 
-  image56 = create_pixmap (type_alarme, "alarmes_dhia.png");
-  gtk_widget_show (image56);
-  gtk_fixed_put (GTK_FIXED (fixed16), image56, 0, 0);
-  gtk_widget_set_size_request (image56, 1344, 120);
-
+  g_signal_connect ((gpointer) fumer, "toggled",
+                    G_CALLBACK (on_fumer_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) mouvement, "toggled",
+                    G_CALLBACK (on_mouvement_toggled),
+                    NULL);
   g_signal_connect ((gpointer) confirm_alarme, "clicked",
                     G_CALLBACK (on_confirm_alarme_clicked),
                     NULL);
@@ -1791,15 +1803,15 @@ create_type_alarme (void)
   GLADE_HOOKUP_OBJECT (type_alarme, fixed16, "fixed16");
   GLADE_HOOKUP_OBJECT (type_alarme, fumer, "fumer");
   GLADE_HOOKUP_OBJECT (type_alarme, mouvement, "mouvement");
-  GLADE_HOOKUP_OBJECT (type_alarme, tout, "tout");
+  GLADE_HOOKUP_OBJECT (type_alarme, image99, "image99");
+  GLADE_HOOKUP_OBJECT (type_alarme, label82, "label82");
+  GLADE_HOOKUP_OBJECT (type_alarme, image100, "image100");
   GLADE_HOOKUP_OBJECT (type_alarme, label77, "label77");
-  GLADE_HOOKUP_OBJECT (type_alarme, image58, "image58");
   GLADE_HOOKUP_OBJECT (type_alarme, confirm_alarme, "confirm_alarme");
   GLADE_HOOKUP_OBJECT (type_alarme, alignment31, "alignment31");
   GLADE_HOOKUP_OBJECT (type_alarme, hbox31, "hbox31");
   GLADE_HOOKUP_OBJECT (type_alarme, image57, "image57");
   GLADE_HOOKUP_OBJECT (type_alarme, label78, "label78");
-  GLADE_HOOKUP_OBJECT (type_alarme, image56, "image56");
 
   return type_alarme;
 }
@@ -1811,11 +1823,11 @@ create_chercher_dhia (void)
   GtkWidget *fixed17;
   GtkWidget *entry_cherchdhia;
   GtkWidget *label79;
-  GtkWidget *image61;
   GtkWidget *label80;
-  GtkWidget *label81;
-  GtkWidget *image67;
   GtkWidget *search_dhia;
+  GtkWidget *image86;
+  GtkWidget *image85;
+  GtkWidget *label81;
 
   chercher_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (chercher_dhia), _("chercher un capteur"));
@@ -1835,30 +1847,30 @@ create_chercher_dhia (void)
   gtk_fixed_put (GTK_FIXED (fixed17), label79, 536, 200);
   gtk_widget_set_size_request (label79, 416, 96);
 
-  image61 = create_pixmap (chercher_dhia, "bn2.png");
-  gtk_widget_show (image61);
-  gtk_fixed_put (GTK_FIXED (fixed17), image61, 0, 728);
-  gtk_widget_set_size_request (image61, 1352, 53);
-
   label80 = gtk_label_new (_("REFERENCE"));
   gtk_widget_show (label80);
   gtk_fixed_put (GTK_FIXED (fixed17), label80, 464, 352);
   gtk_widget_set_size_request (label80, 216, 48);
 
-  label81 = gtk_label_new ("");
-  gtk_widget_show (label81);
-  gtk_fixed_put (GTK_FIXED (fixed17), label81, 520, 632);
-  gtk_widget_set_size_request (label81, 480, 56);
-
-  image67 = create_pixmap (chercher_dhia, "chercher_capteur.png");
-  gtk_widget_show (image67);
-  gtk_fixed_put (GTK_FIXED (fixed17), image67, 0, 0);
-  gtk_widget_set_size_request (image67, 1352, 128);
-
   search_dhia = gtk_button_new_with_mnemonic (_("CHERCHER"));
   gtk_widget_show (search_dhia);
   gtk_fixed_put (GTK_FIXED (fixed17), search_dhia, 624, 464);
   gtk_widget_set_size_request (search_dhia, 232, 112);
+
+  image86 = create_pixmap (chercher_dhia, "265130155_987828421816104_6034459996600428157_n.png");
+  gtk_widget_show (image86);
+  gtk_fixed_put (GTK_FIXED (fixed17), image86, 24, 0);
+  gtk_widget_set_size_request (image86, 1328, 72);
+
+  image85 = create_pixmap (chercher_dhia, "bn2.png");
+  gtk_widget_show (image85);
+  gtk_fixed_put (GTK_FIXED (fixed17), image85, 0, 688);
+  gtk_widget_set_size_request (image85, 1352, 29);
+
+  label81 = gtk_label_new ("");
+  gtk_widget_show (label81);
+  gtk_fixed_put (GTK_FIXED (fixed17), label81, 496, 616);
+  gtk_widget_set_size_request (label81, 480, 56);
 
   g_signal_connect ((gpointer) search_dhia, "clicked",
                     G_CALLBACK (on_search_dhia_clicked),
@@ -1869,11 +1881,11 @@ create_chercher_dhia (void)
   GLADE_HOOKUP_OBJECT (chercher_dhia, fixed17, "fixed17");
   GLADE_HOOKUP_OBJECT (chercher_dhia, entry_cherchdhia, "entry_cherchdhia");
   GLADE_HOOKUP_OBJECT (chercher_dhia, label79, "label79");
-  GLADE_HOOKUP_OBJECT (chercher_dhia, image61, "image61");
   GLADE_HOOKUP_OBJECT (chercher_dhia, label80, "label80");
-  GLADE_HOOKUP_OBJECT (chercher_dhia, label81, "label81");
-  GLADE_HOOKUP_OBJECT (chercher_dhia, image67, "image67");
   GLADE_HOOKUP_OBJECT (chercher_dhia, search_dhia, "search_dhia");
+  GLADE_HOOKUP_OBJECT (chercher_dhia, image86, "image86");
+  GLADE_HOOKUP_OBJECT (chercher_dhia, image85, "image85");
+  GLADE_HOOKUP_OBJECT (chercher_dhia, label81, "label81");
 
   return chercher_dhia;
 }

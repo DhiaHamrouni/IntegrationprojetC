@@ -224,3 +224,23 @@ on_chercher_dhia_clicked               (GtkButton       *button,
 void
 on_search_dhia_clicked                 (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_fumer_toggled                       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_mouvement_toggled                   (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_tout_toggled                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_refresh_alarmes_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_retour_alarmes_clicked              (GtkButton       *button,
+                                        gpointer         user_data);

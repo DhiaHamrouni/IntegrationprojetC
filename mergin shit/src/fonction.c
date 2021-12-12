@@ -21,6 +21,14 @@ ETYPE,
 EGARANTIE,
 COLUMNS
 };
+enum
+{
+EJOUR1,
+EHEURE,
+ENUM_CAPT,
+EVALEUR,
+COLUMNS1
+};
 
 ///////////////////////connexion//////////////////////////////////////////////////
 int verif_dhia (char log[] , char pw[])
@@ -196,6 +204,96 @@ void afficher_capteur(GtkWidget *liste)
 	gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL (store));
 	g_object_unref (store);
 	}
+}
+}
+void afficher_capteur_fume(GtkWidget *liste)
+{
+	GtkCellRenderer *renderer;
+	GtkTreeViewColumn *column;
+	GtkTreeIter iter;
+	GtkListStore *store;
+	int jour;
+	int heure;
+	int num_capt;
+	int valeur;
+	store=NULL;
+	FILE *f;
+
+	store=gtk_tree_view_get_model(liste);
+	if(store==NULL)
+{
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" jour",renderer, "text",EJOUR1,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" heure",renderer, "text",EHEURE,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" num_capt",renderer, "text",ENUM_CAPT,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" valeur",renderer, "text",EVALEUR,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	store =gtk_list_store_new(COLUMNS1, G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT);
+	f=fopen("fumee.txt","a+");
+	while (fscanf(f,"%d %d %d %d \n",&jour,&heure,&num_capt,&valeur)!=EOF)
+	{
+			if (((heure==24) || (heure<=6)) && (valeur==1))
+			{
+				gtk_list_store_append(store,&iter);
+				gtk_list_store_set(store,&iter,EJOUR1,jour,EHEURE,heure,ENUM_CAPT,num_capt,EVALEUR,valeur,-1);
+			}
+	}
+	fclose(f);
+	gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL (store));
+	g_object_unref (store);
+	
+}
+}
+void afficher_capteur_infra(GtkWidget *liste)
+{
+	GtkCellRenderer *renderer;
+	GtkTreeViewColumn *column;
+	GtkTreeIter iter;
+	GtkListStore *store;
+	int jour;
+	int heure;
+	int num_capt;
+	int valeur;
+	store=NULL;
+	FILE *f;
+
+	store=gtk_tree_view_get_model(liste);
+	if(store==NULL)
+{
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" jour",renderer, "text",EJOUR1,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" heure",renderer, "text",EHEURE,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" num_capt",renderer, "text",ENUM_CAPT,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes(" valeur",renderer, "text",EVALEUR,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste),column);
+	renderer=gtk_cell_renderer_text_new();
+	store =gtk_list_store_new(COLUMNS1, G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT);
+	f=fopen("mouvement.txt","a+");
+	while (fscanf(f,"%d %d %d %d \n",&jour,&heure,&num_capt,&valeur)!=EOF)
+	{
+			if (((heure==24) || (heure<=6)) && (valeur==1))
+			{
+				gtk_list_store_append(store,&iter);
+				gtk_list_store_set(store,&iter,EJOUR1,jour,EHEURE,heure,ENUM_CAPT,num_capt,EVALEUR,valeur,-1);
+			}
+	}
+	fclose(f);
+	gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL (store));
+	g_object_unref (store);
+	
 }
 }
 void vider (GtkWidget *liste)
