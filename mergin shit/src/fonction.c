@@ -357,49 +357,7 @@ gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
 }
 //////////////////////////////////////////end Dhia.c//////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////nouha.c//////////////////////////////////////////////////////////////////////
-/*void ajouter(produit p)
-{
 
-     FILE *f;
-    f=fopen("produit.txt","a+");
-    if(f!=NULL)
-    {
-        fprintf(f,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.j1,p.date_fab.m1,p.date_fab.a1,p.quantite);
-        fclose(f);
-    }
-
-}
-
-int supprimer(int id)
-{
-    FILE *f=NULL;
-    FILE *tmp=NULL;
-    int t=0;
-    produit p;
-    f=fopen("produit.txt","r");
-    tmp=fopen("tmp.txt","w");
-    if(f!=NULL)
-    {
-       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.j1,&p.date_fab.m1,&p.date_fab.a1,&p.quantite)!=EOF)
-       {
-        if(p.id!=id)
-        {
-         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.j1,p.date_fab.m1,p.date_fab.a1,p.quantite);
-        }
-	if(p.id==id)
-	  {t=1;}
-
-       }
-        fclose(f);
-        fclose(tmp);
-        remove("produit.txt");
-        rename("tmp.txt","produit.txt");
-
-    }
-return (t);
-}
-*/
 ///////////jesser///////////////:
 
 
@@ -832,34 +790,8 @@ return x;
 
 void modif_etud(etud e, int idg)
 {
-/*
-FILE *g,*f;
-etud p;
-GtkWidget *pInfo;
-f=fopen("Etudiants.txt","r");
-g=fopen("test.txt","a+");
 
-if (f==NULL || g==NULL)
-	return;
-else
-{	
-	while 
-	(fscanf(f,"%d %s %d %d %d %s %s %s \n",&e.id, e.nom, &e.d.j, &e.d.m, &e.d.a, e.etat, e.type, e.acces)!=EOF);
-	{
-	if (e.id==idg)
-		{
-		fprintf(g,"%d %s %d %d %d %s %s %s \n", e.id, e.nom, e.d.j, e.d.m, e.d.a, e.etat, e.type, e.acces);
-		}	
-		fprintf(g,"%d %s %d %d %d %s %s %s \n", p.id, p.nom, p.d.j, p.d.m, p.d.a, p.etat, p.type, p.acces);
-		
 
-	}
-}
-fclose(f);
-fclose(g);
-remove("Etudiants.txt");
-rename("test.txt","Etudiants.txt");
-*/
 supprim_etud(idg);
 ajouterg (e);
 
@@ -1353,6 +1285,489 @@ fclose(f);
 return x;
 }
 
+
+/*-------------------------nouhe------------------------*/
+
+
+
+//////////////////////Ajouter///////////////////////
+
+
+void ajouter(produit p)
+{
+
+     FILE *f=NULL;
+    f=fopen("produit.txt","a");
+    if(f!=NULL)
+    {
+        fprintf(f,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        fclose(f);
+    }
+
+}
+
+//////////////////////Supprimer///////////////////////
+
+int supprimer(int id)
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    int t=0;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id!=id)
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+	if(p.id==id)
+	  {t=1;}
+
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+return (t);
+}
+
+//////////////////////Afficher_tous///////////////////////
+
+enum
+{
+EIDN,
+ENOMN,
+EMARQUEN,
+ECATEGORIE,
+EJOURN,
+EMOISN,
+EANNEEN,
+EQUANTITE,
+COLUMNSN,
+};
+
+void afficher_tous(GtkWidget *liste)
+{
+GtkCellRenderer *renderer;
+GtkTreeViewColumn *column;
+GtkTreeIter iter;
+GtkListStore *store;
+int  id;
+char nom[20];
+char marque[20];
+char categorie[20];
+int jour;
+int mois;
+int annee;
+int  quantite;
+store=NULL;
+
+store=gtk_tree_view_get_model(liste);
+FILE *f;
+	if (store==NULL)
+{
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("id", renderer,"text",EIDN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("nom", renderer,"text",ENOMN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("marque", renderer,"text",EMARQUEN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("categorie", renderer,"text",ECATEGORIE, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("jour", renderer,"text",EJOURN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("mois", renderer,"text",EMOISN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("annee", renderer,"text",EANNEEN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("quantite", renderer,"text",EQUANTITE, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+}
+
+store=gtk_list_store_new(COLUMNSN, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
+f=fopen("produit.txt", "r");
+if(f==NULL)
+{
+return;
+}
+else
+{ f = fopen("produit.txt", "a+");
+	while (fscanf(f,"%d %s %s %s %d %d %d %d\n",&id,nom,marque,categorie,&jour,&mois,&annee,&quantite) !=EOF )
+	{
+	
+	gtk_list_store_append(store,&iter);
+
+	gtk_list_store_set(store,&iter,EIDN,id,ENOMN,nom,EMARQUEN,marque,ECATEGORIE,categorie,EJOURN,jour,EMOISN,mois,EANNEEN,annee,EQUANTITE,quantite,-1);
+	}
+fclose(f);
+gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
+g_object_unref (store);
+}
+
+}
+
+//////////////////////afficher_les_produits_en_rupture///////////////////////
+
+
+
+void afficher_les_produits_en_rupture(GtkWidget *liste)
+
+
+{
+GtkCellRenderer *renderer;
+GtkTreeViewColumn *column;
+GtkTreeIter iter;
+GtkListStore *store;
+int  id;
+char nom[20];
+char marque[20];
+char categorie[20];
+int jour;
+int mois;
+int annee;
+int  quantite;
+store=NULL;
+
+store=gtk_tree_view_get_model(liste);
+FILE *f;
+	if (store==NULL)
+{
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("id", renderer,"text",EIDN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("nom", renderer,"text",ENOMN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("marque", renderer,"text",EMARQUEN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("categorie", renderer,"text",ECATEGORIE, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("jour", renderer,"text",EJOURN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("mois", renderer,"text",EMOISN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("annee", renderer,"text",EANNEEN, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("quantite", renderer,"text",EQUANTITE, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+}
+
+store=gtk_list_store_new(COLUMNSN, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
+f=fopen("produit.txt", "r");
+if(f==NULL)
+{
+return;
+}
+else
+{ f = fopen("produit.txt", "a+");
+	while (fscanf(f,"%d %s %s %s %d %d %d %d\n",&id,nom,marque,categorie,&jour,&mois,&annee,&quantite) !=EOF )
+	{
+	if (quantite==0)
+	{
+	gtk_list_store_append(store,&iter);
+
+	gtk_list_store_set(store,&iter,EIDN,id,ENOMN,nom,EMARQUEN,marque,ECATEGORIE,categorie,EJOURN,jour,EMOISN,mois,EANNEEN,annee,EQUANTITE,quantite,-1);
+	}
+	}
+fclose(f);
+gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
+g_object_unref (store);
+}
+
+}
+
+
+//////////////modifier_quantite//////////////////////
+void modifier_quantite(int id, int q)
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            p.quantite=q;
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+//////////////modifier_identifiant//////////////////////
+
+void modifier_identifiant(int id, int ident)
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            p.id=ident;
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+
+//////////////modifier_nom//////////////////////
+
+void modifier_nom(int id, char n[])
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            strcpy(p.nom,n);
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+
+//////////////modifier_marque//////////////////////
+
+void modifier_marque(int id, char marq[])
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            strcpy(p.marque,marq);
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+
+//////////////modifier_categorie//////////////////////
+
+void modifier_categorie(int id, char cat[])
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            strcpy(p.categorie,cat);
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+
+//////////////modifier_date//////////////////////
+
+void modifier_date(int id, int j, int m, int a)
+{
+    FILE *f=NULL;
+    FILE *tmp=NULL;
+    produit p;
+    f=fopen("produit.txt","r");
+    tmp=fopen("tmp.txt","w");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        if(p.id==id)
+        {
+            p.date_fab.jour=j;
+	    p.date_fab.mois=m;
+	    p.date_fab.annee=a;
+           
+            fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+        else
+        {
+         fprintf(tmp,"%d %s %s %s %d %d %d %d\n",p.id,p.nom,p.marque,p.categorie,p.date_fab.jour,p.date_fab.mois,p.date_fab.annee,p.quantite);
+        }
+       }
+        fclose(f);
+        fclose(tmp);
+        remove("produit.txt");
+        rename("tmp.txt","produit.txt");
+
+    }
+    else
+        printf("not founded");
+}
+
+//////////////chercher//////////////////////
+
+produit chercher(int id)
+{
+    FILE *f;
+    produit p;
+    f=fopen("produit.txt","r");
+
+    if(f!=NULL)
+    {
+      while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+         if(p.id == id )
+        {
+         return (p);
+          break;
+        }
+
+       }
+        fclose(f);
+        }
+        
+}
+
+/////////////////////Verifier///////////////////
+
+
+int veriff(int id)
+{
+  FILE *f=NULL;
+    int t=0;
+    produit p;
+    f=fopen("produit.txt","r");
+    if(f!=NULL)
+    {
+       while(fscanf(f,"%d %s %s %s %d %d %d %d\n",&p.id,p.nom,p.marque,p.categorie,&p.date_fab.jour,&p.date_fab.mois,&p.date_fab.annee,&p.quantite)!=EOF)
+       {
+        
+	if(p.id==id)
+	  {t=1;}
+
+       }
+        fclose(f);
+
+    }
+return (t);
+
+
+}
 
 
 

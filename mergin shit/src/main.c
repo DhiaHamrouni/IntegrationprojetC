@@ -21,8 +21,8 @@ main (int argc, char *argv[])
   GtkWidget *accueil0;
   GtkWidget *window_ajout_capteur_dhia;
   GtkWidget *window_supprission_capteur_dhia;
- GtkWidget *authentification;
-
+  GtkWidget *authentification;
+  GtkWidget *authnouha;
 #ifdef ENABLE_NLS
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -40,8 +40,8 @@ main (int argc, char *argv[])
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  authentification = create_authentification ();
-  gtk_widget_show (authentification);
+  authnouha = create_authnouha ();
+  gtk_widget_show (authnouha);
   gtk_main ();
   return 0;
 }

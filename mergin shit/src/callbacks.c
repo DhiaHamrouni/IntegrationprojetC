@@ -9,7 +9,6 @@
 #include "support.h"
 #include "fonction.h"
 int x_dhia;
-int y_nouha;
 int o_dhia;
 int p_dhia;
 int choix[]={0,0,0};
@@ -528,147 +527,7 @@ gtk_widget_show(windowcapteur);
 
 /////////////////////////////////////:nocta://////////////////////////////////////////////
 
-/*------------------nouha----------------------*/
-/*
-void
-on_button_annuler_nouha_clicked        (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget *windowb;
-windowb=create_Bienvenue_nouha();
-gtk_widget_show(windowb);
-}
 
-
-void
-on_button_valider_nouha_clicked        (GtkButton       *objet_graphique,
-                                        gpointer         user_data)
-{/*
-produit p;
-GtkWidget *window_Bienvenue_nouha, *id, *nom, *marque, *quantite, *j1, *m1, *a1, *categorie;
-
-j1=lookup_widget(objet_graphique,"journouha");
-p.date_fab.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(j1));
-m1=lookup_widget(objet_graphique,"moisnouha");
-p.date_fab.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m1));
-a1=lookup_widget(objet_graphique,"anneenouha");
-p.date_fab.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(a1));
-
-categorie=lookup_widget(objet_graphique,"comboboxnouha");
-strcpy(p.categorie, gtk_combo_box_get_active_text(GTK_COMBO_BOX(categorie)));
-
-nom=lookup_widget(objet_graphique,"entry_n");
-marque= lookup_widget (objet_graphique, "entry_m");
-quantite= lookup_widget (objet_graphique, "entry_q");
-id= lookup_widget (objet_graphique, "entry_id1");
-strcpy(p.nom, gtk_entry_get_text(GTK_ENTRY(nom)));
-strcpy(p.marque, gtk_entry_get_text(GTK_ENTRY(marque)));
-p.id=atoi(gtk_entry_get_text(GTK_ENTRY(id)));
-p.quantite=atoi(gtk_entry_get_text(GTK_ENTRY(quantite)));
-
-ajouter(p);
-
-window_Bienvenue_nouha=create_Bienvenue_nouha();
-gtk_widget_show(window_Bienvenue_nouha);
-}
-
-/
-void
-on_button_Bienvenue_stock_clicked      (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget  *windowaj;
-GtkWidget *windowmod;
-GtkWidget *windowsup;
-GtkWidget *windowrech;
-GtkWidget *windowaff;
-GtkWidget *windowaff0;
-
- switch (y_nouha)
-        {
-        case 1:
-            {
-                windowaj=create_ajout_nouha();
-		gtk_widget_show(windowaj);
-                break;
-		}
-
-       	case 3:
-             {	windowsup=create_supprimer_nouha();
-		gtk_widget_show(windowsup);
-                break;
-             }
-        }
-}
-
-
-void
-on_button_retour_nouha_clicked         (GtkButton       *button,
-                                        gpointer         user_data)
-{
-GtkWidget *windowb;
-windowb=create_Bienvenue_nouha();
-gtk_widget_show(windowb);
-}
-
-
-
-
-
-void
-on_radiobutton_ajout_toggled           (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=1;}
-}
-
-
-void
-on_radiobutton_modif_toggled           (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=2;}
-}
-
-
-void
-on_radiobutton_supp_toggled            (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=3;}
-}
-
-
-void
-on_radiobutton_cherch_toggled          (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=4;}
-}
-
-
-void
-on_radiobutton_affichier_toggled       (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=5;}
-}
-
-
-void
-on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
-{y_nouha=6;}
-}
-*/
-/*--------------------------end nouha----------------------*/
 
 
 ///////////:jesser///////////
@@ -2741,4 +2600,781 @@ gtk_label_set_text(GTK_LABEL(mm2),text2);
 gtk_label_set_text(GTK_LABEL(mm3),text3);
 gtk_label_set_text(GTK_LABEL(mm4),text4);
 }
+/*------------------------------nouhe------------------------------*/
+
+
+
+int x;
+int y;
+
+
+
+void
+on_checkbutton4_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=2;}
+}
+
+
+void
+on_checkbutton2_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=3;}
+}
+
+
+void
+on_checkbutton5_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=4;}
+}
+
+
+void
+on_checkbutton3_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=5;}
+}
+
+
+void
+on_checkbutton6_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=6;}
+}
+
+
+void
+on_checkbutton1_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+{y=1;}
+}
+
+
+
+void
+on_journouha_changed                 (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+
+}
+void
+on_moisnouha_changed                 (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+
+}
+void
+on_anneenouha_changed                 (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button111_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"identifiant");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_button222_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"nom");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_button333_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"marque");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_button444_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"categorie");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_button555_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"quantite");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_button666_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+
+windowb=create_modification();
+gtk_widget_show(windowb);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(objet_graphique,"datefab");
+gtk_widget_destroy(windowa);
+}
+
+
+
+void
+on_authnouhaa_clicked                  (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+
+GtkWidget* input1, *input2 ;
+GtkWidget* output ;
+GtkWidget *windowa;
+GtkWidget *windowb;
+char nom[100];
+char mdp[100];
+char hello[100];
+input1 = lookup_widget(objet_graphique, "loginnouhaa") ;
+input2 = lookup_widget(objet_graphique, "passwordnouhaa") ;
+output = lookup_widget(objet_graphique, "nouhaa") ;
+strcpy(nom,gtk_entry_get_text(GTK_ENTRY(input1)));
+strcpy(mdp,gtk_entry_get_text(GTK_ENTRY(input2)));
+
+if ((strcmp(nom,"nouha")==0) && (strcmp(mdp,"123")==0))
+
+{
+
+windowa = lookup_widget(objet_graphique,"authnouha");
+gtk_widget_destroy(windowa);
+
+windowb = create_Bienvenue ();
+gtk_widget_show(windowb);         
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);}
+else
+
+  {gtk_label_set_text(GTK_LABEL(output),"données incorrecte");}              
+            
+}
+
+
+
+void
+on_button1111_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input, *identifiant;
+int id,ident;
+
+input= lookup_widget (objet_graphique, "entry1");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+identifiant= lookup_widget (objet_graphique, "entry11");
+ident=atoi(gtk_entry_get_text(GTK_ENTRY(identifiant)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out1") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_identifiant(id,ident);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+
+}
+
+
+
+
+
+void
+on_button2222_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+
+GtkWidget *input, *nom;
+int id;
+char n[20];
+input= lookup_widget (objet_graphique, "entry2");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+nom= lookup_widget (objet_graphique, "entry22");
+strcpy(n, gtk_entry_get_text(GTK_ENTRY(nom)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out2") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_nom(id, n);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+
+}
+
+
+void
+on_button3333_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input, *marque;
+int id;
+char marq[20];
+input= lookup_widget (objet_graphique, "entry3");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+marque= lookup_widget (objet_graphique, "entry33");
+strcpy(marq, gtk_entry_get_text(GTK_ENTRY(marque)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out3") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_marque( id, marq);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+}
+
+
+void
+on_button4444_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input, *categorie;
+int id;
+char cat[20];
+input= lookup_widget (objet_graphique, "entry4");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+categorie= lookup_widget (objet_graphique, "entry44");
+strcpy(cat, gtk_entry_get_text(GTK_ENTRY(categorie)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out4") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_categorie( id, cat);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+}
+
+
+void
+on_button5555_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input, *quantite;
+int id,q;
+
+input= lookup_widget (objet_graphique, "entry5");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+quantite= lookup_widget (objet_graphique, "entry55");
+q=atoi(gtk_entry_get_text(GTK_ENTRY(quantite)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out5") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_quantite(id,q);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+}
+
+
+void
+on_button6666_clicked                  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input, *jour, *mois, *annee;
+int id,j,m,a;
+
+input= lookup_widget (objet_graphique, "entry6");
+id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+jour= lookup_widget (objet_graphique, "entry66j");
+j=atoi(gtk_entry_get_text(GTK_ENTRY(jour)));
+mois= lookup_widget (objet_graphique, "entry66m");
+m=atoi(gtk_entry_get_text(GTK_ENTRY(mois)));
+annee= lookup_widget (objet_graphique, "entry66a");
+a=atoi(gtk_entry_get_text(GTK_ENTRY(annee)));
+
+GtkWidget* output ;
+output = lookup_widget(objet_graphique, "out6") ;
+int t;
+    	t=veriff(id);
+	if(t==1)
+	{modifier_date( id, j, m, a);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été modifier avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+}
+
+
+
+
+void
+on_treeview1n_row_activated            (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+GtkTreeIter iter;
+gchar* nom;
+gchar* marque;
+gchar* categorie;
+uint* quantite;
+uint* id;
+uint* jour;
+uint* mois;
+uint* annee;
+GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+
+if (gtk_tree_model_get_iter(model, &iter, path))
+{
+gtk_tree_model_get(GTK_LIST_STORE(model), &id, 0, &nom, 1, &marque, 2, &categorie, 3, &jour, 4, &mois, 5, &annee, 6, &quantite, -1);
+afficher_tous(treeview);
+}
+}
+
+
+void
+on_radiobutton1n_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{x=1;}
+}
+
+
+void
+on_radiobutton2n_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{x=2;}
+}
+
+
+void
+on_radiobutton3n_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{x=3;}
+}
+
+
+void
+on_radiobutton4n_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{x=4;}
+}
+
+
+void
+on_radiobutton6n_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{x=6;}
+}
+
+
+void
+on_bienvenue_n_clicked                 (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget  *windowaj;
+GtkWidget *windowmod;
+GtkWidget *windowsup;
+GtkWidget *windowrech;
+GtkWidget *windowaff0;
+GtkWidget *treeview2;
+ switch (x)
+        {
+        case 1:
+            {
+                windowaj=create_ajout();
+		gtk_widget_show(windowaj);
+                break;
+			}
+
+        case 2:
+            {
+		windowmod=create_modification();
+		gtk_widget_show(windowmod);
+                break;
+
+            }
+        case 3:
+             {	windowsup=create_suppression();
+		gtk_widget_show(windowsup);
+                break;
+             }
+        case 4:
+            {   
+		windowrech=create_recherche();
+		gtk_widget_show(windowrech);
+                break;
+            }
+        
+        case 6:
+            {
+                windowaff0=create_affichage0();
+		gtk_widget_show(windowaff0);
+		treeview2=lookup_widget(windowaff0,"treeview2n");
+		afficher_les_produits_en_rupture(treeview2);
+                break;
+            }
+        }
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"Bienvenue");
+gtk_widget_destroy(windowa);
+
+}
+
+
+void
+on_ajouter_n_clicked                   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+produit p;
+GtkWidget  *id, *nom, *marque, *quantite, *jour, *mois, *annee, *categorie;
+int t;
+    GtkWidget* output ;
+    output = lookup_widget(objet_graphique, "ajouterounon") ;
+jour=lookup_widget(objet_graphique,"journouha");
+p.date_fab.jour=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(jour));
+mois=lookup_widget(objet_graphique,"moisnouha");
+p.date_fab.mois=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(mois));
+annee=lookup_widget(objet_graphique,"anneenouha");
+p.date_fab.annee=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(annee));
+
+categorie=lookup_widget(objet_graphique,"comboboxnouha");
+strcpy(p.categorie, gtk_combo_box_get_active_text(GTK_COMBO_BOX(categorie)));
+
+nom= lookup_widget(objet_graphique,"entry_n");
+marque= lookup_widget (objet_graphique, "entry_m");
+quantite= lookup_widget (objet_graphique, "entry_q");
+id= lookup_widget (objet_graphique, "entry_id1");
+strcpy(p.nom, gtk_entry_get_text(GTK_ENTRY(nom)));
+strcpy(p.marque, gtk_entry_get_text(GTK_ENTRY(marque)));
+p.id=atoi(gtk_entry_get_text(GTK_ENTRY(id)));
+p.quantite=atoi(gtk_entry_get_text(GTK_ENTRY(quantite)));
+t=veriff(atoi(gtk_entry_get_text(GTK_ENTRY(id))));
+
+	if(t==0)
+	{ajouter(p);
+	gtk_label_set_text(GTK_LABEL(output),"le produit a été ajouter avec succès");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit existe déjà");}
+
+
+}
+
+
+void
+on_retour_ajout_bienvenue_n_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+windowb=create_Bienvenue();
+gtk_widget_show(windowb);
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"ajout");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_retour_modif_bienvenue_n_clicked    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"modification");
+gtk_widget_destroy(windowa);
+GtkWidget *windowb;
+windowb=create_Bienvenue();
+gtk_widget_show(windowb);
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);
+}
+
+
+void
+on_modification_n_clicked              (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget  *windowid;
+GtkWidget *windownom;
+GtkWidget *windowmarq;
+GtkWidget *windowcat;
+GtkWidget *windowq;
+GtkWidget *windowdat;
+GtkWidget *windowa;
+
+
+
+ switch (y)
+        {
+        case 1:
+            {
+                windowid=create_identifiant();
+		gtk_widget_show(windowid);
+
+                break;
+			}
+
+        case 2:
+            {
+		windownom=create_nom();
+		gtk_widget_show(windownom);
+                break;
+
+            }
+        case 3:
+             {	windowmarq=create_marque();
+		gtk_widget_show(windowmarq);
+                break;
+             }
+        case 4:
+            {   
+		windowcat=create_categorie();
+		gtk_widget_show(windowcat);
+                break;
+            }
+        case 5:
+            {
+                windowq=create_quantite();
+		gtk_widget_show(windowq);
+                break;
+            }
+        case 6:
+            {
+                windowdat=create_datefab();
+		gtk_widget_show(windowdat);
+                break;
+            }
+        }
+
+windowa=lookup_widget(button,"modification");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_supprimer_n_clicked                 (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+  produit p;
+    int id, t;
+    GtkWidget* input ;
+    GtkWidget* output ;
+    output = lookup_widget(objet_graphique, "yesorno") ;
+    input = lookup_widget(objet_graphique, "entrysuppnouha") ;
+    id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+    	t=supprimer(id);
+	if(t==1)
+	{gtk_label_set_text(GTK_LABEL(output),"le produit a été bien supprimer");}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+}
+
+
+void
+on_retour_supp_bienvenue_clicked       (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+
+windowb=create_Bienvenue();
+gtk_widget_show(windowb);
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);
+
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"suppression");
+gtk_widget_destroy(windowa);
+}
+
+
+void
+on_recherche_n_clicked                 (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+ produit p;
+char ch[100];
+char i[100];
+char n[100];
+char m[100];
+char c[100];
+char d[100];
+char q[100];
+    int t;
+    int id;
+    GtkWidget* input ;
+    GtkWidget* output ;
+    output = lookup_widget(objet_graphique, "sortie") ;
+    input = lookup_widget(objet_graphique, "entryrech") ;
+    id=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+	t=veriff(id);
+	if (t==1)
+    	{p=chercher(id);
+	sprintf(i,"%d",p.id);
+	sprintf(q,"%d",p.quantite);
+	sprintf(d,"%d/%d/%d",p.date_fab.jour,p.date_fab.mois,p.date_fab.annee);
+	strcpy(n,p.nom);
+	strcpy(m,p.marque);
+	strcpy(c,p.categorie);
+	strcpy(ch," ");
+	strcat(ch,i);strcat(ch," ");strcat(ch,n);strcat(ch," ");strcat(ch,m);strcat(ch," ");strcat(ch,c);strcat(ch," ");strcat(ch,d);strcat(ch," ");strcat(ch,q);
+	gtk_label_set_text(GTK_LABEL(output),ch);}
+	else
+	{gtk_label_set_text(GTK_LABEL(output),"ce produit n'existe pas");}
+	
+}
+
+
+void
+on_retour_rech_bienvenue_clicked       (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"recherche");
+gtk_widget_destroy(windowa);
+windowb=create_Bienvenue();
+gtk_widget_show(windowb);
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);
+}
+
+
+void
+on_treeview2n_row_activated            (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+GtkTreeIter iter;
+gchar* nom;
+gchar* marque;
+gchar* categorie;
+uint* quantite;
+uint* id;
+uint* jour;
+uint* mois;
+uint* annee;
+GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+
+if (gtk_tree_model_get_iter(model, &iter, path))
+{
+gtk_tree_model_get(GTK_LIST_STORE(model), &id, 0, &nom, 1, &marque, 2, &categorie, 3, &jour, 4, &mois, 5, &annee, 6, &quantite, -1);
+afficher_les_produits_en_rupture(treeview);
+}
+}
+
+
+void
+on_retour_affichage0_bienvenue_clicked (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget *windowb;
+windowb=create_Bienvenue();
+gtk_widget_show(windowb);
+         		GtkWidget *treeview1;
+		treeview1=lookup_widget(windowb,"treeview1n");
+		afficher_tous(treeview1);
+GtkWidget *windowa;
+
+windowa=lookup_widget(button,"affichage0");
+gtk_widget_destroy(windowa);
+}
+/*------------------------------end nouha------------------------------*/
+
+
+
+
+
+
 

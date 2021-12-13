@@ -21,15 +21,6 @@ date date;
 int type;
 int gar;
 }capteur;
-typedef struct
-{
-    int  id;
-    char nom[20];
-    char marque[20];
-    char categorie[20];
-    date date_fab;
-    int  quantite;
-}produit;
 
 void ajout_capteur(capteur c);
 void affichage(capteur t);
@@ -44,16 +35,6 @@ int verif_dhia (char log[] , char pw[]);
 ///////////////////////////////////////end Dhia////////////////////////////////////
 
 
-/////////////////////////////////////////nouha/////////////////////////////////////
-
-/*
-
-void ajouter(produit p);
-void modifier(int id);
-int supprimer(int id);
-produit chercher(int id);
-void afficher_tous(produit p);
-void afficher_les_produits_en_rupture(produit p);*/
 
 /////////////////jesser///////////////
 
@@ -142,5 +123,43 @@ void afficher_menu(GtkWidget *liste);
 void meilleur_menu(char text1[],char text2[],char text3[],char text4[]);
 void meilleur_plat(char meill11[],char meill13[],char meill21[],char meill23[],char meill31[],char meill33[]);
 /*------------------------------------end RIMA----------------------*/
+
+/*----------------------------------nouhe---------------------------------*/
+
+
+typedef struct
+{
+int jour;
+int mois;
+int annee;
+}dat;
+
+typedef struct
+{
+    int  id;
+    char nom[20];
+    char marque[20];
+    char categorie[20];
+    dat date_fab;
+    int  quantite;
+}produit;
+
+
+void ajouter(produit p);
+void modifier_identifiant(int id, int ident);
+void modifier_nom(int id, char n[]);
+void modifier_marque(int id, char marq[]);
+void modifier_categorie(int id, char cat[]);
+void modifier_quantite(int id, int q);
+void modifier_date(int id, int j, int m, int a);
+int supprimer(int id);
+produit chercher(int id);
+void afficher_tous(GtkWidget *liste);
+void rupture( produit p);
+void afficher_les_produits_en_rupture(GtkWidget *liste);
+int veriff(int id);
+
+
+
 
 
