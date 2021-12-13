@@ -46,14 +46,14 @@ int verif_dhia (char log[] , char pw[]);
 
 /////////////////////////////////////////nouha/////////////////////////////////////
 
-
+/*
 
 void ajouter(produit p);
 void modifier(int id);
 int supprimer(int id);
 produit chercher(int id);
 void afficher_tous(produit p);
-void afficher_les_produits_en_rupture(produit p);
+void afficher_les_produits_en_rupture(produit p);*/
 
 /////////////////jesser///////////////
 
@@ -79,4 +79,34 @@ int nombre_etudiant(char niv[]);
 utilisateur chercher_utilisateur(char cin[]);
 
 //////////////end jesser//////////
+
+/*---------------------------gaston-------------------------------*/
+
+typedef struct
+{
+int j;
+int m;
+int a;
+}dateg;
+
+typedef struct
+{
+int id;
+char nom[30];
+dateg d;
+char etat[30];
+char type[30];
+char acces[30];
+}etud;
+
+
+
+void ajouterg(etud e);
+void affichageg(GtkWidget *liste);
+void supprim_etud(int id);
+int rechercher(int id);
+void modif_etud(etud e, int idg);
+int verifg(char pseudo[], char mdp[]);
+etud rechercher2(int id);
+/*-------------------------------------end gaston-----------------------*/
 

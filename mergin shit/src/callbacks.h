@@ -393,4 +393,150 @@ on_button1_sidentifier_clicked         (GtkButton       *button,
                                         gpointer         user_data);
 //////////////end jesser////////////
 
+/*------------------------gaston--------------------*/
 
+
+/*-------- bouton interface principale--------------*/
+void
+on_button1_agent_ajout_gas_clicked     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_agent_modifier_gas_clicked   (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button3_agent_supprimer_gas_clicked (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_afficher_gas_clicked         (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_agent_rechercher_gas_clicked (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_agent_actu_gas_clicked       (GtkWidget       *objet_graphique,
+                                        gpointer         user_data);
+
+/*-------- bouton confirmer--------------*/
+void
+on_button_supprimer_confirmer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_confirmer_ajout_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_modif_confirmer_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_rechercher_confirmer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_id_a_modif_gas_clicked       (GtkButton       *button,
+                                        gpointer         user_data);
+
+
+
+
+
+/*--------bouton retourner--------------*/
+void
+on_button_retourner_supprimer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+void
+on_button_retourner_ajout_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_modif_retourner_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_retourner_afficher_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+void
+on_button_rech_retourner_gas_clicked   (GtkButton       *objet_graphique,
+                                        gpointer         user_data);
+
+/*-------- treeview--------------*/
+
+void
+on_treeview1_gas_row_activated         (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+
+void
+on_treeview2_gas_row_activated         (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/*-------- radio button --------------*/
+/*-------- radio ajout--------------*/
+void
+on_radiobutton_ajout_nonpaye_gas_toggled
+                                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_ajout_paye_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_gb_radiobutton1_gas_toggled         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_gb_radiobutton2_gas_toggled         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+/*-------- radio modif--------------*/
+
+
+void
+on_radiobutton_modif_paye_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_nonpaye_gas_toggled
+                                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_avec_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton_modif_sans_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_button_rech_affich_gas_clicked      (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_check_rech_gas_toggled              (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+/*---------------------------end gaston-------------------------*/
+
+
+
+void
+on_button_login_ghassen_clicked        (GtkButton       *objet_graphique,
+                                        gpointer         user_data);

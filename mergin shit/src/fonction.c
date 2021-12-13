@@ -358,7 +358,7 @@ gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
 //////////////////////////////////////////end Dhia.c//////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////nouha.c//////////////////////////////////////////////////////////////////////
-void ajouter(produit p)
+/*void ajouter(produit p)
 {
 
      FILE *f;
@@ -399,7 +399,7 @@ int supprimer(int id)
     }
 return (t);
 }
-
+*/
 ///////////jesser///////////////:
 
 
@@ -657,6 +657,257 @@ fclose(f);
 }
 
 //////////end jesser///////////
+/*--------------------------gaston------------------*/
+
+enum
+{
+
+	EID,
+	ENOM,
+	EJOURG,
+	EMOISG,
+	EANNEEG,
+	EETAT,
+	ETYPEG,
+	EACCES,
+	COLUMNSG
+};
+
+/*---------ajout---------*/
+
+void ajouterg(etud e)
+{
+FILE *f;
+
+f=fopen("Etudiants.txt","a+");
+if(f!=NULL)
+fprintf(f,"%d %s %d %d %d %s %s %s \n", e.id, e.nom, e.d.j, e.d.m, e.d.a, e.etat, e.type, e.acces);
+	
+	fclose(f);
+}
+
+
+
+
+/*---------affichage---------*/
+void affichageg(GtkWidget *liste)
+{
+etud e;
+GtkCellRenderer *renderer;
+GtkTreeViewColumn *column;
+GtkTreeIter iter;
+GtkListStore *store;
+
+int id;
+char nom[30];
+int jour;
+int mois;
+int annee;
+char etat[30];
+char type[30];
+char acces[30];
+
+store==NULL;
+store=gtk_tree_view_get_model(liste);
+FILE *f;
+	if (store==NULL)
+{
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes(" ID", renderer,"text",EID, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes(" Nom", renderer,"text",ENOM, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("Jour", renderer,"text",EJOURG, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("Mois", renderer,"text",EMOISG, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("Annee", renderer,"text",EANNEEG, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+  
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes(" Etat de paiment", renderer,"text",EETAT, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes(" Type de chambre", renderer,"text",ETYPEG, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+
+
+
+	renderer=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes(" Acces Resto", renderer,"text",EACCES, NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(liste), column);
+	
+}
+
+store=gtk_list_store_new(COLUMNSG, G_TYPE_INT, G_TYPE_STRING,G_TYPE_INT,G_TYPE_INT,G_TYPE_INT,G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+
+f=fopen("Etudiants.txt", "r");
+if(f==NULL)
+{
+return;
+}
+else
+{ f = fopen("Etudiants.txt", "a+");
+	while (fscanf(f,"%d %s %d %d %d %s %s %s \n",&id,nom,&jour,&mois,&annee,etat,type,acces) !=EOF )
+	{
+	
+	gtk_list_store_append(store,&iter);
+
+	gtk_list_store_set(store,&iter,EID,id,ENOM,nom,EJOURG,jour,EMOISG,mois,EANNEEG,annee,EETAT,etat,ETYPEG,type,EACCES,acces,-1);
+	}
+fclose(f);
+gtk_tree_view_set_model(GTK_TREE_VIEW(liste), GTK_TREE_MODEL(store));
+g_object_unref (store);
+}
+
+}
+
+/*---------------suppression---------------------*/
+void supprim_etud(int id)
+{
+etud x;
+FILE *f ,*g;
+f=fopen("Etudiants.txt","r");
+g=fopen("test.txt","w+");
+
+
+if (f!=NULL)
+	{
+	while(fscanf(f,"%d %s %d %d %d %s %s %s \n",&x.id, x.nom, &x.d.j, &x.d.m, &x.d.a, x.etat, x.type, 		x.acces) !=EOF)
+{
+		if (id!=x.id)
+	{
+		fprintf(g,"%d %s %d %d %d %s %s %s \n", x.id, x.nom, x.d.j, x.d.m, x.d.a, x.etat, x.type, 		x.acces);
+}}}
+fclose(f);
+fclose(g);
+
+remove("Etudiants.txt");
+rename("test.txt","Etudiants.txt");
+
+}
+
+/*---------------rechercher----------------*/
+int rechercher(int id)
+{ 
+int x=0;
+FILE *F;
+etud e;
+F=fopen("Etudiants.txt","r");
+if(F!=NULL)
+{
+while(fscanf(F,"%d %s %d %d %d %s %s %s \n", &e.id, e.nom, &e.d.j, &e.d.m, &e.d.a, e.etat, e.type, e.acces)!=EOF)
+{
+if (e.id==id)
+ x=1;
+}
+}
+fclose(F);
+return x;
+}
+
+/*------------------modifier--------------------*/
+
+void modif_etud(etud e, int idg)
+{
+/*
+FILE *g,*f;
+etud p;
+GtkWidget *pInfo;
+f=fopen("Etudiants.txt","r");
+g=fopen("test.txt","a+");
+
+if (f==NULL || g==NULL)
+	return;
+else
+{	
+	while 
+	(fscanf(f,"%d %s %d %d %d %s %s %s \n",&e.id, e.nom, &e.d.j, &e.d.m, &e.d.a, e.etat, e.type, e.acces)!=EOF);
+	{
+	if (e.id==idg)
+		{
+		fprintf(g,"%d %s %d %d %d %s %s %s \n", e.id, e.nom, e.d.j, e.d.m, e.d.a, e.etat, e.type, e.acces);
+		}	
+		fprintf(g,"%d %s %d %d %d %s %s %s \n", p.id, p.nom, p.d.j, p.d.m, p.d.a, p.etat, p.type, p.acces);
+		
+
+	}
+}
+fclose(f);
+fclose(g);
+remove("Etudiants.txt");
+rename("test.txt","Etudiants.txt");
+*/
+supprim_etud(idg);
+ajouterg (e);
+
+}
+
+
+/*------------------------vérif------------------------------*/
+int verifg(char pseudo[], char mdp[])
+{
+int x;
+FILE *f;
+char ch1[50];
+char ch2[50];
+f=fopen("login.txt","r");
+if (f==NULL);
+{
+while (fscanf(f,"%s %s ", ch1,ch2)!=EOF)
+{
+if((strcmp(ch1,pseudo)==0) && (strcmp(ch2,mdp)==0))
+x=1;
+else 
+x=0;
+}
+fclose(f);
+}
+return x;
+}
+
+/*---------------rechercher2----------------*/
+etud rechercher2(int id)
+{ 
+
+FILE *F;
+etud e;
+F=fopen("Etudiants.txt","r");
+if(F!=NULL)
+{
+while(fscanf(F,"%d %s %d %d %d %s %s %s \n", &e.id, e.nom, &e.d.j, &e.d.m, &e.d.a, e.etat, e.type, e.acces)!=EOF)
+{
+if (e.id==id)
+return e;
+}
+}
+fclose(F);
+
+}
+
+
 
 
 

@@ -14,6 +14,11 @@ int o_dhia;
 int p_dhia;
 int choix[]={0,0,0};
 int x1,k,q;
+int hg;
+int xg;
+int yg;
+int zg;
+int og;
 //////////////////////////tron commun////////////////////////////////
 
 
@@ -519,6 +524,9 @@ gtk_widget_show(windowcapteur);
 
 
 /////////////////////////////////////:nocta://////////////////////////////////////////////
+
+/*------------------nouha----------------------*/
+/*
 void
 on_button_annuler_nouha_clicked        (GtkButton       *button,
                                         gpointer         user_data)
@@ -532,7 +540,7 @@ gtk_widget_show(windowb);
 void
 on_button_valider_nouha_clicked        (GtkButton       *objet_graphique,
                                         gpointer         user_data)
-{
+{/*
 produit p;
 GtkWidget *window_Bienvenue_nouha, *id, *nom, *marque, *quantite, *j1, *m1, *a1, *categorie;
 
@@ -561,7 +569,7 @@ window_Bienvenue_nouha=create_Bienvenue_nouha();
 gtk_widget_show(window_Bienvenue_nouha);
 }
 
-
+/
 void
 on_button_Bienvenue_stock_clicked      (GtkButton       *button,
                                         gpointer         user_data)
@@ -656,7 +664,8 @@ on_radiobutton_affichunique_toggled    (GtkToggleButton *togglebutton,
 if ( gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
 {y_nouha=6;}
 }
-
+*/
+/*--------------------------end nouha----------------------*/
 
 
 ///////////:jesser///////////
@@ -1426,7 +1435,603 @@ gtk_label_set_text(GTK_LABEL(output),"données incorrectes");
 //////////end jesser////////
 
 
+/*--------------gaston------------------*/
 
+
+
+
+
+/*-------- bouton interface principale--------------*/
+
+void
+on_button_agent_actu_gas_clicked       (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_agent,*treeview;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+/////////////////////////////////////////////////////////////
+void
+on_button1_agent_ajout_gas_clicked     (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_ajouter,*window_agent;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_ajouter=create_window_ajouter_gas();
+gtk_widget_show(window_ajouter);
+}
+
+/////////////////////////////////////////////////////////////
+
+void
+on_button3_agent_supprimer_gas_clicked (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_agent,*window_supprimer;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_supprimer=create_window_supprimer_gas();
+gtk_widget_show(window_supprimer);
+}
+
+/////////////////////////////////////////////////////////////
+
+void
+on_button_afficher_gas_clicked         (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+
+{
+GtkWidget *window_afficher,*window_agent,*treeview;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_afficher=create_window_afficher_gas();
+gtk_widget_show(window_afficher);
+
+
+treeview=lookup_widget(window_afficher,"treeview1_gas");
+affichageg(treeview);
+}
+
+////////////////////////////////////////////////////////////
+
+void
+on_button_agent_modifier_gas_clicked   (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_modifier,*window_agent;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_modifier=create_window_modifier_gas();
+gtk_widget_show(window_modifier);
+}
+///////////////////////////////////////////////////////////
+void
+on_button_agent_rechercher_gas_clicked (GtkWidget       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_rechercher,*window_agent;
+
+window_agent=lookup_widget(objet_graphique,"window_agent_gas");
+gtk_widget_destroy(window_agent);
+
+window_rechercher=create_window_rechercher_gas();
+gtk_widget_show(window_rechercher);
+}
+
+/*-------------bouton confirmer---------------*/
+void
+on_button_supprimer_confirmer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input,*output;
+int id,a;
+
+input=lookup_widget(objet_graphique,"entry_id_supprimer_gas");
+id =atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+
+output=lookup_widget(objet_graphique,"label9_gas");
+a=rechercher(id);
+if (a==1)
+	{gtk_label_set_text(GTK_LABEL(output),"Suppression effectué avec succés");
+	supprim_etud(id);}
+else  if (a==0)
+	{gtk_label_set_text(GTK_LABEL(output),"ID inéxistant");}
+	
+
+
+}
+
+///////////////////////////////////////////////////////////////////////////
+void
+on_button_rechercher_confirmer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+
+GtkWidget *output,*input;
+int a,k;
+char id[100];
+input=lookup_widget(objet_graphique,"entry_rechercher_gas");
+strcpy(id, gtk_entry_get_text(GTK_ENTRY(input)));
+k=atoi(id);
+output=lookup_widget(objet_graphique,"label_rechercherx_gas");
+a=rechercher(k);
+if (a==1)
+	{gtk_label_set_text(GTK_LABEL(output),"Etudiant existant");}
+else  if (a==0)
+	gtk_label_set_text(GTK_LABEL(output),"Etudiant inéxistant");
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+void
+on_button_modif_confirmer_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *output;
+etud e;
+int idg;
+GtkWidget *window, *id, *nom, *jour, *mois, *annee, *etat, *type, *acces;
+
+id=lookup_widget(objet_graphique,"entry_modif_id_gas");
+e.id=atoi(gtk_entry_get_text(GTK_ENTRY(id)));
+idg=e.id;
+
+nom=lookup_widget(objet_graphique,"entry_modif_nom_gas");
+strcpy(e.nom, gtk_entry_get_text(GTK_ENTRY(nom)));
+
+jour=lookup_widget(objet_graphique,"spinbutton_modif_jour_gas");
+e.d.j=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(jour));
+
+mois=lookup_widget(objet_graphique,"spinbutton_modif_mois_gas");
+e.d.m=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(mois));
+
+annee=lookup_widget(objet_graphique,"spinbutton_modif_annee_gas");
+e.d.a=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(annee));
+
+type=lookup_widget(objet_graphique,"comboboxentry_typechambre_gas");
+strcpy(e.type, gtk_combo_box_get_active_text(GTK_COMBO_BOX(type)));
+
+if (yg==1)
+	{strcpy(e.etat,"paye");}
+if (yg==2)
+	{strcpy(e.etat,"non_paye");}
+if (zg==1)
+	{strcpy(e.acces,"Avec");}
+if (zg==2)
+	{strcpy(e.acces,"Sans");}
+
+
+modif_etud(e,idg);
+output=lookup_widget(objet_graphique,"label54_modif_gas");
+gtk_label_set_text(GTK_LABEL(output),"Modification effectué avec succés");
+
+}
+//////////////////////////////////////////////////////////////////////////
+void
+on_button_confirmer_ajout_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *output,*input;
+int a=0;
+int idg;
+etud e;
+
+GtkWidget *window, *id, *nom, *jour, *mois, *annee, *etat, *type, *acces;
+
+id= lookup_widget (objet_graphique, "entry_id_ajout_gas");
+e.id=atoi(gtk_entry_get_text(GTK_ENTRY(id)));
+
+
+nom=lookup_widget(objet_graphique,"entry_nom_ajout_gas");
+strcpy(e.nom, gtk_entry_get_text(GTK_ENTRY(nom)));
+
+jour=lookup_widget(objet_graphique,"spinbutton1_ajout_date_jour_gas");
+e.d.j=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(jour));
+
+mois=lookup_widget(objet_graphique,"spinbutton2_ajout_date_mois_gas");
+e.d.m=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(mois));
+
+annee=lookup_widget(objet_graphique,"spinbutton2_ajout_date_annee_gas");
+e.d.a=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(annee));
+
+type=lookup_widget(objet_graphique,"comboboxentry_ajout_typechambre_gas");
+strcpy(e.type, gtk_combo_box_get_active_text(GTK_COMBO_BOX(type)));
+
+if (xg==1)
+	{strcpy(e.etat,"paye");}
+if (xg==2)
+	{strcpy(e.etat,"non_paye");}
+if (hg==1)
+	{strcpy(e.acces,"Avec");}
+if (hg==2)
+	{strcpy(e.acces,"Sans");}
+
+input=lookup_widget(objet_graphique,"entry_id_ajout_gas");
+idg=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+
+output=lookup_widget(objet_graphique,"label55_succes_gas");
+a=rechercher(idg);
+if (a==1)
+	{gtk_label_set_text(GTK_LABEL(output),"Etudiant existant, veuillez saisir à nouveau");}
+else  
+{ajouterg(e);
+gtk_label_set_text(GTK_LABEL(output),"Ajout effectué avec succés");}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+void
+on_button_id_a_modif_gas_clicked       (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+int b,x;
+GtkWidget *input,*output;
+
+input=lookup_widget(objet_graphique,"entry_modif_id_gas");
+output=lookup_widget(objet_graphique,"label50_gas");
+x=atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+b= rechercher(x);
+if (b==1)
+{
+gtk_label_set_text(GTK_LABEL(output),"id existant ");
+}
+else 
+{
+gtk_label_set_text(GTK_LABEL(output),"id introuvable");
+}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+/*------------------bouton retourner----------------------*/
+void
+on_button_retourner_ajout_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_ajouter,*window_agent,*treeview;
+
+window_ajouter=lookup_widget(objet_graphique,"window_ajouter_gas");
+gtk_widget_destroy(window_ajouter);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+
+}
+///////////////////////////////////////////////////////////////////////////
+void
+on_button_retourner_supprimer_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_supprimer,*window_agent,*treeview;
+
+window_supprimer=lookup_widget(objet_graphique,"window_supprimer_gas");
+gtk_widget_destroy(window_supprimer);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+////////////////////////////////////////////////////////////////////////////
+void
+on_button_retourner_afficher_gas_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_afficher,*window_agent,*treeview;
+
+window_afficher=lookup_widget(objet_graphique,"window_afficher_gas");
+gtk_widget_destroy(window_afficher);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+
+////////////////////////////////////////////////////////////////////////////
+void
+on_button_modif_retourner_gas_clicked  (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_modifier,*window_agent,*treeview;
+
+window_modifier=lookup_widget(objet_graphique,"window_modifier_gas");
+gtk_widget_destroy(window_modifier);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+
+////////////////////////////////////////////////////////////////////////////
+void
+on_button_rech_retourner_gas_clicked   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_rechercher,*window_agent,*treeview;
+
+window_rechercher=lookup_widget(objet_graphique,"window_rechercher_gas");
+gtk_widget_destroy(window_rechercher);
+
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+////////////////////////////////////////////////////////////////////////////
+
+/*-----------------treeview------------------------*/
+void
+on_treeview1_gas_row_activated         (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+GtkTreeIter iter;
+int id;
+gchar* nom;
+int jour;
+int mois;
+int annee;
+gchar* etat;
+gchar* type;
+gchar* acces;
+
+etud e;
+GtkTreeModel *model =gtk_tree_view_get_model(treeview);
+if (gtk_tree_model_get_iter(model,&iter, path))
+{
+gtk_tree_model_get(GTK_LIST_STORE(model),&iter, 0, &id, 1, &nom, 2, &jour,3, &mois , 4, &annee , 5, &etat, 6, &type, 7, &acces,-1);
+strcpy(e.nom,nom);
+strcpy(e.etat,etat);
+strcpy(e.type,type);
+strcpy(e.acces,acces);
+e.d.j=jour;
+e.d.m=mois;
+e.d.a=annee;
+e.id=id;
+
+affichageg(treeview);
+}
+}
+////////////////////////////////////////////////////////////////////////////
+
+void
+on_treeview2_gas_row_activated         (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+GtkTreeIter iter;
+int id;
+gchar* nom;
+int jour;
+int mois;
+int annee;
+gchar* etat;
+gchar* type;
+gchar* acces;
+
+etud e;
+GtkTreeModel *model =gtk_tree_view_get_model(treeview);
+if (gtk_tree_model_get_iter(model,&iter, path))
+{
+gtk_tree_model_get(GTK_LIST_STORE(model),&iter, 0, &id, 1, &nom, 2, &jour,3, &mois , 4, &annee , 5, &etat, 6, &type, 7, &acces,-1);
+strcpy(e.nom,nom);
+strcpy(e.etat,etat);
+strcpy(e.type,type);
+strcpy(e.acces,acces);
+e.d.j=jour;
+e.d.m=mois;
+e.d.a=annee;
+e.id=id;
+
+affichageg(treeview);
+}
+}
+
+
+/*-----------------radio button------------------------*/
+/*--------------------radio ajout-----------------------*/
+void
+on_radiobutton_ajout_nonpaye_gas_toggled
+                                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{xg=2;}
+}
+///////////////////////////////////////////////////////////////////////////////////
+
+void
+on_radiobutton_ajout_paye_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+{xg=1;}
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+void
+on_gb_radiobutton1_gas_toggled         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{hg=1;}
+}
+/////////////////////////////////////////////////////////////////////////////////
+void
+on_gb_radiobutton2_gas_toggled         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{hg=2;}
+}
+////////////////////////////////////////////////////////////////////////////////
+/*--------------------radio modif-----------------------*/
+void
+on_radiobutton_modif_paye_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{yg=1;}
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+void
+on_radiobutton_modif_nonpaye_gas_toggled
+                                        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{yg=2;}
+}
+/////////////////////////////////////////////////////////////////////////////////
+void
+on_radiobutton_modif_avec_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{zg=1;}
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+void
+on_radiobutton_modif_sans_gas_toggled  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+
+if  (gtk_toggle_button_get_active(GTK_RADIO_BUTTON(togglebutton)))
+	{zg=2;}
+}
+
+
+
+
+void
+on_button_rech_affich_gas_clicked      (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *input,*output;
+etud e;
+int id;
+char idd[30];
+char nom[30];
+char d[30];
+char etat[30];
+char type[30];
+char acces[30];
+char ch[100];
+
+
+
+output=lookup_widget(objet_graphique,"gas");
+input=lookup_widget(objet_graphique,"entry_rechercher_gas");
+id= atoi(gtk_entry_get_text(GTK_ENTRY(input)));
+
+if (og==1)
+{
+e=rechercher2(id);
+sprintf(idd,"%d",e.id);
+sprintf(d,"%d/%d/%d",e.d.j,e.d.m,e.d.a);
+strcpy(nom,e.nom);
+strcpy(etat,e.etat);
+strcpy(type,e.type);
+strcpy(acces,e.acces);
+strcpy(ch," ");strcat(ch,"ID: ");strcat(ch,idd);strcat(ch,", Nom: ");strcat(ch,nom);strcat(ch,", Date: ");
+strcat(ch,d);strcat(ch,", Etat: ");strcat(ch,etat);
+strcat(ch,", Type :  ");strcat(ch,type);strcat(ch,", Acces : ");
+strcat(ch,acces);
+
+gtk_label_set_text(GTK_LABEL(output),ch);
+og=0;
+}
+else 
+gtk_label_set_text(GTK_LABEL(output),"Cocher pour recevoir les données ");
+}
+
+
+
+
+
+/*-------------checkbutton--------------*/
+
+
+void
+on_check_rech_gas_toggled              (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if  (gtk_toggle_button_get_active(togglebutton))
+	{og=1;}
+}
+
+
+/*-------------------end gaston--------------------*/
+
+
+
+
+void
+on_button_login_ghassen_clicked        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_agent,*window_login,*treeview;
+GtkWidget *pseudo,*mdp,*output;
+char util[40];
+char pw[40];
+int x;
+
+pseudo= lookup_widget(objet_graphique,"entry_login_pseudo_gas");
+mdp= lookup_widget(objet_graphique,"entry_login_mdp_gas");
+strcpy(util, gtk_entry_get_text(GTK_ENTRY(pseudo)));
+strcpy(pw, gtk_entry_get_text(GTK_ENTRY(mdp)));
+x=verifg(util,pw);
+if (x==1)
+{
+window_login=lookup_widget(objet_graphique,"window_login_gas");
+gtk_widget_destroy(window_login);
+window_agent=create_window_agent_gas();
+gtk_widget_show(window_agent);
+treeview=lookup_widget(window_agent,"treeview2_gas");
+affichageg(treeview);
+}
+else
+{
+output=lookup_widget(objet_graphique,"label_connexion");
+gtk_label_set_text(GTK_LABEL(output),"Pseudo introuvable ! essayer de saisir à nouveau");
+}
+}
 
 
 
