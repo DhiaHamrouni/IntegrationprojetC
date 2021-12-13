@@ -21,6 +21,7 @@ main (int argc, char *argv[])
   GtkWidget *accueil0;
   GtkWidget *window_ajout_capteur_dhia;
   GtkWidget *window_supprission_capteur_dhia;
+ GtkWidget *authentification;
 
 #ifdef ENABLE_NLS
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -39,8 +40,8 @@ main (int argc, char *argv[])
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  connexion = create_window_login_gas ();
-  gtk_widget_show (connexion);
+  authentification = create_authentification ();
+  gtk_widget_show (authentification);
   gtk_main ();
   return 0;
 }

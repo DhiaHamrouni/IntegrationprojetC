@@ -19,6 +19,9 @@ int xg;
 int yg;
 int zg;
 int og;
+int r;
+int tm[6]={0,0,0,0,0,0};
+menu m;
 //////////////////////////tron commun////////////////////////////////
 
 
@@ -1997,7 +2000,7 @@ if  (gtk_toggle_button_get_active(togglebutton))
 }
 
 
-/*-------------------end gaston--------------------*/
+
 
 
 
@@ -2034,4 +2037,708 @@ gtk_label_set_text(GTK_LABEL(output),"Pseudo introuvable ! essayer de saisir à 
 }
 
 
+/*-------------------end gaston--------------------*/
+/*******************RIMA**************************/
+
+void
+on_button15_suppr_clicked              (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_supprimer;
+GtkWidget *fenetre_afficher;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy(fenetre_afficher);
+
+fenetre_supprimer=lookup_widget(objet_graphique,"supprimer_menu");
+fenetre_supprimer= create_supprimer_menu ();
+gtk_widget_show(fenetre_supprimer);
+}
+
+
+void
+on_button_ajout_menu_clicked           (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_ajout;
+GtkWidget *fenetre_afficher;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy(fenetre_afficher);
+
+fenetre_ajout=lookup_widget(objet_graphique,"ajout_un_menu");
+fenetre_ajout=create_ajout_un_menu ();
+gtk_widget_show(fenetre_ajout);
+}
+
+
+void
+on_button_meilleur_menu_clicked        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_meilleur;
+GtkWidget *fenetre_afficher;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy(fenetre_afficher);
+
+fenetre_meilleur=lookup_widget(objet_graphique,"meilleur_menu");
+fenetre_meilleur= create_meilleur_menu ();
+gtk_widget_show(fenetre_meilleur);
+}
+
+
+
+
+void
+on_button16_modifr_clicked             (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_modifier;
+GtkWidget *fenetre_afficher;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy(fenetre_afficher);
+
+fenetre_modifier=lookup_widget(objet_graphique,"modification_menu");
+fenetre_modifier= create_modification_menu ();
+gtk_widget_show(fenetre_modifier);
+}
+
+
+void
+on_button_actualisermenu_clicked       (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_afficher,*fenetre_afficher1;
+GtkWidget *treeview1;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy (fenetre_afficher);
+
+fenetre_afficher1= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher1);
+
+
+treeview1=lookup_widget(fenetre_afficher1,"treeview1r");
+afficher_menu(treeview1);
+}
+
+
+void
+on_button_meilleur_plat_clicked        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_meilleur_plat;
+GtkWidget *fenetre_afficher;
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+gtk_widget_destroy(fenetre_afficher);
+
+fenetre_meilleur_plat=lookup_widget(objet_graphique,"meilleur_plat");
+fenetre_meilleur_plat= create_meilleur_plat ();
+gtk_widget_show(fenetre_meilleur_plat);
+}
+
+
+void
+on_button19_retour_espace_admin_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+
+}
+
+
+void
+on_button_authentification_nutritionnist_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *window_afficher,*window_login,*treeview;
+GtkWidget *pseudo,*mdp,*output;
+char util[40];
+char pw[40];
+int x;
+
+pseudo= lookup_widget(objet_graphique,"entry_id");
+mdp= lookup_widget(objet_graphique,"entry_mp");
+strcpy(util, gtk_entry_get_text(GTK_ENTRY(pseudo)));
+strcpy(pw, gtk_entry_get_text(GTK_ENTRY(mdp)));
+x=verifr(util,pw);
+if (x==1)
+{
+window_login=lookup_widget(objet_graphique,"authentification");
+gtk_widget_destroy(window_login);
+window_afficher=create_fenetre_affiche_menu ();
+gtk_widget_show(window_afficher);
+treeview=lookup_widget(window_afficher,"treeview1r");
+afficher_menu(treeview);
+}
+else
+{
+output=lookup_widget(objet_graphique,"label111");
+gtk_label_set_text(GTK_LABEL(output),"nutritionnist introuvable ! essayer de saisir à nouveau");
+}
+}
+
+
+void
+on_button4_confajout_clicked           (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *rjour;
+GtkWidget *rmois;
+GtkWidget *rannee;
+GtkWidget *r_combobox;
+GtkWidget *output ,*output1 ;
+GtkWidget *numr,*contenu,*r_dechets;
+menu m;
+int y=-1;
+char temps[50];
+char nutri[50];
+char text3[50];
+
+
+
+numr=lookup_widget (objet_graphique,"entry3_nummenu");
+m.num_menu=atoi(gtk_entry_get_text(GTK_ENTRY(numr)));
+
+
+
+rjour=lookup_widget(objet_graphique,"spinbutton1_jr");
+m.date_ajout.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(rjour));
+rmois=lookup_widget(objet_graphique,"spinbutton2_mr");
+m.date_ajout.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(rmois));
+rannee=lookup_widget(objet_graphique,"spinbutton3_ar");
+m.date_ajout.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(rannee));
+
+r_combobox=lookup_widget(objet_graphique,"combobox1_jourr");
+
+if(strcmp("Lundi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Lundi");}
+else if(strcmp("Mardi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Mardi");}
+else if(strcmp("Mercredi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Mercredi");}
+else if(strcmp("Jeudi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Jeudi");}
+else if(strcmp("Vendredi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Vendredi");}
+else if(strcmp("Samedi",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Samedi");}
+else if(strcmp("Dimanche",gtk_combo_box_get_active_text(GTK_COMBO_BOX(r_combobox)))==0)
+	{ strcpy(m.jour,"Dimanche");}
+
+/////////////radiobuton
+fflush(stdin);
+ if (r==1)
+{strcpy(temps,"petitdejeuner");}
+ else if (r==2)
+{strcpy(temps,"dejeuner");}
+ else if (r==3)
+{strcpy(temps,"diner");}
+
+strcpy(m.temps,temps);
+//////////checkbox
+fflush (stdin);
+if (tm[0]==1)
+{
+fflush(stdin);
+strcat(m.nut,"Lipides");
+}
+if (tm[1]==1)
+strcat(m.nut,"Glucides");
+if (tm[2]==1)
+strcat(m.nut,"Proteines");
+if (tm[3]==1)
+strcat(m.nut,"Calcium");
+if (tm[4]==1)
+strcat(m.nut,"Fer");
+if (tm[5]==1)
+strcat(m.nut,"Vitamines");
+fflush(stdin);
+fflush(stdin);
+//strcpy(m.nut,nutri);
+sprintf(text3," votre %s est riche en %s \n",temps,m.nut);
+
+contenu=lookup_widget (objet_graphique,"entry_entree");
+strcpy(m.contenu,gtk_entry_get_text(GTK_ENTRY(contenu)));
+
+r_dechets=lookup_widget (objet_graphique,"entry2_dechets");
+m.dechets=atof(gtk_entry_get_text(GTK_ENTRY(r_dechets)));
+
+output = lookup_widget(objet_graphique,"label106");
+output1 = lookup_widget(objet_graphique,"label37");
+gtk_label_set_text(GTK_LABEL(output1),text3);
+y=rechr(m.num_menu);
+if (y==1)
+	gtk_label_set_text(GTK_LABEL(output),"menu existe deja");
+else 
+{
+gtk_label_set_text(GTK_LABEL(output),"menu ajouté avec succé");
+ajout_menu(m);
+}
+}
+
+
+
+
+void
+on_button8_affajout_clicked            (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_ajout;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview1;
+
+fenetre_ajout=lookup_widget(objet_graphique,"ajout_un_menu");
+gtk_widget_destroy(fenetre_ajout);
+
+fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher);
+
+treeview1=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview1);
+}
+
+
+void
+on_button_annuler_ajout_menu_clicked   (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_ajouter;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview1;
+
+
+fenetre_ajouter=lookup_widget(objet_graphique,"ajout_un_menu");
+gtk_widget_destroy(fenetre_ajouter);
+
+//fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher);
+treeview1=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview1);
+}
+
+
+void
+on_button20_recherchermenu_clicked     (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+menu m;
+GtkWidget *numme, *jourr ,*moisr ,*anneer ,*jours ,*tempsr, *nutr ,*contenur,*dechetsr,*output9r;
+int x=-1;
+FILE *f;
+int num_menu;
+char jour[50];
+char jr1[20];
+char mr1[20];
+char ar1[20];
+char temps[50];
+char nut[50];
+char contenu[50];
+char dech[50];
+float dechets;
+int numr1;
+
+numme=lookup_widget (objet_graphique, "entry1_num");
+jourr=lookup_widget (objet_graphique, "spinbutton_jours");
+moisr=lookup_widget (objet_graphique, "spinbutton_mois");
+anneer=lookup_widget (objet_graphique, "spinbutton_annee");
+jours=lookup_widget (objet_graphique, "entry5_jsri");
+tempsr=lookup_widget (objet_graphique, "entry6_tri");
+nutr=lookup_widget (objet_graphique, "entry7_nutri");
+contenur=lookup_widget (objet_graphique, "entry8_cri");
+dechetsr=lookup_widget (objet_graphique, "entry9_dechetsri");
+output9r = lookup_widget(objet_graphique,"label1_numri");
+
+numr1=atoi(gtk_entry_get_text(GTK_ENTRY(numme)));
+x=rechr(numr1);
+
+f=fopen("menus.txt","r");
+if(f!=NULL)
+{
+     while((fscanf(f,"%d %s %s %s %s %s %s %s %f \n",&num_menu,jour,jr1,mr1,ar1,temps,nut,contenu,&dechets)) != EOF)
+	{if (numr1==num_menu)
+           {x=1;
+strcpy(m.jour,jour);
+strcpy(m.temps,temps);
+strcpy(m.nut,nut);
+strcpy(m.contenu,contenu);
+m.dechets=dechets;
+
+}
+}
+fclose(f);
+}
+if (x==-1)
+{
+   
+gtk_label_set_text(GTK_LABEL(output9r),"ce menu n'existe pas");
+}
+else 
+{
+
+//menu m=rechercher_menu(numr1);
+gtk_label_set_text(GTK_LABEL(output9r),"succee");
+gtk_entry_set_text(GTK_LABEL(jours),jour);
+gtk_entry_set_text(GTK_LABEL(tempsr),temps);
+gtk_entry_set_text(GTK_LABEL(nutr),nut);
+gtk_entry_set_text(GTK_LABEL(contenur),contenu);
+snprintf(dech,50,"%f",m.dechets);
+gtk_entry_set_text(GTK_LABEL(dechetsr),dech);
+}
+
+
+
+
+
+}
+
+
+void
+on_button21_confirmer_clicked          (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *numme, *jourr ,*moisr ,*anneer ,*jours ,*tempsr, *nutr ,*contenur,*dechetsr;
+menu m;
+int num;
+
+
+numme=lookup_widget (objet_graphique, "entry1_num");
+num=atoi(gtk_entry_get_text(GTK_ENTRY(numme)));
+jours=lookup_widget (objet_graphique, "entry5_jsri");
+tempsr=lookup_widget (objet_graphique, "entry6_tri");
+nutr=lookup_widget (objet_graphique, "entry7_nutri");
+contenur=lookup_widget (objet_graphique, "entry8_cri");
+dechetsr=lookup_widget (objet_graphique, "entry9_dechetsri");
+jourr=lookup_widget(objet_graphique,"spinbutton_jour");
+moisr=lookup_widget(objet_graphique,"spinbutton_mois");
+anneer=lookup_widget(objet_graphique,"spinbutton_annee");
+
+
+
+numme=lookup_widget (objet_graphique, "entry1_num");
+m.num_menu=atoi(gtk_entry_get_text(GTK_ENTRY(numme)));
+strcpy(m.jour,gtk_entry_get_text(GTK_ENTRY(jours)));
+strcpy(m.temps,gtk_entry_get_text(GTK_ENTRY(tempsr)));
+strcpy(m.nut,gtk_entry_get_text(GTK_ENTRY(nutr)));
+strcpy(m.contenu,gtk_entry_get_text(GTK_ENTRY(contenur)));
+m.dechets=atof(gtk_entry_get_text(GTK_ENTRY(dechetsr)));
+m.date_ajout.j1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(jourr));
+m.date_ajout.m1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(moisr));
+m.date_ajout.a1=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(anneer));
+
+modifier_menu (m,num);
+
+//mise a jour treeview
+/*
+ GtkWidget* treeview1=lookup_widget(objet_graphique,"treeview1r");
+afficher_menu(treeview1);*/
+}
+
+
+void
+on_button_retourner_modif_menu_clicked (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_modifier;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview1;
+
+
+fenetre_modifier=lookup_widget(objet_graphique,"modification_menu");
+gtk_widget_destroy(fenetre_modifier);
+
+//fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher);
+treeview1=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview1);
+
+}
+
+
+void
+on_button2_annulersuppmenu_clicked     (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_supprimer;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview;
+
+
+fenetre_supprimer=lookup_widget(objet_graphique,"supprimer_menu");
+gtk_widget_destroy(fenetre_supprimer);
+
+//fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu ();
+gtk_widget_show(fenetre_afficher);
+
+treeview=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview);
+}
+
+
+void
+on_button1_suppmenu_clicked            (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+
+GtkWidget *num_r,*output;
+int num;
+int x;
+output=lookup_widget(objet_graphique,"label2_suppmessage");
+num_r=lookup_widget(objet_graphique,"entry_supp_menu");
+num=atoi(gtk_entry_get_text(GTK_ENTRY(num_r)));
+x=rechr(num);
+
+if (x==1)
+{
+supp_menu (num);
+gtk_label_set_text(GTK_LABEL(output),"menu supprimer avec succe");
+}
+
+else
+gtk_label_set_text(GTK_LABEL(output),"menu n existe pas");
+}
+
+
+void
+on_button_annuler_meilleur_menu_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_meilleur;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview1;
+
+
+fenetre_meilleur=lookup_widget(objet_graphique,"meilleur_menu");
+gtk_widget_destroy(fenetre_meilleur);
+
+//fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher);
+treeview1=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview1);
+}
+
+
+void
+on_button_trouver_meilleur_plat_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+char meill11[10];
+char meill13[10];
+char meill21[10];
+char meill23[10];
+char meill31[10];
+char meill33[10];
+GtkWidget *fenetre_meilleur_plat;
+GtkWidget *mm11,*mm13,*mm21,*mm23,*mm31,*mm33;
+
+meilleur_plat(meill11,meill13,meill21,meill23,meill31,meill33);
+
+fenetre_meilleur_plat=lookup_widget(objet_graphique,"meilleur_plat");
+
+mm11=lookup_widget(fenetre_meilleur_plat,"label94");
+gtk_label_set_text(GTK_LABEL(mm11),meill11);
+//gtk_widget_show(mm11);
+
+mm13=lookup_widget(fenetre_meilleur_plat,"label100");
+gtk_label_set_text(GTK_LABEL(mm13),meill13);
+//gtk_widget_show(mm13);
+
+mm21=lookup_widget(fenetre_meilleur_plat,"label95");
+gtk_label_set_text(GTK_LABEL(mm21),meill21);
+//gtk_widget_show(mm21);
+
+mm23=lookup_widget(fenetre_meilleur_plat,"label101");
+gtk_label_set_text(GTK_LABEL(mm23),meill23);
+//gtk_widget_show(mm23);
+
+mm31=lookup_widget(fenetre_meilleur_plat,"label96");
+gtk_label_set_text(GTK_LABEL(mm31),meill31);
+//gtk_widget_show(mm31);
+
+mm33=lookup_widget(fenetre_meilleur_plat,"label102");
+gtk_label_set_text(GTK_LABEL(mm33),meill33);
+//gtk_widget_show(mm33);
+}
+
+
+void
+on_button_retourner_meilleur_plat_clicked
+                                        (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *fenetre_meilleur_plat;
+GtkWidget *fenetre_afficher;
+GtkWidget *treeview1;
+
+
+fenetre_meilleur_plat=lookup_widget(objet_graphique,"meilleur_plat");
+gtk_widget_destroy(fenetre_meilleur_plat);
+
+//fenetre_afficher=lookup_widget(objet_graphique,"fenetre_affiche_menu");
+fenetre_afficher= create_fenetre_affiche_menu();
+gtk_widget_show(fenetre_afficher);
+treeview1=lookup_widget(fenetre_afficher,"treeview1r");
+afficher_menu(treeview1);
+}
+
+
+void
+on_checkbutton6_calcium_toggled        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+   {tm[3]=1;}
+}
+
+
+void
+on_checkbutton3_lipides_toggled        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+   {tm[0]=1;}
+}
+
+
+void
+on_checkbutton4_glucides_toggled       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+ if (gtk_toggle_button_get_active(togglebutton))
+   {tm[1]=1;}
+}
+
+
+void
+on_checkbutton7_fer_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+   {tm[4]=1;}
+}
+
+
+void
+on_checkbutton5_proteines_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+ if (gtk_toggle_button_get_active(togglebutton))
+   {tm[2]=1;}
+}
+
+
+void
+on_checkbutton8_vitamines_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(togglebutton))
+   {tm[5]=1;}
+}
+
+
+void
+on_treeview1r_row_activated            (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data)
+{
+
+menu m;
+GtkTreeIter iter;
+gint *num_menu;
+gchar *jourri;
+gint *jr1;
+gint *mr1;
+gint *ar1;
+gchar *temps;
+gchar *nut;
+gchar *contenu;
+float dechets;
+
+
+  
+GtkTreeModel *model= gtk_tree_view_get_model(treeview);
+{
+
+if (gtk_tree_model_get_iter(model,&iter,path))
+{
+	gtk_tree_model_get (GTK_LIST_STORE(model),&iter,0,&num_menu,1,&jourri,2,&jr1,3,&mr1,4,&ar1,5,&temps,6,&nut,7,&contenu,8,&dechets,-1);
+	m.num_menu=num_menu;
+	strcpy(m.jour,jourri);
+	m.date_ajout.j1=jr1;
+	m.date_ajout.m1=mr1;
+	m.date_ajout.a1=ar1;
+	
+	strcpy(m.contenu,contenu);
+	strcpy(m.nut,nut);
+	strcpy(m.temps,temps);
+	m.dechets=dechets;
+
+	supp_menu(num_menu);
+	afficher_menu(treeview);
+
+}
+
+}
+}
+
+
+void
+on_radiobutton1_ptdej_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+   {r=1;}
+}
+
+
+void
+on_radiobutton2_dej_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+   {r=2;}
+}
+
+
+void
+on_radiobutton3_diner_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+  if (gtk_toggle_button_get_active(GTK_RADIO_BUTTON (togglebutton)))
+   {r=3;}
+
+}
+
+
+void
+on_button_trouve_meilleur_menu_clicked (GtkButton       *objet_graphique,
+                                        gpointer         user_data)
+{
+GtkWidget *mm1,*mm2,*mm3,*mm4;
+char text1[100];
+char text2[100];
+char text4[100];
+char text3[100];
+meilleur_menu(text1,text2,text3,text4);
+mm1=lookup_widget (objet_graphique, "label71");
+mm2=lookup_widget (objet_graphique, "label77");
+mm3=lookup_widget (objet_graphique, "label114");
+mm4=lookup_widget (objet_graphique, "label115");
+gtk_label_set_text(GTK_LABEL(mm1),text1);
+gtk_label_set_text(GTK_LABEL(mm2),text2);
+gtk_label_set_text(GTK_LABEL(mm3),text3);
+gtk_label_set_text(GTK_LABEL(mm4),text4);
+}
 

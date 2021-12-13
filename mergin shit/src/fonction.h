@@ -109,4 +109,38 @@ void modif_etud(etud e, int idg);
 int verifg(char pseudo[], char mdp[]);
 etud rechercher2(int id);
 /*-------------------------------------end gaston-----------------------*/
+/*--------------------------------------RIMA----------------------------*/
+
+
+typedef struct
+{
+  int jd;//jour 
+  int td;//ptit dej ou de..
+  float kgd;////dechets en kg
+}dechet;
+
+typedef struct//tableau des menus contient://
+{
+int num_menu;
+char jour[50];
+date date_ajout;
+char temps[50];
+char nut[50];
+char contenu[50];
+float dechets;
+}menu;
+
+
+int rechr(int num);
+int verifr(char pseudo[], char mdp[]);
+void ajout_menu(menu m);
+void supp_menu(int num);
+menu rechercher_menu(int num);
+void modifier_menu (menu m,int num);
+void afficher_menu(GtkWidget *liste);
+
+void meilleur_menu(char text1[],char text2[],char text3[],char text4[]);
+void meilleur_plat(char meill11[],char meill13[],char meill21[],char meill23[],char meill31[],char meill33[]);
+/*------------------------------------end RIMA----------------------*/
+
 

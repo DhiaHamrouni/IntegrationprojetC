@@ -540,3 +540,130 @@ on_check_rech_gas_toggled              (GtkToggleButton *togglebutton,
 void
 on_button_login_ghassen_clicked        (GtkButton       *objet_graphique,
                                         gpointer         user_data);
+
+void
+on_button15_suppr_clicked              (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_ajout_menu_clicked           (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_meilleur_menu_clicked        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button16_modifr_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_actualisermenu_clicked       (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_meilleur_plat_clicked        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button19_retour_espace_admin_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_authentification_nutritionnist_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button4_confajout_clicked           (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button8_affajout_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler_ajout_menu_clicked   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button20_recherchermenu_clicked     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button21_confirmer_clicked          (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_retourner_modif_menu_clicked (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button2_annulersuppmenu_clicked     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button1_suppmenu_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler_meilleur_menu_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_trouver_meilleur_plat_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_retourner_meilleur_plat_clicked
+                                        (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_checkbutton6_calcium_toggled        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_checkbutton3_lipides_toggled        (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_checkbutton4_glucides_toggled       (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_checkbutton7_fer_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_checkbutton5_proteines_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_checkbutton8_vitamines_toggled      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_treeview1r_row_activated            (GtkTreeView     *treeview,
+                                        GtkTreePath     *path,
+                                        GtkTreeViewColumn *column,
+                                        gpointer         user_data);
+
+void
+on_radiobutton1_ptdej_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton2_dej_toggled            (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton3_diner_toggled          (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_button_trouve_meilleur_menu_clicked (GtkButton       *button,
+                                        gpointer         user_data);

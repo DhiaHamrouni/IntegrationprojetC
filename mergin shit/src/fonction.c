@@ -906,6 +906,456 @@ return e;
 fclose(F);
 
 }
+/*------------------end gaston-----------------*/
+//////////////////////////////////RIMA////////////////////////
+
+
+
+
+
+enum
+{
+        ENUM_MENU,
+	EJOURS,
+	EJR,
+	EMOISR,
+	EANNEER,
+	ECONTENU,
+	ENUT,
+	ETEMPS,
+	EDECHETS,
+	COLUMNS2
+};
+
+
+int rechr(int num)
+{
+    FILE *F;
+    menu m ;
+    int x=-1;
+    F=fopen("menus.txt","r");
+    
+    
+      while(  fscanf(F,"%d %s %d %d %d %s %s %s %f \n",&m.num_menu,m.jour,&m.date_ajout.j1,&m.date_ajout.m1,&m.date_ajout.a1,m.temps,m.nut,m.contenu,&m.dechets)!=EOF)
+     {
+        //fflush(stdin);
+        if(m.num_menu==num)
+         {
+            x=1;
+          
+	}
+     }
+    
+    fclose(F);
+    return x ;
+}
+//////////////////////////////////////////////////////////////
+
+void ajout_menu(menu m)
+{
+FILE *f;
+f = fopen("menus.txt","a");
+if(f!=NULL)
+{
+fflush(stdin);
+fflush(stdin);
+fprintf(f,"%d %s %d %d %d %s %s %s %f \n",m.num_menu,m.jour,m.date_ajout.j1,m.date_ajout.m1,m.date_ajout.a1,m.temps,m.nut,m.contenu,m.dechets);
+fclose(f);			
+}
+}	
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+void supp_menu (int num)
+{
+menu m;
+FILE *f;
+FILE *g; 
+     f=fopen("menus.txt","r");
+    g=fopen("ancien_menus.txt","w");
+    if ((f!=NULL) && (g!=NULL))
+{
+    
+    while(fscanf(f,"%d %s %d %d %d %s %s %s %f \n",&m.num_menu,m.jour,&m.date_ajout.j1,&m.date_ajout.m1,&m.date_ajout.a1,m.temps,m.nut,m.contenu,&m.dechets)!=EOF)
+	{ 
+ 	 if(m.num_menu!=num)
+	 {
+	  fprintf(g,"%d %s %d %d %d %s %s %s %f \n",m.num_menu,m.jour,m.date_ajout.j1,m.date_ajout.m1,m.date_ajout.a1,m.temps,m.nut,m.contenu,m.dechets);
+	 }
+	}
+}
+	fclose(f);
+	fclose(g);
+	remove("menus.txt");
+	rename("ancien_menus.txt","menus.txt");
+
+}
+////////////////////////////////////////////////////////////////////////
+void modifier_menu (menu m,int num)
+{
+supp_menu(num);
+ajout_menu(m);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+menu rechercher_menu(int num)
+{
+    menu m;
+    menu m1;
+    FILE *f;
+    f = fopen("menus.txt","r");
+    if(f != NULL)
+    {  
+     while((fscanf(f,"%d %s %d %d %d %s %s %s %f \n",&m.num_menu,m.jour,&m.date_ajout.j1,&m.date_ajout.m1,&m.date_ajout.a1,m.temps,m.nut,m.contenu,&m.dechets)) != EOF)
+      {
+      if(m.num_menu==num)
+       {
+         strcpy(m1.jour,m.jour);
+	//m1.date_ajout.j1=m.date_ajout.j1;
+	//m1.date_ajout.m1=m.date_ajout.m1;
+	//m1.date_ajout.a1=m.date_ajout.a1;
+	strcpy(m1.temps,m.temps);
+	strcpy(m1.nut,m.nut);
+	strcpy(m1.contenu,m.contenu);
+	m1.dechets=m.dechets;
+         
+       }
+	return (m1);
+	fclose(f);
+        
+     }
+    }
+     
+    
+   
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void meilleur_menu(char text1[],char text2[],char text3[],char text4[])
+{   
+    float min1,min2,min3,min4;
+    int posMin1=0,posMin2=0,posMin3=0,posMin4=0;
+    int i;
+ /*  char temps[50];
+//    FILE *g;
+//    menu m;*/
+
+    FILE *f;
+    f= fopen("dechets.txt","r");  
+
+char c;
+int nbs=0;
+while((c=fgetc(f))!=EOF)
+	if (c == '\n')
+		nbs++;
+fseek(f,0,SEEK_SET);
+dechet * d = malloc(nbs*sizeof(dechet));
+
+if(f != NULL )
+    {   
+	for (int i=0;i<nbs;i++)
+{
+    	fscanf(f,"%d %d %f \n",&d[i].jd,&d[i].td,&d[i].kgd);
+}
+         min1=d[0].kgd;	
+         for (int i=1;i<8;i++)
+         {
+            if (d[i].kgd < min1 )
+            {
+            min1 = d[i].kgd;
+	     posMin1=i;
+            }
+          }
+         min2=d[7].kgd;
+ 	for (int i=8;i<16;i++)
+         {
+            if (d[i].kgd < min2 )
+            {
+            min2 = d[i].kgd;
+	     posMin2=i;
+            }
+          }
+         min3=d[15].kgd;
+	 for (int i=16;i<22;i++)
+         {
+            if (d[i].kgd < min3 )
+            {
+            min3 = d[i].kgd;
+	     posMin3=i;
+            }
+          }
+         min4=d[21].kgd;
+	 for (int i=22;i<29;i++)
+         {
+            if (d[i].kgd < min4 )
+            {
+            min4 = d[i].kgd;
+	     posMin4=i;
+            }
+          }
+sprintf(text1,"le meilleur menu de la 1ére semaine est dans le jours %d et du dechets %f",d[posMin1].jd,d[posMin1].kgd);
+sprintf(text2,"le meilleur menu de la 2éme semaine est dans le jours %d et du dechets %f",d[posMin2].jd,d[posMin2].kgd);
+sprintf(text3,"le meilleur menu de la 3éme semaine est dans le jours %d et du dechets %f",d[posMin3].jd,d[posMin3].kgd);
+sprintf(text4,"le meilleur menu de la 4éme semaine est dans le jours %d et du dechets %f",d[posMin4].jd,d[posMin4].kgd);
+	
+         /*if (d[posMin].td==1)
+          {strcpy(temps,"petitdejeuner");}
+         else if (d[posMin].td==2)
+          {strcpy(temps,"dejeuner");}
+         else if (d[posMin].td==3)
+          {strcpy(temps,"diner");}
+       
+        while((fscanf(g,"%d %s %d %d %d %s %s %s %f \n",&m.num_menu,m.jour,&m.date_ajout.j1,&m.date_ajout.m1,&m.date_ajout.a1,m.temps,m.nut,m.contenu,&m.dechets)) != EOF)
+        {
+            
+            if (m.date_ajout.j1 == d[posMin].jd && (strcmp(m.temps,temps)==0) )
+             {
+               return m;
+             }
+       }*/
+     }
+    fclose(f);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+void afficher_menu(GtkWidget *treeview1)
+{ 
+
+GtkCellRenderer *renderer;
+GtkTreeViewColumn *column;
+GtkTreeIter  iter;
+GtkListStore   *store;
+ 
+int num_menu[20];
+char jourr[100];
+char jr1[20];
+char mr1[20];
+char ar1[20];
+char temps[50];
+char nut[100];
+char contenu[100];
+float dechets[20];
+FILE *F;
+store=NULL;
+store=gtk_tree_view_get_model(treeview1);
+if (store == NULL)
+{	/* Creation de la 1ere colonne */
+	{renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("N°menu",
+                                                            renderer,
+                                                            "text", ENUM_MENU,
+                                                            NULL);
+
+        /* Ajouter la 1er colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+
+	/* Creation de la 2eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Le jour du semaine",
+                                                            renderer,
+                                                            "text", EJOURS,
+                                                            NULL);
+	/* Ajouter la 2emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+	/* Creation de la 3eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Jour",
+                                                            renderer,
+                                                            "text", EJR,
+                                                            NULL);
+	/* Ajouter la 3emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+       
+
+       /* Creation de la 4eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Mois",
+                                                            renderer,
+                                                            "text", EMOISR,
+                                                            NULL);
+	/* Ajouter la 4emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+
+            /* Creation de la 5eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Annee",
+                                                            renderer,
+                                                            "text", EANNEER,
+                                                            NULL);
+	/* Ajouter la 5emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+
+
+           /* Creation de la 6eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Temps",
+                                                            renderer,
+                                                            "text", ECONTENU,
+                                                            NULL);
+	/* Ajouter la 6emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+	/* Creation de la 7eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Nutrition",
+                                                            renderer,
+                                                            "text", ENUT,
+                                                            NULL);
+	/* Ajouter la 7emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+	/* Creation de la 8eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Contenu",
+                                                            renderer,
+                                                            "text", ETEMPS,
+                                                            NULL);
+	/* Ajouter la 8emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+
+        /* Creation de la 8eme colonne */
+        renderer = gtk_cell_renderer_text_new();
+        column = gtk_tree_view_column_new_with_attributes("Dechets",
+                                                            renderer,
+                                                            "text", EDECHETS,
+                                                            NULL);
+	/* Ajouter la 8emme colonne à la vue */
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), column);
+	gtk_tree_view_column_set_resizable(column,TRUE);
+	gtk_tree_view_column_set_expand(column,TRUE);
+
+
+
+/* Creation du modele */
+        store = gtk_list_store_new(9,
+				     G_TYPE_STRING,
+				     G_TYPE_STRING,
+				     G_TYPE_STRING,			
+                                     G_TYPE_STRING,
+                                     G_TYPE_STRING,
+                                     G_TYPE_STRING,
+                                     G_TYPE_STRING,
+                                     G_TYPE_STRING,
+                                     G_TYPE_STRING);
+        /* Insertion des elements */
+        F=fopen("menus.txt","r");
+if (F!=NULL)
+{
+while(fscanf(F,"%s %s %s %s %s %s %s %s %s  \n",num_menu,jourr,jr1,mr1,ar1,temps,nut,contenu,dechets)!= EOF)
+        {
+
+         /* Creation de la nouvelle ligne */
+         gtk_list_store_append(store, &iter);
+         /* Mise a jour des donnees */
+         gtk_list_store_set(store, &iter,
+                            0,num_menu,
+                            1,jourr,
+			    2,jr1,	
+                            3,mr1,
+                            4,ar1,
+                            5,temps,
+                            6,nut,
+                            7,contenu,
+                            8,dechets,
+                            -1);}
+        fclose(F);
+
+}
+
+ 	gtk_tree_view_set_model ( GTK_TREE_VIEW (treeview1), GTK_TREE_MODEL(store)  );
+         g_object_unref(store);
+}
+}
+}
+
+
+////////////////////////////////////////////////////
+void meilleur_plat(char meill11[],char meill13[],char meill21[],char meill23[],char meill31[],char meill33[])
+    {
+        FILE *f=NULL;
+	FILE *meill=NULL;
+        int a,b,j1,j2,m1,m2,m3,j3;
+        float c,cmp1=1000.00,cmp3=1000.00,cmp2=1000.00;
+       f=fopen("dechets.txt","r");
+        if (f!=NULL)
+            while(fscanf(f,"%d %d %f \n",&a,&b,&c)!=EOF)
+            {
+printf("%f",c);
+
+                 if((cmp1>c)&&(b==1))
+                 {
+                    cmp1=c;
+                    j1=a;
+                    
+                 }
+		 if((cmp2>c)&&(b==2))
+                 {
+                    cmp2=c;
+                    j2=a;
+                    
+                 }
+		 if((cmp3>c)&&(b==3))
+                 {
+                    cmp3=c;
+                    j3=a;
+                    
+                 }
+            }
+	
+       
+	sprintf(meill11,"%d",j1);
+	snprintf(meill13,20,"%f",cmp1);
+	sprintf(meill21,"%d",j2);
+	snprintf(meill23,20,"%f",cmp2);
+	sprintf(meill31,"%d",j3);
+	snprintf(meill33,20,"%f",cmp3);
+ }
+
+//////////////////////////////////////////////
+int verifr(char pseudo[], char mdp[])
+{
+int x;
+FILE *f;
+char ch1[50];
+char ch2[50];
+f=fopen("loginr.txt","r");
+if (f==NULL);
+{
+while (fscanf(f,"%s %s ", ch1,ch2)!=EOF)
+{
+if((strcmp(ch1,pseudo)==0) && (strcmp(ch2,mdp)==0))
+x=1;
+else 
+x=0;
+}
+fclose(f);
+}
+return x;
+}
+
+
+
+
 
 
 

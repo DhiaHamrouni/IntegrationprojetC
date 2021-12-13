@@ -1,0 +1,9 @@
+2 Dimanche 2 4 2025 dejeuner ProteinesFerVitamines ffffffffff 70.000000 
+1 Vendredi 25 6 2025 diner LipidesProteinesVitamines hhhhmmmm 90.000000 
+3 Vendredi 30 10 2021 petitdejeuner LipidesGlucidesProteinesFerVitamines fffff 0.000000 
+3 Vendredi 30 10 2021 dejeuner LipidesGlucidesProteinesCalciumFerVitamines fffff 10.000000 
+4 Mardi 22 8 2023 diner ProteinesVitamines mmmmmm 6.000000 
+5 Mercredi 27 9 2023 diner LipidesCalcium llllll 9.000000 
+7 Mardi 31 7 2023 dejeuner GlucidesCalcium mmmm 1.000000 
+6 Mardi 5 9 2024 dejeuner Vitamine ffff 2.000000 
+8 Mercredi 28 10 2023 dejeuner GlucidesProteines mmm 4.000000 
