@@ -79,6 +79,18 @@ gtk_label_set_text(GTK_LABEL(output),"Incorrect Values");
 }
 ///////////////////////////////////////////:nocta:////////////////////////////////////////
 void
+on_button6668_clicked                  (GtkButton       *button,
+                                        gpointer         user_data)
+{
+GtkWidget
+*w,*windowDashboard_esprit;
+w=lookup_widget(button,"type_alarme");
+gtk_widget_destroy(w);
+windowDashboard_esprit=create_Dashboard_esprit();
+gtk_widget_show(windowDashboard_esprit);
+}
+
+void
 on_button6667_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
@@ -157,13 +169,11 @@ on_retour_alarmes_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*w,*windowcapteur,*treeview3;
+*w,*windowconnexion;
 w=lookup_widget(button,"Alarmes_dhia");
 gtk_widget_destroy(w);
-windowcapteur=create_capteur();
-gtk_widget_show(windowcapteur);
-treeview3=lookup_widget(windowcapteur,"treeview3");
-afficher_capteur(treeview3);
+windowconnexion=create_connexion();
+gtk_widget_show(windowconnexion);
 }
 
 void
@@ -3781,6 +3791,8 @@ gtk_widget_destroy(fenetre_principale);
 fenetre_trouve=create_Dashboard_esprit();
 gtk_widget_show(fenetre_trouve);
 }
+
+
 
 
 

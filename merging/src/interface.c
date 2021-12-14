@@ -1292,6 +1292,11 @@ create_type_alarme (void)
   GtkWidget *hbox31;
   GtkWidget *image57;
   GtkWidget *label78;
+  GtkWidget *button6668;
+  GtkWidget *alignment123;
+  GtkWidget *hbox123;
+  GtkWidget *image277;
+  GtkWidget *label325;
 
   type_alarme = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (type_alarme), _("Choisissez le type"));
@@ -1351,6 +1356,27 @@ create_type_alarme (void)
   gtk_widget_show (label78);
   gtk_box_pack_start (GTK_BOX (hbox31), label78, FALSE, FALSE, 0);
 
+  button6668 = gtk_button_new ();
+  gtk_widget_show (button6668);
+  gtk_fixed_put (GTK_FIXED (fixed16), button6668, 0, 568);
+  gtk_widget_set_size_request (button6668, 248, 72);
+
+  alignment123 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment123);
+  gtk_container_add (GTK_CONTAINER (button6668), alignment123);
+
+  hbox123 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox123);
+  gtk_container_add (GTK_CONTAINER (alignment123), hbox123);
+
+  image277 = gtk_image_new_from_stock ("gtk-go-back", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image277);
+  gtk_box_pack_start (GTK_BOX (hbox123), image277, FALSE, FALSE, 0);
+
+  label325 = gtk_label_new_with_mnemonic (_("Retour vers le Dashboard"));
+  gtk_widget_show (label325);
+  gtk_box_pack_start (GTK_BOX (hbox123), label325, FALSE, FALSE, 0);
+
   g_signal_connect ((gpointer) mouvement, "toggled",
                     G_CALLBACK (on_mouvement_toggled),
                     NULL);
@@ -1359,6 +1385,9 @@ create_type_alarme (void)
                     NULL);
   g_signal_connect ((gpointer) confirm_alarme, "clicked",
                     G_CALLBACK (on_confirm_alarme_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button6668, "clicked",
+                    G_CALLBACK (on_button6668_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1375,6 +1404,11 @@ create_type_alarme (void)
   GLADE_HOOKUP_OBJECT (type_alarme, hbox31, "hbox31");
   GLADE_HOOKUP_OBJECT (type_alarme, image57, "image57");
   GLADE_HOOKUP_OBJECT (type_alarme, label78, "label78");
+  GLADE_HOOKUP_OBJECT (type_alarme, button6668, "button6668");
+  GLADE_HOOKUP_OBJECT (type_alarme, alignment123, "alignment123");
+  GLADE_HOOKUP_OBJECT (type_alarme, hbox123, "hbox123");
+  GLADE_HOOKUP_OBJECT (type_alarme, image277, "image277");
+  GLADE_HOOKUP_OBJECT (type_alarme, label325, "label325");
 
   return type_alarme;
 }

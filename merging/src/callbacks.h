@@ -931,3 +931,7 @@ on_dashnouha_clicked                   (GtkButton       *button,
 void
 on_button6667_clicked                  (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_button6668_clicked                  (GtkButton       *button,
+                                        gpointer         user_data);
