@@ -190,11 +190,6 @@ create_ajout_capteur_dhia (void)
   GtkWidget *spinbutton_a1_dhia;
   GtkObject *spinbutton2_adj;
   GtkWidget *spinbutton2;
-  GtkWidget *retour_ajout_capt;
-  GtkWidget *alignment27;
-  GtkWidget *hbox27;
-  GtkWidget *image38;
-  GtkWidget *label71;
   GtkWidget *label20;
   GtkWidget *label23;
   GtkWidget *label17;
@@ -211,9 +206,14 @@ create_ajout_capteur_dhia (void)
   GtkWidget *hbox26;
   GtkWidget *image37;
   GtkWidget *label70;
-  GtkWidget *result_ajout;
   GtkWidget *image90;
   GtkWidget *image229;
+  GtkWidget *result_ajout;
+  GtkWidget *retour_ajout_capt;
+  GtkWidget *alignment124;
+  GtkWidget *hbox124;
+  GtkWidget *image278;
+  GtkWidget *label326;
 
   ajout_capteur_dhia = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (ajout_capteur_dhia), _("Ajout d'un capteur"));
@@ -268,27 +268,6 @@ create_ajout_capteur_dhia (void)
   gtk_widget_show (spinbutton2);
   gtk_fixed_put (GTK_FIXED (fixed5), spinbutton2, 360, 240);
   gtk_widget_set_size_request (spinbutton2, 60, 27);
-
-  retour_ajout_capt = gtk_button_new ();
-  gtk_widget_show (retour_ajout_capt);
-  gtk_fixed_put (GTK_FIXED (fixed5), retour_ajout_capt, 0, 616);
-  gtk_widget_set_size_request (retour_ajout_capt, 232, 45);
-
-  alignment27 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment27);
-  gtk_container_add (GTK_CONTAINER (retour_ajout_capt), alignment27);
-
-  hbox27 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox27);
-  gtk_container_add (GTK_CONTAINER (alignment27), hbox27);
-
-  image38 = gtk_image_new_from_stock ("gtk-go-back", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image38);
-  gtk_box_pack_start (GTK_BOX (hbox27), image38, FALSE, FALSE, 0);
-
-  label71 = gtk_label_new_with_mnemonic (_("nvm i wanna go back"));
-  gtk_widget_show (label71);
-  gtk_box_pack_start (GTK_BOX (hbox27), label71, FALSE, FALSE, 0);
 
   label20 = gtk_label_new (_("GARANTIE"));
   gtk_widget_show (label20);
@@ -367,11 +346,6 @@ create_ajout_capteur_dhia (void)
   gtk_widget_show (label70);
   gtk_box_pack_start (GTK_BOX (hbox26), label70, FALSE, FALSE, 0);
 
-  result_ajout = gtk_label_new ("");
-  gtk_widget_show (result_ajout);
-  gtk_fixed_put (GTK_FIXED (fixed5), result_ajout, 80, 504);
-  gtk_widget_set_size_request (result_ajout, 648, 64);
-
   image90 = create_pixmap (ajout_capteur_dhia, "8.png");
   gtk_widget_show (image90);
   gtk_fixed_put (GTK_FIXED (fixed5), image90, 0, 672);
@@ -382,9 +356,32 @@ create_ajout_capteur_dhia (void)
   gtk_fixed_put (GTK_FIXED (fixed5), image229, 0, 0);
   gtk_widget_set_size_request (image229, 1000, 64);
 
-  g_signal_connect ((gpointer) retour_ajout_capt, "clicked",
-                    G_CALLBACK (on_retour_ajout_capt_clicked),
-                    NULL);
+  result_ajout = gtk_label_new ("");
+  gtk_widget_show (result_ajout);
+  gtk_fixed_put (GTK_FIXED (fixed5), result_ajout, 80, 504);
+  gtk_widget_set_size_request (result_ajout, 648, 64);
+
+  retour_ajout_capt = gtk_button_new ();
+  gtk_widget_show (retour_ajout_capt);
+  gtk_fixed_put (GTK_FIXED (fixed5), retour_ajout_capt, 0, 616);
+  gtk_widget_set_size_request (retour_ajout_capt, 232, 45);
+
+  alignment124 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment124);
+  gtk_container_add (GTK_CONTAINER (retour_ajout_capt), alignment124);
+
+  hbox124 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox124);
+  gtk_container_add (GTK_CONTAINER (alignment124), hbox124);
+
+  image278 = gtk_image_new_from_stock ("gtk-go-back", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image278);
+  gtk_box_pack_start (GTK_BOX (hbox124), image278, FALSE, FALSE, 0);
+
+  label326 = gtk_label_new_with_mnemonic (_("retour \303\240 espace technicien"));
+  gtk_widget_show (label326);
+  gtk_box_pack_start (GTK_BOX (hbox124), label326, FALSE, FALSE, 0);
+
   g_signal_connect ((gpointer) radiobutton_temp_dhia, "toggled",
                     G_CALLBACK (on_radiobutton_temp_dhia_toggled),
                     NULL);
@@ -396,6 +393,9 @@ create_ajout_capteur_dhia (void)
                     NULL);
   g_signal_connect ((gpointer) button_ajoutcapt_interface_dhia, "clicked",
                     G_CALLBACK (on_button_ajoutcapt_interface_dhia_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) retour_ajout_capt, "clicked",
+                    G_CALLBACK (on_retour_ajout_capt_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -409,11 +409,6 @@ create_ajout_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, spinbutton_j1_dhia, "spinbutton_j1_dhia");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, spinbutton_a1_dhia, "spinbutton_a1_dhia");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, spinbutton2, "spinbutton2");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, retour_ajout_capt, "retour_ajout_capt");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, alignment27, "alignment27");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, hbox27, "hbox27");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image38, "image38");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label71, "label71");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label20, "label20");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label23, "label23");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label17, "label17");
@@ -429,9 +424,14 @@ create_ajout_capteur_dhia (void)
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, hbox26, "hbox26");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image37, "image37");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label70, "label70");
-  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, result_ajout, "result_ajout");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image90, "image90");
   GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image229, "image229");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, result_ajout, "result_ajout");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, retour_ajout_capt, "retour_ajout_capt");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, alignment124, "alignment124");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, hbox124, "hbox124");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, image278, "image278");
+  GLADE_HOOKUP_OBJECT (ajout_capteur_dhia, label326, "label326");
 
   return ajout_capteur_dhia;
 }

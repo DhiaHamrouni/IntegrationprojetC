@@ -602,10 +602,13 @@ on_retour_ajout_capt_clicked           (GtkButton       *button,
                                         gpointer         user_data)
 {
 GtkWidget
-*windowcapteur,*windowajout_capteur_dhia;
-gtk_widget_destroy(windowajout_capteur_dhia);
+*windowcapteur,*w,*treeview3;
+w=lookup_widget(button,"ajout_capteur_dhia");
+gtk_widget_destroy(w);
 windowcapteur=create_capteur();
 gtk_widget_show(windowcapteur);
+treeview3=lookup_widget(windowcapteur,"treeview3");
+afficher_capteur(treeview3);
 }
 
 
